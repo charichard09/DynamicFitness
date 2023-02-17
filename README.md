@@ -46,7 +46,8 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 ## Research and Planning Log
 #### Friday, February 17, 2023
 * _9:30 Begin reading and taking notes on LHTP's weekend lessons on Hooks_
-* _10:30 Begin reading and taking notes on LHTP's weekend lessons on NoSQL, Firestore db_
+* _10:30 Begin reading and taking notes on LHTP's weekend lessons on NoSQL_ 
+* _11:30 Begin reading and taking notes on LHTP's weekend lesons on Firestore db_
 
 ## License
 
