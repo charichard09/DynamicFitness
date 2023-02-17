@@ -1,12 +1,16 @@
 Project Proposal Template
+
 Name of Student:
 Richard Cha
+
 
 Name of Project:
 Dynamic Fitness
 
+
 Project's Purpose or Goal: (What will it do for users?)
 The goal of Dynamic Fitness is to provide users with a method to create a profile, create tailored dynamic workouts, track progress, and ask questions. 
+
 
 List the absolute minimum features the project requires to meet this purpose or goal:
 
@@ -32,16 +36,17 @@ After a user has created a workout, they will be able to save it to their profil
 Workout Session Tracking:
 Users will be able to track a workout session by selecting a workout from their profile and clicking "begin workout". This will pull up their workout form that includes a timer to start, stop, "lap", reset. Users will be able to input the current weight (but still old weight) and input how many reps per set. Once the user has completed all exercises, they will be able to click "finish workout" and the workout session and timer will be saved to their profile.
 
-(Stretch goal)
+
+What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
+
+If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 Ask a Question:
 Users will be able to navigate to a questions page where they can ask questions and view questions asked by other users (every question asked will be added to the database to be shown).
 This question function will be handled by making an API request to OpenAI's GPT-3 API to generate a response to the question asked.
 
 
-What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
-
-If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
-
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
+OpenAI's GPT-3 API
 
 Is there anything else you'd like your instructor to know?
+None for now.
