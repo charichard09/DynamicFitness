@@ -48,7 +48,7 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _9:30 Begin reading and taking notes on LHTP's weekend lessons on Hooks_
 * _10:30 Begin reading and taking notes on LHTP's weekend lessons on NoSQL_ 
 * _11:30 Begin reading and taking notes on LHTP's weekend lesons on Firestore db_
-* __
+* _1:15 Coninue taking notes on Firestore db_
 
 ## License
 
