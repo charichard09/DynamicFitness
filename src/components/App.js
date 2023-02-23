@@ -6,6 +6,7 @@ import CreateWorkout from '../pages/CreateWorkout';
 import StartWorkout from '../pages/StartWorkout';
 import LoginLogout from '../pages/LoginLogout';
 import Home from '../pages/Home';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/start-workout" element={<StartWorkout />} />
         <Route path="/login-logout" element={<LoginLogout />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
