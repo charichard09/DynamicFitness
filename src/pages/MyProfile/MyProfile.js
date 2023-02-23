@@ -1,9 +1,27 @@
+import React from 'react';
+import DisplayWorkoutLogs from './DisplayWorkoutLogs';
+import DisplayCollectionWorkouts from './DisplayCollectionWorkouts';
+import UpdatePersonalGoalForm from './UpdatePersonalGoalForm';
+
 function MyProfile() {
 
   return (
-    <div style={{ "background-color": "RGB(255, 205, 41)", "height": "100vh" }}>
-      <h3 style={{margin: 0}}>My Profile</h3>
-    </div>
+    <React.Fragment>
+      <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
+        <div>         
+          <span>[Img img] [auth.currentUser.name]</span>
+          <UpdatePersonalGoalForm />
+        </div>
+        
+        <div>
+          <DisplayCollectionWorkouts />
+        </div>
+
+        <div>
+          <DisplayWorkoutLogs />
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
 

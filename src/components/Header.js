@@ -13,32 +13,32 @@ function Header() {
 
   return(
     <React.Fragment>
-      <div style={{ "padding-left": "1.5em", "padding-right": "1.5em", display: "flex", "background-color": "black" }}>
-        <h1 style={{ "align-self": "flex-star", color: "white" }}>{name}</h1>
+      <div style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex", "backgroundColor": "black" }}>
+        <h1 style={{ "alignSelf": "flex-star", color: "white" }}>{name}</h1>
 
-        <div style={{ "margin-left": "auto", display: "flex", "justify-content": "space-between", alignItems: "center", height: "100px" }}>
+        <div style={{ "marginLeft": "auto", display: "flex", "justifyContent": "space-between", alignItems: "center", height: "100px" }}>
           <NavLink to="/" style={({ isActive }) =>
-            isActive ? {textDecoration: "underline", "padding-right": "1em", color: "white"} : { textDecoration: "none", "padding-right": "1em", "padding-left": "40ef", color: "white" } }
+            isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", "paddingLeft": "40ef", color: "white" } }
             onClick={() => handleNameChange("Dynamic Fitness")}>
             Home
           </NavLink>
           <NavLink to="/my-profile" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "padding-right": "1em", color: "white"} : { textDecoration: "none", "padding-right": "1em", color: "white" } } 
+          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
           onClick={() => handleNameChange("My Profile")}>
             My Profile
           </NavLink>
           <NavLink to="/start-workout" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "padding-right": "1em", color: "white"} : { textDecoration: "none", "padding-right": "1em", color: "white" } } 
+          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
           onClick={() => handleNameChange("Start Workout")}>
             Start Workout
           </NavLink>
           <NavLink to="/create-workout" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "padding-right": "1em", color: "white"} : { textDecoration: "none", "padding-right": "1em", color: "white" } } 
+          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
           onClick={() => handleNameChange("Create Workout")}>
             Create Workout
           </NavLink>
           <NavLink to="/login-logout" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "padding-left": ".2em", color: "white"} : { textDecoration: "none", "padding-left": ".2em", color: "white" } } 
+          isActive ? {textDecoration: "underline", "paddingLeft": ".2em", color: "white"} : { textDecoration: "none", "paddingLeft": ".2em", color: "white" } } 
           onClick={() => handleNameChange("Login/Logout")}>
             Login/Logout
           </NavLink>
