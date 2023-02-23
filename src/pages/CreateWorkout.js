@@ -1,8 +1,8 @@
 function CreateWorkout() {
   
   return (
-    <div>
-      <h1>Create Workout</h1>
+    <div style={{ "background-color": "RGB(255, 205, 41)", "height": "100vh" }}>
+      <h3 style={{margin: 0}}>Create Workout</h3>
     </div>
   );
 }

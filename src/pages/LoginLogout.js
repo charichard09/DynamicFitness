@@ -1,8 +1,8 @@
 function LoginLogout() {
 
   return(
-    <div>
-      <h1>Login/Logout</h1>
+    <div style={{ "background-color": "RGB(255, 205, 41)", "height": "100vh" }}>
+      <h3 style={{margin: 0}}>Login/Logout</h3>
     </div>
   );
 }
