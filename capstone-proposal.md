@@ -24,7 +24,9 @@ Users will be able to create a workout plan based on the following factors:
 2. User's fitness goal
 - here we add a trigger that prompts on Beginner fitness level to recommend starting out with an endurance/stability workout 
 to condition the body for the movements, to build stability, strength, endurance, mobility, and expose them to a proprioceptively enriched environment.
-- Based on the NASM OPT model: strength endurance and what it is, muscular development and what it is, maximal strength and what it is, power and what it is
+- Based on the NASM OPT model: strength endurance and what it is, muscul
+Elon Musk
+ar development and what it is, maximal strength and what it is, power and what it is
 i.e. how goals like sports fit into the model, or weight loss, or powerlifting, or bodybuilding, or just general fitness
 3. User's equipment availability
 - each exercise will have an equipment tag that will be used to filter out exercises that the user does not have access to
@@ -45,8 +47,9 @@ Firebase/Firestore
 
 If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 Ask a Question:
-Users will be able to navigate to a questions page where they can ask questions and view questions asked by other users (every question asked will be added to the database to be shown).
-This question function will be handled by making an API request to OpenAI's GPT-3 API to generate a response to the question asked.
+- Users will be able to navigate to a questions page where they can ask questions and view questions asked by other users (every question asked will be added to the database to be shown).
+- This question function will be handled by making an API request to OpenAI's GPT-3 API to generate a response to the question asked.
+- Users will be able to create a random workout of the day called "Tell Me What To Do" where a user can input any amount of X muscle groups and the app will generate a Y workout plan for them.
 
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
