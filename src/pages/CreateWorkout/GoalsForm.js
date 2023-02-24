@@ -1,10 +1,10 @@
 import React from "react";
-import imageRockportWalkTestChart from "../../assets/Rockport-Test.png";
+import imageOPTModel from "../../assets/OPT-model.png";
 
-function FitnessLevelForm(props) {
+function GoalsForm() {
   return (
     <React.Fragment>
-      <h3 style={{margin: 0}}>What is your fitness level? (dynamic)</h3>
+      <h3 style={{margin: 0}}>What of these fitness goals do you align with the most?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form>
@@ -17,7 +17,7 @@ function FitnessLevelForm(props) {
           <input type="radio" id="advanced" name="fitnessLevel" value="advanced" />
           <label for="advanced">Advanced</label>
           <br />
-          <button type="submit" onClick={props.onClickingNext("goals")}>Next</button>
+          <button type="submit">Next</button>
         </form>
       </div>
       
@@ -65,12 +65,10 @@ function FitnessLevelForm(props) {
           <li>Your estimated VO2max is a measure of your cardiorespiratory fitness. Compare it to the norms for your age and gender to assess 
             your level of fitness.</li>
         </ol>
-        <img src={`${imageRockportWalkTestChart}`} alt="Rockport Walk Test Chart" style={{ width: "50vh" }} />
+        <img src={`${imageOPTModel}`} alt="OPT Model" style={{ width: "50vh" }} />
       </div>
     </React.Fragment>
   );
 }
 
-export default FitnessLevelForm;
-
-    
+export default GoalsForm;
