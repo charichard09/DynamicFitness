@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import FitnessLevelForm from './FitnessLevelForm';
 import GoalsForm from './GoalsForm';
 import EquipmentForm from './EquipmentForm';
+import AvailabilityForm from './AvailabilityForm';
 
 function CreateWorkout() {
   const [viewForm, setViewForm] = useState(() => 'fitnessLevel');
 
-  const handleClickingNext =  (page) => {
+  const handleClickingNext = (page) => {
     setViewForm(page);
   }
 
@@ -18,6 +19,8 @@ function CreateWorkout() {
     formToRender = <GoalsForm onClickingNext={handleClickingNext}/>;
   } else if (viewForm === 'equipment') {
     formToRender = <EquipmentForm onClickingNext={handleClickingNext}/>;
+  } else if (viewForm === 'availability') {
+    formToRender = <AvailabilityForm onClickingNext={handleClickingNext}/>;
   }
 
   return (

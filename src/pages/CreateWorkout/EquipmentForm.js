@@ -29,7 +29,7 @@ function EquipmentForm(props) {
           <label htmlFor="other">Other</label>
           <br />
           <button type="button" onClick={() => props.onClickingNext("goals")}>Back</button>
-          <button type="button">Next</button>
+          <button type="button" onClick={() => props.onClickingNext("availability")}>Next</button>
         </form>
       </div>
     </React.Fragment>
