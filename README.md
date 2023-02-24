@@ -53,7 +53,10 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _3:10 Coding through Help Queue convert to Hooks and attach to Firestore_
 * _4:00 Begin reading the National Academy of Sports Medicine CH1_
 * _5:00 finish reading the National Academy of Sports Medicine CH1_
+
+#### Friday, February 24, 2023
 * _8:20 Begin work on creating static page for Login/Logout_
+* _9:15 Begin work on creating static page for Create Workout_
 
 ## License
 
