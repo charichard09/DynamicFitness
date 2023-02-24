@@ -3,6 +3,7 @@ import FitnessLevelForm from './FitnessLevelForm';
 import GoalsForm from './GoalsForm';
 import EquipmentForm from './EquipmentForm';
 import AvailabilityForm from './AvailabilityForm';
+import NameForm from './NameForm';
 
 function CreateWorkout() {
   const [viewForm, setViewForm] = useState(() => 'fitnessLevel');
@@ -21,6 +22,8 @@ function CreateWorkout() {
     formToRender = <EquipmentForm onClickingNext={handleClickingNext}/>;
   } else if (viewForm === 'availability') {
     formToRender = <AvailabilityForm onClickingNext={handleClickingNext}/>;
+  } else if (viewForm === 'name') {
+    formToRender = <NameForm onClickingNext={handleClickingNext}/>;
   }
 
   return (
