@@ -4,20 +4,20 @@ import imageRockportWalkTestChart from "../../assets/Rockport-Test.png";
 function FitnessLevelForm(props) {
   return (
     <React.Fragment>
-      <h3 style={{margin: 0}}>What is your fitness level? (dynamic)</h3>
+      <h3 style={{margin: 0}}>What is your fitness level?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form>
           <input type="radio" id="beginner" name="fitnessLevel" value="beginner" />
-          <label for="beginner">Beginner</label>
+          <label htmlFor="beginner">Beginner</label>
           <br />
           <input type="radio" id="intermediate" name="fitnessLevel" value="intermediate" />
-          <label for="intermediate">Intermediate</label>
+          <label htmlFor="intermediate">Intermediate</label>
           <br />
           <input type="radio" id="advanced" name="fitnessLevel" value="advanced" />
-          <label for="advanced">Advanced</label>
+          <label htmlFor="advanced">Advanced</label>
           <br />
-          <button type="submit" onClick={props.onClickingNext("goals")}>Next</button>
+          <button type="button" onClick={() => props.onClickingNext("goals")}>Next</button>
         </form>
       </div>
       
