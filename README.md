@@ -62,6 +62,7 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _2:10 WIP: database schema design on Figma_
 * _3:15 watch video on useContext_
 * _4:15 re-read LHTP's lessons on authentication and authorization_
+* _5:10 finish taking notes on lessons_
 
 ## License
 
