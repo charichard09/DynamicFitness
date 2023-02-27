@@ -50,6 +50,9 @@ Ask a Question:
 - Users will be able to navigate to a questions page where they can ask questions and view questions asked by other users (every question asked will be added to the database to be shown).
 - This question function will be handled by making an API request to OpenAI's GPT-3 API to generate a response to the question asked.
 - Users will be able to create a random workout of the day called "Tell Me What To Do" where a user can input any amount of X muscle groups and the app will generate a Y workout plan for them.
+- Users should be able to login with Gmail and GitHub.
+- ask friends for their own "I should be able to..." user requests and add them here as "Users should be able to..." client requests to implementation
+
 
 
 What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?

@@ -30,11 +30,6 @@ function LoginLogout() {
         <br/>
         <button type="submit">Login</button>
       </form>
-      <button type="button">Login with GitHub</button>
-      <br />
-      <button type="button">Login with GMail</button>
-      <br />
-      <button type="button">Login with GitHub</button>
       <br />
       <button type="button">Create Account</button>
     </div>
