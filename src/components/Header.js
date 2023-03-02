@@ -1,14 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { auth } from '../firebase';
 
 function Header() {
   // if localStorage.getItem("name") is null, then set name to "Dynamic Fitness"
   const [name, setName] = useState(localStorage.getItem("name") || "Dynamic Fitness");
+  const [display, setDisplay] = useState(false);
 
   const handleNameChange = (newName) => {
     setName(newName);
     // store newName in localStorage so page refreshes don't reset name to "Dynamic Fitness"
     localStorage.setItem("name", newName);
+  }
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        setDisplay(true);
+      } else {
+        setDisplay(false);
+      }
+    });
+  }, []);
+
+  let displayConditional = null;
+  if (display) {
+    displayConditional = 
+    <div>
+      <NavLink to="/my-profile" style={({ isActive }) =>
+        isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } }
+        onClick={() => handleNameChange("My Profile")}>
+          My Profile
+      </NavLink>
+      <NavLink to="/start-workout" style={({ isActive }) =>
+        isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } }
+        onClick={() => handleNameChange("Start Workout")}>
+          Start Workout
+      </NavLink>
+      <NavLink to="/create-workout" style={({ isActive }) =>
+        isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } }
+        onClick={() => handleNameChange("Create Workout")}>
+          Create Workout
+      </NavLink>
+    </div>
   }
 
   return(
@@ -22,21 +56,9 @@ function Header() {
             onClick={() => handleNameChange("Dynamic Fitness")}>
             Home
           </NavLink>
-          <NavLink to="/my-profile" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
-          onClick={() => handleNameChange("My Profile")}>
-            My Profile
-          </NavLink>
-          <NavLink to="/start-workout" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
-          onClick={() => handleNameChange("Start Workout")}>
-            Start Workout
-          </NavLink>
-          <NavLink to="/create-workout" style={({ isActive }) =>
-          isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", color: "white" } } 
-          onClick={() => handleNameChange("Create Workout")}>
-            Create Workout
-          </NavLink>
+
+          {displayConditional}
+          
           <NavLink to="/login-logout" style={({ isActive }) =>
           isActive ? {textDecoration: "underline", "paddingLeft": ".2em", color: "white"} : { textDecoration: "none", "paddingLeft": ".2em", color: "white" } } 
           onClick={() => handleNameChange("Login/Logout")}>
