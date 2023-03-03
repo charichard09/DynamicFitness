@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import imageRockportWalkTestChart from "../../assets/Rockport-Test.png";
 
 function FitnessLevelForm(props) {
+  const [fitnessLevel, setFitnessLevel] = useState(() => "beginner");
+
+  const handleFitnessLevelChange = (event) => {
+    setFitnessLevel(event.target.value);
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.onSubmitFitnessLevelForm(fitnessLevel);
+  }
+
   return (
     <React.Fragment>
       <h3 style={{margin: 0}}>What is your fitness level?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
-        <form>
-          <input type="radio" id="beginner" name="fitnessLevel" value="beginner" />
+        <form onSubmit={handleSubmit}>
+          <input type="radio" id="beginner" name="fitnessLevel" value="beginner" checked={fitnessLevel === "beginner"} onChange={handleFitnessLevelChange} />
           <label htmlFor="beginner">Beginner</label>
           <br />
-          <input type="radio" id="intermediate" name="fitnessLevel" value="intermediate" />
+          <input type="radio" id="intermediate" name="fitnessLevel" value="intermediate" checked={fitnessLevel === "intermediate"} onChange={handleFitnessLevelChange} />
           <label htmlFor="intermediate">Intermediate</label>
           <br />
-          <input type="radio" id="advanced" name="fitnessLevel" value="advanced" />
+          <input type="radio" id="advanced" name="fitnessLevel" value="advanced" checked={fitnessLevel === "advanced"} onChange={handleFitnessLevelChange} />
           <label htmlFor="advanced">Advanced</label>
           <br />
-          <button type="button" onClick={() => props.onClickingNext("goals")}>Next</button>
+          <button type="submit">submit</button>
         </form>
+          <button type="button" onClick={() => props.onClickingNext("goals")}>Next</button>
       </div>
       
       <div>

@@ -1,31 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import imageOPTModel from "../../assets/OPT-model.png";
 
 function GoalsForm(props) {
+  const [goals, setGoals] = useState(() => "stability");
+
+  const handleGoalsChange = (event) => {
+    setGoals(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.onSubmitGoalsForm(goals);
+  };
+
   return (
     <React.Fragment>
       <h3 style={{margin: 0}}>What of these fitness goals do you align with the most?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
-        <form>
-          <input type="radio" id="stability" name="stability" value="stability" />
+        <form onSubmit={handleSubmit}>
+          <input type="radio" id="stability" name="stability" value="stability" checked={goals === "stability"} onChange={handleGoalsChange} />
           <label htmlFor="stability">Stability</label>
           <br />
-          <input type="radio" id="endurance" name="fitnessLevel" value="endurance" />
+          <input type="radio" id="endurance" name="fitnessLevel" value="endurance" checked={goals === "endurance"} onChange={handleGoalsChange} />
           <label htmlFor="endurance">Endurance</label>
           <br />
-          <input type="radio" id="muscular-development" name="fitnessLevel" value="muscular-development" />
+          <input type="radio" id="muscular-development" name="fitnessLevel" value="muscular-development" checked={goals === "muscular-development"} onChange={handleGoalsChange} />
           <label htmlFor="muscular-development">Muscular Development</label>
           <br />
-          <input type="radio" id="maximal-strength" name="fitnessLevel" value="maximal-strength" />
+          <input type="radio" id="maximal-strength" name="fitnessLevel" value="maximal-strength" checked={goals === "maximal-strength"} onChange={handleGoalsChange} />
           <label htmlFor="maximal-strength">Maximal Strength</label>
           <br />
-          <input type="radio" id="power" name="fitnessLevel" value="power" />
+          <input type="radio" id="power" name="fitnessLevel" value="power" checked={goals === "power"} onChange={handleGoalsChange} />
           <label htmlFor="power">Power</label>
           <br />
+          <button type="submit">Submit</button>
+        </form>
           <button type="button" onClick={() => props.onClickingNext("fitnessLevel")}>Back</button>
           <button type="button" onClick={() => props.onClickingNext("equipment")}>Next</button>
-        </form>
       </div>
       
       <div>

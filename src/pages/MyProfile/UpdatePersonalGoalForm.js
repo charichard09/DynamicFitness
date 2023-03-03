@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 function UpdatePersonalGoalForm(props) {
   const [clickUpdate, setClickUpdate] = useState(false);
-  console.log(props.personalGoal);
 
   return(
     <React.Fragment>

@@ -6,10 +6,10 @@ function AvailabilityForm(props) {
       <h3 style={{margin: 0}}>What is your availability?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
-        <form>
+        <form onSubmit={props.onSubmitAvailabilityForm}>
           <label>Days available during the week (1-7):</label>
           <br />
-          <input type="number"></input>
+          <input type="number" name="days"></input>
           <p>
             This will determine your split. We do away with days of the week and implement alphabetical sequences.By inputting 4 days, 
             you will have a 4 day split known as A, B, C, D day. This allows you to be flexible with your sessions so if you skip a day, 
@@ -17,12 +17,13 @@ function AvailabilityForm(props) {
           </p>
           <label>What is the max length you prefer to exercise per day? (30min, 60min, 90min, 120min):</label>
           <br />
-          <input type="number"></input>
+          <input type="number" name="length"></input>
           <p>For example, if you have 45minutes to spare to workout, you would select 60min</p>
           <br />
+          <button type="submit">Submit</button>
+        </form>
           <button type="button" onClick={() => props.onClickingNext("equipment")}>Back</button>
           <button type="button" onClick={() => props.onClickingNext("name")}>Next</button>
-        </form>
       </div>
       <p>Unsure? Here are some recommendations based on training status:</p>
       <ul>
