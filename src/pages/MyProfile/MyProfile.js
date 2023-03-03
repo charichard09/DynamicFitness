@@ -7,7 +7,6 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
 
-
 function MyProfile() {
   const { status, data } = useFirestoreDocData(doc(useFirestore(), "users", auth.currentUser.uid))
 
