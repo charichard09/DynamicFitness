@@ -68,7 +68,8 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _7:30 WIP: plan logic to determine workout based on form input_
 * _8:15 WIP: Read CH13 NASM textbook to plan logic to determine workout based on form input_
 * _9:30 WIP: Read CH13 NASM textbook on Planes of Motion to plan logic to determine workout based on form input_
-* _10:15 WIP: Read CH13 NASM textbook on NASM OPT Model to plan logic to determine workout based on form input
+* _10:15 WIP: Read CH13 NASM textbook on NASM OPT Model to plan logic to determine workout based on form input_
+* _11:00 WIP: Read CH13 NASM textbook on NASM OPT Model to plan logic to determine workout based on form input_
 
 
 ## License
