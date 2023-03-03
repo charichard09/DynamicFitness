@@ -64,6 +64,10 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _4:15 re-read LHTP's lessons on authentication and authorization_
 * _5:10 finish taking notes on lessons_
 
+#### Friday, March 3, 2023
+* _7:30 WIP: plan logic to determine workout based on form input_
+
+
 ## License
 
 _If you have any issues or have questions, ideas or concerns please contact me at [charichard09@gmail.com](mailto:charichard09@gmail.com)_
