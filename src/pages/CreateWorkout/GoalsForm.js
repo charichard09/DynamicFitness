@@ -20,10 +20,7 @@ function GoalsForm(props) {
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form onSubmit={handleSubmit}>
           <input type="radio" id="stability" name="stability" value="stability" checked={goals === "stability"} onChange={handleGoalsChange} />
-          <label htmlFor="stability">Stability</label>
-          <br />
-          <input type="radio" id="endurance" name="fitnessLevel" value="endurance" checked={goals === "endurance"} onChange={handleGoalsChange} />
-          <label htmlFor="endurance">Endurance</label>
+          <label htmlFor="stability">Stability/Muscular Endurance</label>
           <br />
           <input type="radio" id="muscular-development" name="fitnessLevel" value="muscular-development" checked={goals === "muscular-development"} onChange={handleGoalsChange} />
           <label htmlFor="muscular-development">Muscular Development</label>
@@ -43,16 +40,9 @@ function GoalsForm(props) {
       <div>
         <ul>
           <li>
-            Stability: 
+            Stability/Muscular Endurance: 
             <ul>
               <li>The ability to maintain a stable position or posture while moving or while holding a position. This is important for</li>
-              <li>Example goals that align with this are...</li>
-            </ul>
-          </li>
-          <li>
-            Endurance: 
-            <ul>
-              <li>...</li>
               <li>Example goals that align with this are...</li>
             </ul>
           </li>
@@ -81,7 +71,7 @@ function GoalsForm(props) {
       </div>
 
       <div>
-        <p>Goal alignments are based on the National Academy of Sports Medicine’s Optimum Performance Training (OPT) model.</p>
+        <p>Goal alignments are inspired by the National Academy of Sports Medicine’s Optimum Performance Training (OPT) model.</p>
         <ul>
           <li>
             The NASM OPT model is a comprehensive training system that helps fitness professionals design safe and effective exercise programs 
