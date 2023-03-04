@@ -1,8 +1,8 @@
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { collection } from 'firebase/firestore';
 
-async function Home() {
+
+function Home() {
   // display collection of users
     const firestore = useFirestore();
     const usersCollection = collection(firestore, 'users');
@@ -13,14 +13,6 @@ async function Home() {
       return <p>Loading...</p>;
     }
 
-    let users = [];
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
-      users.push(doc.data());
-      console.log(doc.id, " => ", doc.data());
-    });
-    console.log(users);
-
     return (
       <div>
         <ul>
@@ -28,7 +20,6 @@ async function Home() {
             <li key={user.id}>{user.email}</li>
           ))}
         </ul>
-        <p>{users.map(user => user.email)}</p>
       </div>
     );
   }
