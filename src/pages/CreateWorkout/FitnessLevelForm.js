@@ -30,7 +30,7 @@ function FitnessLevelForm(props) {
           <br />
           <button type="submit">submit</button>
         </form>
-          <button type="button" onClick={() => props.onClickingNext("goals")}>Next</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("goals")}>Next</button>
       </div>
       
       <div>

@@ -45,8 +45,8 @@ function EquipmentForm(props) {
           <br />
           <button type="submit">Submit</button>
         </form>
-          <button type="button" onClick={() => props.onClickingNext("goals")}>Back</button>
-          <button type="button" onClick={() => props.onClickingNext("availability")}>Next</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("goals")}>Back</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Next</button>
       </div>
     </React.Fragment>
   );

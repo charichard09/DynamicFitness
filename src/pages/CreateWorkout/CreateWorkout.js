@@ -10,28 +10,28 @@ function CreateWorkout() {
   const [viewForm, setViewForm] = useState(() => 'fitnessLevel');
   const [workout, setWorkout] = useState({});
 
-  const handleClickingNext = (page) => {
+  const handleClickingFormNavigation = (page) => {
     setViewForm(page);
   }
 
-  const onSubmitFitnessLevelForm = (fitnessLevelInput) => {
+  const handleSubmitFitnessLevelForm = (fitnessLevelInput) => {
     setWorkout(prevState => ({ ...prevState, fitnessLevel: fitnessLevelInput }));
   }
   
-  const onSubmitGoalsForm = (goals) => {
+  const handleSubmitGoalsForm = (goals) => {
     setWorkout(prevState => ({ ...prevState, goals: goals }));
   }
   
-  const onSubmitEquipmentForm = (equipment) => {
+  const handleSubmitEquipmentForm = (equipment) => {
     setWorkout(prevState => ({ ...prevState, equipment: equipment }));
   }
 
-  const onSubmitAvailabilityForm = (event) => {
+  const handleSubmitAvailabilityForm = (event) => {
     event.preventDefault();
     setWorkout(prevState => ({ ...prevState, availability: { days: event.target.days.value, length: event.target.length.value } }));
   }
   
-  const onSubmitNameForm = (event) => {
+  const handleSubmitNameForm = (event) => {
     event.preventDefault();
     setWorkout(prevState => ({ ...prevState, name: event.target.name.value }));
   }
@@ -42,17 +42,17 @@ function CreateWorkout() {
 
   let formToRender = null;
   if (viewForm === 'fitnessLevel') {
-    formToRender = <FitnessLevelForm onClickingNext={handleClickingNext} onSubmitFitnessLevelForm={onSubmitFitnessLevelForm} />;
+    formToRender = <FitnessLevelForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitFitnessLevelForm={handleSubmitFitnessLevelForm} />;
   } else if (viewForm === 'goals') {
-    formToRender = <GoalsForm onClickingNext={handleClickingNext} onSubmitGoalsForm={onSubmitGoalsForm} />;
+    formToRender = <GoalsForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitGoalsForm={handleSubmitGoalsForm} />;
   } else if (viewForm === 'equipment') {
-    formToRender = <EquipmentForm onClickingNext={handleClickingNext} onSubmitEquipmentForm={onSubmitEquipmentForm} />;
+    formToRender = <EquipmentForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitEquipmentForm={handleSubmitEquipmentForm} />;
   } else if (viewForm === 'availability') {
-    formToRender = <AvailabilityForm onClickingNext={handleClickingNext} onSubmitAvailabilityForm={onSubmitAvailabilityForm} />;
+    formToRender = <AvailabilityForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitAvailabilityForm={handleSubmitAvailabilityForm} />;
   } else if (viewForm === 'reviewWorkout') {
-    formToRender = <ReviewWorkout onClickingNext={handleClickingNext} />;
+    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} />;
   } else if (viewForm === 'name') {
-    formToRender = <NameForm onClickingNext={handleClickingNext} onSubmitNameForm={onSubmitNameForm} />;
+    formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} />;
   }
 
   return (

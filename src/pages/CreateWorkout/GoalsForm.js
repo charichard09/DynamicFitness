@@ -33,8 +33,8 @@ function GoalsForm(props) {
           <br />
           <button type="submit">Submit</button>
         </form>
-          <button type="button" onClick={() => props.onClickingNext("fitnessLevel")}>Back</button>
-          <button type="button" onClick={() => props.onClickingNext("equipment")}>Next</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("fitnessLevel")}>Back</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("equipment")}>Next</button>
       </div>
       
       <div>
