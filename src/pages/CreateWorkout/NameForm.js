@@ -12,7 +12,7 @@ function NameForm(props) {
           <br />
           <button type="submit">Create Workout</button>
         </form>
-          <button type="button" onClick={() => props.onClickingNext("availability")}>Back</button>
+          <button type="button" onClick={() => props.onClickingNext("'reviewWorkout'")}>Back</button>
       </div>
     </React.Fragment>
   );
