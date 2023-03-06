@@ -39,41 +39,67 @@ function GoalsForm(props) {
       
       <div>
         <ul>
-          <li>
-            What is Stability/Muscular Endurance? 
-            <ul>
-              <li>The ability to maintain a stable position or posture while moving or holding a position for an extended amount of time. This option is 
-                highly recommended for if you selected beginner fitness level, or if it has been more than 3 months since you've trained with this goal 
-                in mind, as this option will give you a workout that will strengthen proper movement patterns, stability, mobility, and prepare your body 
-                for more advanced exercises.
-              </li>
-              <li>Example goals that align with this are wanting to be build confidence with gym equipment, increase core stability for any physical activity
-                from sports to daily life, correcting muscle imbalances, enhancing balance, posture, and coordination, 
-              </li>
-            </ul>
-          </li>
-          <li>
-            What is Muscular Development? 
-            <ul>
-              <li>...</li>
-              <li>Example goals that align with this are...</li>
-            </ul>
-          </li>
-          <li>
-            What isMaximal Strength? 
-            <ul>
-              <li>...</li>
-              <li>Example goals that align with this are...</li>
-            </ul>
-          </li>
-          <li>
-            What is Power? 
-            <ul>
-              <li>...</li>
-              <li>Example goals that align with this are...</li>
-            </ul>
-          </li>
+          What is Stability/Muscular Endurance? 
+          <ul>
+            <li>Increasing the ability to maintain a stable position or posture while moving or holding a position for an extended amount of time. This option is
+              highly recommended for if you selected beginner fitness level, or if it has been more than 3 months since you've trained with this goal
+              in mind, as this option will give you a workout that will strengthen proper movement patterns, stability, mobility, and prepare your body
+              for more advanced exercises.
+            </li>
+          </ul>
         </ul>
+        <ul>
+          What are goals that align with Stability/Muscular Endurance? 
+          <ol>
+            <li>
+              Improve posture and reduce joint pain: The stabilization phase helps to improve muscular imbalances and correct postural deviations, leading 
+              to improved posture and reduced joint pain.
+            </li>
+            <li>
+              Building confidence with your gym equipment: The stabilization phase consists of lots of easy and few intermediate exercises that will help you 
+              to practice exercises with low weights and high reps until you feel comfortable with the movements and are ready to move on to the next phase.
+            </li>
+            <li>
+              Improve balance and coordination: The exercises in the stabilization phase require a significant amount of neuromuscular control, which can 
+              help to improve balance and coordination.
+            </li>
+            <li> 
+              Enhance core strength: The core muscles play a crucial role in stabilizing the spine and pelvis during movement. By improving core strength, 
+              individuals can reduce the risk of injury and improve overall stability.
+            </li>
+            <li>
+              Enhance joint stability: The stabilization phase includes exercises that focus on improving joint stability, which can help to reduce the risk 
+              of injury and improve overall joint health.
+            </li>
+            <li>
+              Improve overall fitness and performance: By improving muscular endurance, neuromuscular control, and stability, individuals can improve their 
+              overall fitness and performance in other areas of their life, such as sports, recreational activities, or daily tasks.
+            </li>
+          </ol>
+        </ul>
+
+          {/* <li>
+            What are goals that align with Muscular Development? 
+            <ul>
+              <li>...</li>
+              <li>Example goals that align with this are...</li>
+            </ul>
+          </li>
+          <li>
+            What are goals that align with Maximal Strength? 
+            <ul>
+              <li>...</li>
+              <li>Example goals that align with this are...</li>
+            </ul>
+          </li>
+          <li>
+            What are goals that align with Power? 
+            <ul>
+              <li>...</li>
+              <li>Example goals that align with this are...</li>
+            </ul>
+          </li>
+        </ul> */}
       </div>
 
       <div>
