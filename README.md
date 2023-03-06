@@ -74,6 +74,9 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _1:00 WIP: Read CH20 NASM textbook on Resistance Training to plan logic to determine workout based on form input_
 * _2:00 WIP: Taking notes on CH20 NASM textbook on Resistance Training to plan logic to determine workout based on form input_
 
+#### Monday, March 6, 2023
+* _9:20 WIP: Read CH20 NASM textbook on Strength and Power to plan logic to determine workout based on form input_
+
 
 ## License
 
