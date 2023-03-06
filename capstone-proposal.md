@@ -52,6 +52,8 @@ Ask a Question:
 - Users will be able to create a random workout of the day called "Tell Me What To Do" where a user can input any amount of X muscle groups and the app will generate a Y workout plan for them.
 - Users should be able to login with Gmail and GitHub.
 - ask friends for their own "I should be able to..." user requests and add them here as "Users should be able to..." client requests to implementation
+- key terms such as all acute variables i.e. "rest", "set" should be hoverable to display a definition/description of the term
+- Users should be able to view a video of the exercise they are about to perform
 
 
 
