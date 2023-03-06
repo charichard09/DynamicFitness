@@ -18,7 +18,7 @@ function AvailabilityForm(props) {
           <label>What is the max length you prefer to exercise per day? (30min, 60min, 90min, 120min):</label>
           <br />
           <input type="number" name="length"></input>
-          <p>For example, if you have 45minutes to spare to workout, you would select 60min</p>
+          <p>For example, if I have 45minutes to spare in my days to workout, I would select 60min</p>
           <br />
           <button type="submit">Submit</button>
         </form>

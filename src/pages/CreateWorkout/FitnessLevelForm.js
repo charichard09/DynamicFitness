@@ -37,25 +37,24 @@ function FitnessLevelForm(props) {
         <ul>
           <li>
             Beginner: Someone who is new to exercise or has not exercised regularly in a while. At this level, it is important to start
-            slowly and focus on building a foundation of cardiovascular fitness, strength, and flexibility.
+            slowly and focus on building a foundation of strength, flexibility, mobility, and cardiovascular fitness.
           </li>
           <li>
-            Beginner: Someone who is new to exercise or has not exercised regularly in a while. At this level, it is important to start
             Intermediate: Someone who has been exercising regularly for a few months to a year and has developed some cardiovascular fitness,
             strength, and endurance. At this level, a person should be able to perform a moderate-intensity workout for 30-60 minutes without
             excessive fatigue.
           </li>
           <li>
-          Advanced: Someone who has been exercising regularly for over a year and has a high level of cardiovascular fitness, strength, and
-          endurance. At this level, a person should be able to perform high-intensity workouts for extended periods of time and may be able to
-          perform advanced exercises, such as plyometrics, Olympic lifting, or high-level gymnastics movements.
+            Advanced: Someone who has been exercising regularly for over a year and has a high level of cardiovascular fitness, strength, and
+            endurance. At this level, a person should be able to perform high-intensity workouts for extended periods of time and may be able to
+            perform advanced exercises, such as plyometrics, Olympic lifting, or high-level gymnastics movements.
           </li>
         </ul>
         <p>Tip: If you are uncertain, you can use the Rockport Walk Test to assess your current fitness level</p>
       </div>
 
       <div>
-        <p>The Rockport Walk Test is a moderate exercise test used to estimate cardiorespiratory fitness. Here are the step-by-step instructions:</p>
+        <p>The Rockport Walk Test is a simple moderate-level exercise test used to estimate cardiorespiratory fitness. Here are the step-by-step instructions:</p>
         <ol>
 
           <li>Before beginning the test, make sure you are properly attired with comfortable clothing and shoes suitable for walking. You should 

@@ -111,6 +111,10 @@ function GoalsForm(props) {
               calories they burn at rest. Therefore, the muscular development phase can help to increase metabolic rate and aid in long term weight loss or weight 
               management goals.
             </li>
+            <li>
+              Weight Loss: Though all of these choices will help you burn calories to lose weight, the muscular development phase will help you burn
+              calories while focusing on maintaining muscle mass through a calorie defecit needed to lose weight.
+            </li>
           </ol>
         </ul>
 
