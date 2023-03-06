@@ -22,8 +22,8 @@ function AvailabilityForm(props) {
           <br />
           <button type="submit">Submit</button>
         </form>
-          <button type="button" onClick={() => props.onClickingNext("equipment")}>Back</button>
-          <button type="button" onClick={() => props.onClickingNext("'reviewWorkout'")}>Next</button>
+        <button type="button" onClick={() => props.onClickingNext("equipment")}>Back</button>
+        <button type="button" onClick={() => props.onClickingNext("reviewWorkout")}>Next</button>
       </div>
       <p>Unsure? Here are some recommendations based on training status:</p>
       <ul>
