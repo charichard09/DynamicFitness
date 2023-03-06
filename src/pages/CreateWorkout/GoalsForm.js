@@ -20,16 +20,16 @@ function GoalsForm(props) {
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form onSubmit={handleSubmit}>
           <input type="radio" id="stability" name="stability" value="stability" checked={goals === "stability"} onChange={handleGoalsChange} />
-          <label htmlFor="stability">Stability/Muscular Endurance</label>
+          <label htmlFor="stability">Increasing Stability/Muscular Endurance</label>
           <br />
           <input type="radio" id="muscular-development" name="fitnessLevel" value="muscular-development" checked={goals === "muscular-development"} onChange={handleGoalsChange} />
-          <label htmlFor="muscular-development">Muscular Development</label>
+          <label htmlFor="muscular-development">Increasing Muscular Development</label>
           <br />
           <input type="radio" id="maximal-strength" name="fitnessLevel" value="maximal-strength" checked={goals === "maximal-strength"} onChange={handleGoalsChange} />
-          <label htmlFor="maximal-strength">Maximal Strength</label>
+          <label htmlFor="maximal-strength">Increasing Maximal Strength</label>
           <br />
           <input type="radio" id="power" name="fitnessLevel" value="power" checked={goals === "power"} onChange={handleGoalsChange} />
-          <label htmlFor="power">Power</label>
+          <label htmlFor="power">Increasing Power</label>
           <br />
           <button type="submit">Submit</button>
         </form>
@@ -40,28 +40,34 @@ function GoalsForm(props) {
       <div>
         <ul>
           <li>
-            Stability/Muscular Endurance: 
+            What is Stability/Muscular Endurance? 
             <ul>
-              <li>The ability to maintain a stable position or posture while moving or while holding a position. This is important for</li>
-              <li>Example goals that align with this are...</li>
+              <li>The ability to maintain a stable position or posture while moving or holding a position for an extended amount of time. This option is 
+                highly recommended for if you selected beginner fitness level, or if it has been more than 3 months since you've trained with this goal 
+                in mind, as this option will give you a workout that will strengthen proper movement patterns, stability, mobility, and prepare your body 
+                for more advanced exercises.
+              </li>
+              <li>Example goals that align with this are wanting to be build confidence with gym equipment, increase core stability for any physical activity
+                from sports to daily life, correcting muscle imbalances, enhancing balance, posture, and coordination, 
+              </li>
             </ul>
           </li>
           <li>
-            Muscular Development: 
+            What is Muscular Development? 
             <ul>
               <li>...</li>
               <li>Example goals that align with this are...</li>
             </ul>
           </li>
           <li>
-            Maximal Strength: 
+            What isMaximal Strength? 
             <ul>
               <li>...</li>
               <li>Example goals that align with this are...</li>
             </ul>
           </li>
           <li>
-            Power: 
+            What is Power? 
             <ul>
               <li>...</li>
               <li>Example goals that align with this are...</li>
