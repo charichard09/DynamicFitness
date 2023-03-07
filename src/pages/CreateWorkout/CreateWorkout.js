@@ -50,7 +50,7 @@ function CreateWorkout() {
   } else if (viewForm === 'availability') {
     formToRender = <AvailabilityForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitAvailabilityForm={handleSubmitAvailabilityForm} />;
   } else if (viewForm === 'reviewWorkout') {
-    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} />;
+    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} workout={workout}/>;
   } else if (viewForm === 'name') {
     formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} />;
   }
