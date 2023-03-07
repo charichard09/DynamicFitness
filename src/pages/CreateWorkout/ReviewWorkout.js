@@ -7,7 +7,7 @@ function ReviewWorkout(props) {
 
   return (
     <React.Fragment>
-      <p>{generatedWorkout}</p>
+      {generatedWorkout}
       <h3>Review your workout</h3>
       <p>Here is a summary of a your recommended workout. You are welcome to change anything. Once you are satisfied with your workout, click "Next".</p>
       <p>Dev Note: Allow users to create their own "Other" or personal exercise with sets, reps tracking</p>

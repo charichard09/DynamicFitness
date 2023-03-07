@@ -4,18 +4,24 @@ import { query, where } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 
 function useGenerateWorkout(workout) {
-  const [generatedWorkout, setGeneratedWorkout] = React.useState(workout);
 
   const firestore = useFirestore();
   const exerciseCollection = collection(firestore, "exercises");
-  const exerciseQuery = query(exerciseCollection, where("difficulty", "==", "medium"));
+  const exerciseQuery = query(exerciseCollection, where("difficulty", "<=", workout.fitnessLevel));
 
-  console.log(exerciseQuery);
   const { status, data } = useFirestoreCollectionData(exerciseQuery, { idField: "id" });
 
   if (status === "loading") {
     return <p>Loading...</p>;
   }
+
+  // calculate workout for chest
+
+  // calculate workout for back
+
+  // calculate workout for legs
+
+  // calculate workout for core/shoulders
 
   return(
     <React.Fragment>
