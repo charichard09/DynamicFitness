@@ -16,12 +16,16 @@ function useGenerateWorkout(workout) {
   }
 
   // calculate workout for chest
+  // seed 2 easy, 2 medium, 1 hard exercise
 
   // calculate workout for back
+  // seed 2 easy, 2 medium, 1 hard exercise
 
   // calculate workout for legs
+  // seed 2 easy, 2 medium, 1 hard exercise
 
   // calculate workout for core/shoulders
+  // seed 2 easy, 2 medium, 1 hard exercise
 
   return(
     <React.Fragment>
