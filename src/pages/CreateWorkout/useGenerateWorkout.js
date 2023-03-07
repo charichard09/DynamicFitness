@@ -15,8 +15,6 @@ function useGenerateWorkout(workout) {
     return <p>Loading...</p>;
   }
 
-
-
   return(
     <React.Fragment>
       <ul>

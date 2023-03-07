@@ -54,6 +54,7 @@ Ask a Question:
 - ask friends for their own "I should be able to..." user requests and add them here as "Users should be able to..." client requests to implementation
 - key terms such as all acute variables i.e. "rest", "set" should be hoverable to display a definition/description of the term
 - Users should be able to view a video of the exercise they are about to perform
+- Each exercise should have tips, cues, and a video of the exercise
 
 
 
