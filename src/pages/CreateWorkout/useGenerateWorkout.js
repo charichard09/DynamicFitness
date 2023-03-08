@@ -27,17 +27,49 @@ function useGenerateWorkout(workout) {
       } else if (workout.goals === "power") {
         data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 9 }));
       }
+
+    // based on user availability, divide workouts into workout.availability.days
+    let ADay = [];
+    let BDay = [];
+    let CDay = [];
+    if ((parseInt(workout.availability.days) <= 3 && workout.availability.consecutive) || workout.availability.days === "1") {
+      // code full body workout 
+    } else if ((parseInt(workout.availability.days) % 2 === 0) || workout.availability.days === "7") {
+      // code 2 day split, upper body/shoulders, lower body/core/back
+      workoutArray.forEach(exercise => {
+        if (exercise.primaryMuscleGroup === "back" || exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "lower body") {
+          ADay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "chest") {
+          BDay.push(exercise);
+        }
+      });
+      workoutArray = [[...ADay], [...BDay]];
+      console.log(workoutArray, "inside AB Day");
+    } else if (parseInt(workout.availability.days) % 3 === 0) {
+      // code 3 day split, upper body/shoulders, lower body, core/back
+      workoutArray.forEach(exercise => {
+        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "shoulders") {
+          ADay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "back") {
+          BDay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "lower body") {
+          CDay.push(exercise);
+        }
+      });
+      workoutArray = [[...ADay], [...BDay], [...CDay]];
     }
 
-    console.log(workoutArray);
+    // filter out exercises that are add more than 1 core, 1 shoulder, 2 back, 1 chest, or 2 leg
+  }
+
     setGeneratedWorkout(workoutArray);
-  }, [workout.goals, data]);
+  }, [data]);
   
   if (status === "loading") {
     return <p>Loading...</p>;
   }
 
-  console.log(generatedWorkout);
+  // console.log(generatedWorkout);
   return generatedWorkout;
 }
 
