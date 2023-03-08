@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import imageRockportWalkTestChart from "../../assets/Rockport-Test.png";
 
 function FitnessLevelForm(props) {
   const [fitnessLevel, setFitnessLevel] = useState(() => 1);
+  const [showNextButton, setShowNextButton] = useState(true);
 
   const handleFitnessLevelChange = (event) => {
     setFitnessLevel(parseInt(event.target.value));
@@ -28,9 +29,9 @@ function FitnessLevelForm(props) {
           <input type="radio" id="advanced" name="fitnessLevel" value={3} checked={fitnessLevel === 3} onChange={handleFitnessLevelChange} />
           <label htmlFor="advanced">Advanced</label>
           <br />
-          <button type="submit">submit</button>
+          <button type="submit" onClick={() => setShowNextButton(false)}>submit</button>
         </form>
-          <button type="button" onClick={() => props.onClickingFormNavigation("goals")}>Next</button>
+        <button type="button" onClick={() => props.onClickingFormNavigation("goals")} hidden={showNextButton}>Next</button>
       </div>
       
       <div>

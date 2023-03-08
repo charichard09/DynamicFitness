@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 function AvailabilityForm(props) {
+  const [showNextButton, setShowNextButton] = useState(true);
+
   return (
     <React.Fragment>
       <h3 style={{margin: 0}}>What is your availability?</h3>
@@ -27,10 +29,10 @@ function AvailabilityForm(props) {
             For example, if you are only available on Monday, Wednesday, and Friday, then don't check this box. But if your days available are
             Monday, Tuesday, and Thursday, then Monday and Tuesday are consecutive so do check this box.
           </p>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={() => setShowNextButton(false)}>Submit</button>
         </form>
         <button type="button" onClick={() => props.onClickingFormNavigation("equipment")}>Back</button>
-        <button type="button" onClick={() => props.onClickingFormNavigation("reviewWorkout")}>Next</button>
+        <button type="button" onClick={() => props.onClickingFormNavigation("reviewWorkout")} hidden={showNextButton}>Next</button>
       </div>
       <p>Unsure? Here are some recommendations based on training status:</p>
       <ul>

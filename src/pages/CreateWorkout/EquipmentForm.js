@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function EquipmentForm(props) {
   const [equipment, setEquipment] = useState(() => []);
+  const [showNextButton, setShowNextButton] = useState(true);
 
   const handleEquipmentChange = (event) => {
     if (event.target.checked) {
@@ -55,10 +56,10 @@ function EquipmentForm(props) {
           {/* <input type="checkbox" id="other" name="other" value="other" onChange={handleEquipmentChange} />
           <label htmlFor="other">Other</label>
           <br /> */}
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={() => setShowNextButton(false)}>Submit</button>
         </form>
           <button type="button" onClick={() => props.onClickingFormNavigation("goals")}>Back</button>
-          <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Next</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("availability")} hidden={showNextButton}>Next</button>
       </div>
     </React.Fragment>
   );

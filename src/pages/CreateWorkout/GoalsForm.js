@@ -3,6 +3,7 @@ import imageOPTModel from "../../assets/OPT-model.png";
 
 function GoalsForm(props) {
   const [goals, setGoals] = useState(() => "stability");
+  const [showNextButton, setShowNextButton] = useState(true);
 
   const handleGoalsChange = (event) => {
     setGoals(event.target.value);
@@ -31,10 +32,10 @@ function GoalsForm(props) {
           <input type="radio" id="power" name="fitnessLevel" value="power" checked={goals === "power"} onChange={handleGoalsChange} />
           <label htmlFor="power">Increasing Power</label>
           <br />
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={() => setShowNextButton(false)}>Submit</button>
         </form>
           <button type="button" onClick={() => props.onClickingFormNavigation("fitnessLevel")}>Back</button>
-          <button type="button" onClick={() => props.onClickingFormNavigation("equipment")}>Next</button>
+          <button type="button" onClick={() => props.onClickingFormNavigation("equipment")} hidden={showNextButton}>Next</button>
       </div>
       
       <div>
