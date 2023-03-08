@@ -5,7 +5,7 @@ import EquipmentForm from './EquipmentForm';
 import AvailabilityForm from './AvailabilityForm';
 import NameForm from './NameForm';
 import ReviewWorkout from './ReviewWorkout';
-import { setDoc, doc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 import { useNavigate } from 'react-router-dom';
 
@@ -45,7 +45,7 @@ function CreateWorkout() {
 
   const addWorkoutToFirestoreUserCreatedWorkouts = async (workout) => {
     console.log("workout before adding to db:", workout);
-    await setDoc(doc(db, "userCreatedWorkouts", auth.currentUser.uid), {
+    await addDoc(collection(db, "userCreatedWorkouts"), {
       ...workout, 
       userId: auth.currentUser.uid
     });
@@ -66,9 +66,9 @@ function CreateWorkout() {
   } else if (viewForm === 'availability') {
     formToRender = <AvailabilityForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitAvailabilityForm={handleSubmitAvailabilityForm} />;
   } else if (viewForm === 'reviewWorkout') {
-    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} workout={workout} setWorkout={setWorkout}/>;
+    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} workout={workout} setWorkout={setWorkout} />;
   } else if (viewForm === 'name') {
-    formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} workout={workout}/>;
+    formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} />;
   }
 
   return (

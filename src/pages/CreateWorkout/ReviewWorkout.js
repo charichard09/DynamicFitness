@@ -34,12 +34,17 @@ function ReviewWorkout(props) {
   }
 
   function handleClickNext() {
+    console.log("workout when clicking next out of reviewWorkout:", workout);
     props.setWorkout(workout);
     props.onClickingFormNavigation("name")
   }
 
   return (
     <React.Fragment>
+      {/* temp spot for buttons */}
+      <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
+      <button type="button" onClick={handleClickNext}>Next</button>
+      
       <h3>Review your workout</h3>
       <p>Here is a summary of a your recommended workout.</p>
 
@@ -90,8 +95,8 @@ function ReviewWorkout(props) {
             <img src={exercise.image[1]} alt="exercise in motion 2" />
           </div>)) : null
       }
-      <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
-      <button type="button" onClick={handleClickNext}>Next</button>
+      {/* <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
+      <button type="button" onClick={handleClickNext}>Next</button> */}
     </React.Fragment>
   );
 }
