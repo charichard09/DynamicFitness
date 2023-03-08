@@ -7,10 +7,14 @@ import NameForm from './NameForm';
 import ReviewWorkout from './ReviewWorkout';
 import { setDoc, doc } from "firebase/firestore";
 import { db, auth } from "../../firebase";
+import { useNavigate } from 'react-router-dom';
 
 function CreateWorkout() {
   const [viewForm, setViewForm] = useState(() => 'fitnessLevel');
   const [workout, setWorkout] = useState({});
+
+  // used to redirect in addWorkoutToFirestoreUserCreatedWorkouts 
+  const navigate = useNavigate();
 
   const handleClickingFormNavigation = (page) => {
     setViewForm(page);
@@ -45,6 +49,7 @@ function CreateWorkout() {
       ...workout, 
       userId: auth.currentUser.uid
     });
+    navigate('/start-workout');
   }
 
   useEffect(() => {
