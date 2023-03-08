@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { query, where } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
@@ -34,8 +34,9 @@ function useGenerateWorkout(workout) {
     let CDay = [];
     let DDay = [];
     let EDay = [];
-    if ((parseInt(workout.availability.days) <= 3 && workout.availability.consecutive) || workout.availability.days === "1") {
+    if ((parseInt(workout.availability.days) <= 3 && !workout.availability.consecutive) || workout.availability.days === "1") {
       // code full body workout 
+      console.log(workoutArray);
     } else if ((parseInt(workout.availability.days) % 2 === 0) || workout.availability.days === "7") {
       // code 2 day split, upper body/shoulders, lower body/core/back
       workoutArray.forEach(exercise => {
@@ -80,13 +81,11 @@ function useGenerateWorkout(workout) {
   }
 
     setGeneratedWorkout(workoutArray);
-  }, [data, workout.availability.consecutive, workout.availability.days, workout.fitnessLevel, workout.equipment, workout.goals]);
+  }, [data]);
   
-  if (status === "loading") {
-    return <p>Loading...</p>;
+  if (status === "success") {
+    return generatedWorkout;
   }
-
-  return generatedWorkout;
 }
 
 export default useGenerateWorkout;

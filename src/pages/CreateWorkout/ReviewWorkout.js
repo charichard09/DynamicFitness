@@ -4,33 +4,34 @@ import useGenerateWorkout from './useGenerateWorkout';
 function ReviewWorkout(props) {
   let { workout } = props;
   const generatedWorkout = useGenerateWorkout(workout);
-
+  console.log(generatedWorkout)
 
   let ADay = null;
   let BDay = null;
   let CDay = null;
   let DDay = null;
   let EDay = null;
-  if (generatedWorkout.length === 2) {
-    workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }
-    ADay = generatedWorkout[0];
-    BDay = generatedWorkout[1];
-    console.log("ADay: ", ADay);
-    console.log("BDay: ", BDay);
-  } else if (generatedWorkout.length === 3) {
-    workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2] }
-    ADay = generatedWorkout[0];
-    BDay = generatedWorkout[1];
-    CDay = generatedWorkout[2];
-  } else if (generatedWorkout.length === 1) {
-    ADay = generatedWorkout[0];
-  } else if (generatedWorkout.length === 5) {
-    workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2], "DDay": generatedWorkout[3], "EDay": generatedWorkout[4] }
-    ADay = generatedWorkout[0];
-    BDay = generatedWorkout[1];
-    CDay = generatedWorkout[2];
-    DDay = generatedWorkout[3];
-    EDay = generatedWorkout[4];
+
+  if (generatedWorkout !== null) {
+    if (generatedWorkout.length === 2) {
+      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }
+      ADay = generatedWorkout[0];
+      BDay = generatedWorkout[1];
+    } else if (generatedWorkout.length === 3) {
+      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2] }
+      ADay = generatedWorkout[0];
+      BDay = generatedWorkout[1];
+      CDay = generatedWorkout[2];
+    } else if (generatedWorkout.length === 5) {
+      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2], "DDay": generatedWorkout[3], "EDay": generatedWorkout[4] }
+      ADay = generatedWorkout[0];
+      BDay = generatedWorkout[1];
+      CDay = generatedWorkout[2];
+      DDay = generatedWorkout[3];
+      EDay = generatedWorkout[4];
+    } else {
+      ADay = generatedWorkout;
+    }
   }
 
   return (

@@ -20,7 +20,7 @@ function AvailabilityForm(props) {
           <input type="number" name="length"></input>
           <p>For example, if I have 45minutes to spare in my days to workout, I would select 60min</p> */}
           <br />
-          <label>Check this box if your days available are 2 or 3 and any of them are consecutive days check this box</label>
+          <label>If you have 2 or 3 days available and any of them are consecutive days check this box</label>
           <br />
           <input type="checkbox" name="consecutive"></input>
           <p>
