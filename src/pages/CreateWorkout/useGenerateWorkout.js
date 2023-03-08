@@ -44,7 +44,6 @@ function useGenerateWorkout(workout) {
         }
       });
       workoutArray = [[...ADay], [...BDay]];
-      console.log(workoutArray, "inside AB Day");
     } else if (parseInt(workout.availability.days) % 3 === 0) {
       // code 3 day split, upper body/shoulders, lower body, core/back
       workoutArray.forEach(exercise => {
@@ -63,13 +62,12 @@ function useGenerateWorkout(workout) {
   }
 
     setGeneratedWorkout(workoutArray);
-  }, [data]);
+  }, [data, workout.availability.consecutive, workout.availability.days, workout.fitnessLevel, workout.equipment, workout.goals]);
   
   if (status === "loading") {
     return <p>Loading...</p>;
   }
 
-  // console.log(generatedWorkout);
   return generatedWorkout;
 }
 

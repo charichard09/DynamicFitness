@@ -55,6 +55,8 @@ Ask a Question:
 - key terms such as all acute variables i.e. "rest", "set" should be hoverable to display a definition/description of the term
 - Users should be able to view a video of the exercise they are about to perform
 - Each exercise should have tips, cues, and a video of the exercise 
+- Allow users to create their own "Other" or personal exercise with sets, reps tracking on Review Workout page
+- Allow users to update any sets, reps, and even change or add workouts on Review Workout page
 
 
 
