@@ -4,6 +4,7 @@ import { query, where } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 
 function useGenerateWorkout(workout) {
+  const [generatedWorkout, setGeneratedWorkout] = React.useState([]);
 
   const firestore = useFirestore();
   const exerciseCollection = collection(firestore, "exercises");
@@ -15,28 +16,33 @@ function useGenerateWorkout(workout) {
     return <p>Loading...</p>;
   }
 
-  return(
-    <React.Fragment>
-      <ul>
-        {data.map(exercise => (
-          <div key={exercise.id}>
-            <li>{exercise.name}</li>
-            <img src={exercise.image[0]} alt="exercise in motion 1"></img>
-            <img src={exercise.image[1]} alt="exercise in motion 2"></img>
+  let workoutArray = [];
+
+  if (workout.fitnessLevel === 1) {
+    data.map(exercise => workoutArray.push(exercise));
+    setGeneratedWorkout(prev => [ ...prev, ...workoutArray ]);
+  }
+
+
+  console.log(generatedWorkout);
+  return generatedWorkout;
+
+  // commented out display of query results
+  // return(
+  //   <React.Fragment>
+  //     <ul>
+  //       {data.map(exercise => (
+  //         <div key={exercise.id}>
+  //           <li>{exercise.name}</li>
+  //           <img src={exercise.image[0]} alt="exercise in motion 1"></img>
+  //           <img src={exercise.image[1]} alt="exercise in motion 2"></img>
             
-            {/* <img href={exercise.img} alt={exercise.name} /> */}
-          </div>
-        ))}
-      </ul>
-    </React.Fragment>
-  )
-
-  // useEffect(() => {
-  //   setGeneratedWorkout(prev => ({ ...prev, test: "test" }));
-  // }
-  // , []);
-
-  // return generatedWorkout;
+  //           {/* <img href={exercise.img} alt={exercise.name} /> */}
+  //         </div>
+  //       ))}
+  //     </ul>
+  //   </React.Fragment>
+  // )
 }
 
 export default useGenerateWorkout;
