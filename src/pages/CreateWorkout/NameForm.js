@@ -33,9 +33,24 @@ function NameForm(props) {
               Methods of Progression for Power: Increase weight, increase speed/tempo, increase sets
             </li>
         </ul>
+
         <ul>
             Warm-Ups: A warmup is done prior to a workout session and is used to help prepare the body and mind for physical activity. A warmup is not 
             included in your workout but it is recommended to spend 5-10 minutes doing some light cardio and dynamic stretching before your workout.
+        </ul>
+        
+        <ul>
+          Proper form is essential for any exercise or physical activity, whether you are lifting weights, performing bodyweight exercises, or 
+          engaging in cardio workouts. Proper form ensures that you engage the intended muscles effectively and efficiently, minimize the risk of 
+          injury, and maximize the benefits of the exercise.
+        </ul>
+
+        <ul>
+          Bracing or activating your core muscles is an essential technique for performing heavy lifts safely and effectively. 
+          By bracing your core, you'll create a stable base of support for your spine, which will help prevent injury and allow you to lift heavier weights with greater control and efficiency.
+            <li>
+              Tighten your abdominal muscles as if you were about to take a punch to the stomach. This will engage your transverse abdominis muscle, which is the deepest layer of abdominal muscle.
+            </li>
         </ul>
     </React.Fragment>
   );

@@ -38,7 +38,7 @@ function ReviewWorkout(props) {
   return (
     <React.Fragment>
       <h3>Review your workout</h3>
-      <p>Here is a summary of a your recommended workout. You are welcome to change anything.</p>
+      <p>Here is a summary of a your recommended workout.</p>
 
       {/* code jsx display for all A, B, C days on here and how they will look when "starting" a workout */}
       {ADay ? <h4>A Day</h4> : null}
