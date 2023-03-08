@@ -5,6 +5,8 @@ import EquipmentForm from './EquipmentForm';
 import AvailabilityForm from './AvailabilityForm';
 import NameForm from './NameForm';
 import ReviewWorkout from './ReviewWorkout';
+import { setDoc, doc } from "firebase/firestore";
+import { db, auth } from "../../firebase";
 
 function CreateWorkout() {
   const [viewForm, setViewForm] = useState(() => 'fitnessLevel');
@@ -34,6 +36,15 @@ function CreateWorkout() {
   const handleSubmitNameForm = (event) => {
     event.preventDefault();
     setWorkout(prevState => ({ ...prevState, name: event.target.name.value }));
+    addWorkoutToFirestoreUserCreatedWorkouts(workout);
+  }
+
+  const addWorkoutToFirestoreUserCreatedWorkouts = async (workout) => {
+    console.log("workout before adding to db:", workout);
+    await setDoc(doc(db, "userCreatedWorkouts", auth.currentUser.uid), {
+      ...workout, 
+      userId: auth.currentUser.uid
+    });
   }
 
   useEffect(() => {

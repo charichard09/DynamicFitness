@@ -57,6 +57,7 @@ Ask a Question:
 - Each exercise should have tips, cues, and a video of the exercise 
 - Allow users to create their own "Other" or personal exercise with sets, reps tracking on Review Workout page
 - Allow users to update any sets, reps, and even change or add workouts on Review Workout page
+- give exercise equipment checkbox form pictures and add more if necessary (lookup top equipment you should have in the gym stuff)
 
 
 

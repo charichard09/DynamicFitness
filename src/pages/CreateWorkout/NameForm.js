@@ -1,8 +1,6 @@
 import React from "react";
 
 function NameForm(props) {
-  console.log(props.workout);
-
   return (
     <React.Fragment>
       <h3 style={{margin: 0}}>Give your workout a name!</h3>

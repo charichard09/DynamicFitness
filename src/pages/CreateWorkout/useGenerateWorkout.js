@@ -23,7 +23,7 @@ function useGenerateWorkout(workout) {
   }
 
   }, [data, workout.goals, workout.availability]);
-  
+
   // set each exercise to x sets and y reps based on goals
   function generateWorkoutArrayWithGoals(data, goals) {
     let workoutArray = [];
@@ -100,7 +100,6 @@ function useGenerateWorkout(workout) {
 
     return dividedWorkoutArray;
   }
-  
   
   if (status === "success") {
     return generatedWorkout;
