@@ -34,9 +34,9 @@ function ReviewWorkout(props) {
     }
   }
 
-  function handleClickNext() {
-    props.setWorkout(workout);
+  async function handleClickNext() {
     props.onClickingFormNavigation("name")
+    await props.setWorkout(workout);
   }
 
   return (

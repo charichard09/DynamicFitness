@@ -40,7 +40,7 @@ function CreateWorkout() {
   const handleSubmitNameForm = (event) => {
     event.preventDefault();
     setWorkout(prevState => ({ ...prevState, name: event.target.name.value }));
-    addWorkoutToFirestoreUserCreatedWorkouts(workout);
+    // addWorkoutToFirestoreUserCreatedWorkouts(workout);
   }
 
   const addWorkoutToFirestoreUserCreatedWorkouts = async (workout) => {
@@ -54,6 +54,9 @@ function CreateWorkout() {
 
   useEffect(() => {
     console.log("per form entry:", workout);
+    if (workout.hasOwnProperty('name')) {
+      addWorkoutToFirestoreUserCreatedWorkouts(workout);
+    }
   }, [workout]);
 
   let formToRender = null;
