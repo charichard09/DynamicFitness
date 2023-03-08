@@ -3,8 +3,9 @@ import SelectWorkoutDropdown from './SelectWorkoutDropdown';
 
 function StartWorkout() {
   // get collection of workouts from db where [workoutdb].userId === auth.currentUser.uid
-  // display dropdown with list of workouts.name
-  // after a user selects a workout, display dropdown of workouts.
+  // display dropdown with list of matching workouts.names
+  // after a user clicks 'select' on a workout.name, next display dropdown of that workout objects.split (A, B, C).
+  // after a user clicks 'select' on a split, next display that split's exercises with the ability to see, edit sets and reps and other details
 
   return (
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>

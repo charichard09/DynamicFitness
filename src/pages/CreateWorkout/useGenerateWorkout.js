@@ -57,7 +57,7 @@ function useGenerateWorkout(workout) {
     let EDay = [];
     if ((parseInt(availability.days) <= 3 && !availability.consecutive) || availability.days === "1") {
         // code full body workout 
-      console.log(workoutArray);
+      dividedWorkoutArray = workoutArray;
     } else if ((parseInt(availability.days) % 2 === 0) || availability.days === "7") {
       // code 2 day split, upper body/shoulders, lower body/core/back
       workoutArray.forEach(exercise => {

@@ -13,28 +13,28 @@ function ReviewWorkout(props) {
 
   if (generatedWorkout) {
     if (generatedWorkout.length === 2) {
-      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }
+      workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
     } else if (generatedWorkout.length === 3) {
-      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2] }
+      workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
       CDay = generatedWorkout[2];
     } else if (generatedWorkout.length === 5) {
-      workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2], "DDay": generatedWorkout[3], "EDay": generatedWorkout[4] }
+      workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2], "DDay": generatedWorkout[3], "EDay": generatedWorkout[4] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
       CDay = generatedWorkout[2];
       DDay = generatedWorkout[3];
       EDay = generatedWorkout[4];
     } else {
+      workout = { ...workout, split: { "ADay": generatedWorkout }}
       ADay = generatedWorkout;
     }
   }
 
   function handleClickNext() {
-    console.log("workout when clicking next out of reviewWorkout:", workout);
     props.setWorkout(workout);
     props.onClickingFormNavigation("name")
   }
