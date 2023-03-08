@@ -12,7 +12,8 @@ function ReviewWorkout(props) {
   let DDay = null;
   let EDay = null;
 
-  if (generatedWorkout !== null) {
+  if (generatedWorkout) {
+    console.log("generatedWorkout.length: ", generatedWorkout.length)
     if (generatedWorkout.length === 2) {
       workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }
       ADay = generatedWorkout[0];
