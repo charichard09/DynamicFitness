@@ -7,7 +7,14 @@ function ReviewWorkout(props) {
 
   return (
     <React.Fragment>
-      {generatedWorkout}
+      {/* {generatedWorkout} */}
+      {generatedWorkout.map(exercise => (
+        <div key={exercise.id}>
+          <h4>{exercise.name}</h4>
+          <img src={exercise.image[0]} alt="exercise in motion 1" />
+          <img src={exercise.image[1]} alt="exercise in motion 2" />
+        </div>
+      ))}
       <h3>Review your workout</h3>
       <p>Here is a summary of a your recommended workout. You are welcome to change anything. Once you are satisfied with your workout, click "Next".</p>
       <p>Dev Note: Allow users to create their own "Other" or personal exercise with sets, reps tracking</p>

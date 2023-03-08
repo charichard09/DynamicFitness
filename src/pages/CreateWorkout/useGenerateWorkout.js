@@ -1,28 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { query, where } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 
 function useGenerateWorkout(workout) {
-  const [generatedWorkout, setGeneratedWorkout] = React.useState([]);
+  const [generatedWorkout, setGeneratedWorkout] = useState([]);
 
   const firestore = useFirestore();
   const exerciseCollection = collection(firestore, "exercises");
-  const exerciseQuery = query(exerciseCollection, where("difficulty", "<=", workout.fitnessLevel), where("equipmentNeeded", "array-contains-any", workout.equipment));
+  const exerciseQuery = query(exerciseCollection, where("difficulty", "==", workout.fitnessLevel), where("equipmentNeeded", "array-contains-any", workout.equipment));
 
   const { status, data } = useFirestoreCollectionData(exerciseQuery, { idField: "id" });
 
+  // 1 core, 1 chest, 1 lower back, 1 upper back, 1 shoulder, 2 leg
+  useEffect(() => {
+    let workoutArray = [];
+    
+    if (workout.goals === "stability") {
+      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 15 }));
+      // setGeneratedWorkout(prev => [ ...prev, ...workoutArray ]); 
+    } else if (workout.goals === "muscular-development") {
+      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 10 }));
+    } else if (workout.goals === "maximal-strength") {
+      data.map(exercise => workoutArray.push({ ...exercise, sets: 5, reps: 4 }));
+    } else if (workout.goals === "power") {
+      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 9 }));
+    }
+
+    console.log(workoutArray);
+    setGeneratedWorkout(workoutArray);
+  }, [workout.goals, data]);
+  
   if (status === "loading") {
     return <p>Loading...</p>;
   }
-
-  let workoutArray = [];
-
-  if (workout.fitnessLevel === 1) {
-    data.map(exercise => workoutArray.push(exercise));
-    setGeneratedWorkout(prev => [ ...prev, ...workoutArray ]);
-  }
-
 
   console.log(generatedWorkout);
   return generatedWorkout;
