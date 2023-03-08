@@ -32,6 +32,8 @@ function useGenerateWorkout(workout) {
     let ADay = [];
     let BDay = [];
     let CDay = [];
+    let DDay = [];
+    let EDay = [];
     if ((parseInt(workout.availability.days) <= 3 && workout.availability.consecutive) || workout.availability.days === "1") {
       // code full body workout 
     } else if ((parseInt(workout.availability.days) % 2 === 0) || workout.availability.days === "7") {
@@ -56,6 +58,22 @@ function useGenerateWorkout(workout) {
         }
       });
       workoutArray = [[...ADay], [...BDay], [...CDay]];
+    } else if (workout.availability.days === "5") {
+      // code 5 day split, chest, shoulders, lower body, core, back
+      workoutArray.forEach(exercise => {
+        if (exercise.primaryMuscleGroup === "chest") {
+          ADay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "shoulders") {
+          BDay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "lower body") {
+          CDay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "core") {
+          DDay.push(exercise);
+        } else if (exercise.primaryMuscleGroup === "back") {
+          EDay.push(exercise);
+        }
+      });
+      workoutArray = [[...ADay], [...BDay], [...CDay], [...DDay], [...EDay]];
     }
 
     // filter out exercises that are add more than 1 core, 1 shoulder, 2 back, 1 chest, or 2 leg
@@ -72,8 +90,6 @@ function useGenerateWorkout(workout) {
 }
 
 export default useGenerateWorkout;
-
-
 
   // commented out display of query results
   // return(
