@@ -12,13 +12,13 @@ function useGenerateWorkout(workout) {
 
   const { status, data } = useFirestoreCollectionData(exerciseQuery, { idField: "id" });
 
-  // 1 core, 1 chest, 1 lower back, 1 upper back, 1 shoulder, 2 leg
+  // 1 core, 1 shoulder, 2 back, 1 chest, 2 leg
   useEffect(() => {
     let workoutArray = [];
     
+    // set each exercise to x sets and y reps based on goals
     if (workout.goals === "stability") {
       data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 15 }));
-      // setGeneratedWorkout(prev => [ ...prev, ...workoutArray ]); 
     } else if (workout.goals === "muscular-development") {
       data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 10 }));
     } else if (workout.goals === "maximal-strength") {
@@ -37,6 +37,11 @@ function useGenerateWorkout(workout) {
 
   console.log(generatedWorkout);
   return generatedWorkout;
+}
+
+export default useGenerateWorkout;
+
+
 
   // commented out display of query results
   // return(
@@ -54,6 +59,3 @@ function useGenerateWorkout(workout) {
   //     </ul>
   //   </React.Fragment>
   // )
-}
-
-export default useGenerateWorkout;
