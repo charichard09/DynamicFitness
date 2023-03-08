@@ -4,7 +4,6 @@ import useGenerateWorkout from './useGenerateWorkout';
 function ReviewWorkout(props) {
   let { workout } = props;
   const generatedWorkout = useGenerateWorkout(workout);
-  console.log(generatedWorkout)
 
   let ADay = null;
   let BDay = null;
@@ -13,7 +12,6 @@ function ReviewWorkout(props) {
   let EDay = null;
 
   if (generatedWorkout) {
-    console.log("generatedWorkout.length: ", generatedWorkout.length)
     if (generatedWorkout.length === 2) {
       workout = { ...workout, "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }
       ADay = generatedWorkout[0];
@@ -33,6 +31,11 @@ function ReviewWorkout(props) {
     } else {
       ADay = generatedWorkout;
     }
+  }
+
+  function handleClickNext() {
+    props.setWorkout(workout);
+    props.onClickingFormNavigation("name")
   }
 
   return (
@@ -88,7 +91,7 @@ function ReviewWorkout(props) {
           </div>)) : null
       }
       <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
-      <button type="button" onClick={() => props.onClickingFormNavigation("name")}>Next</button>
+      <button type="button" onClick={handleClickNext}>Next</button>
     </React.Fragment>
   );
 }

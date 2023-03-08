@@ -37,7 +37,7 @@ function CreateWorkout() {
   }
 
   useEffect(() => {
-    console.log(workout);
+    console.log("per form entry:", workout);
   }, [workout]);
 
   let formToRender = null;
@@ -50,9 +50,9 @@ function CreateWorkout() {
   } else if (viewForm === 'availability') {
     formToRender = <AvailabilityForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitAvailabilityForm={handleSubmitAvailabilityForm} />;
   } else if (viewForm === 'reviewWorkout') {
-    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} workout={workout}/>;
+    formToRender = <ReviewWorkout onClickingFormNavigation={handleClickingFormNavigation} workout={workout} setWorkout={setWorkout}/>;
   } else if (viewForm === 'name') {
-    formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} />;
+    formToRender = <NameForm onClickingFormNavigation={handleClickingFormNavigation} onSubmitNameForm={handleSubmitNameForm} workout={workout}/>;
   }
 
   return (

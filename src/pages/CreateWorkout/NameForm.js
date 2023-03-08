@@ -1,6 +1,8 @@
 import React from "react";
 
 function NameForm(props) {
+  console.log(props.workout);
+
   return (
     <React.Fragment>
       <h3 style={{margin: 0}}>Give your workout a name!</h3>
@@ -38,7 +40,7 @@ function NameForm(props) {
             Warm-Ups: A warmup is done prior to a workout session and is used to help prepare the body and mind for physical activity. A warmup is not 
             included in your workout but it is recommended to spend 5-10 minutes doing some light cardio and dynamic stretching before your workout.
         </ul>
-        
+
         <ul>
           Proper form is essential for any exercise or physical activity, whether you are lifting weights, performing bodyweight exercises, or 
           engaging in cardio workouts. Proper form ensures that you engage the intended muscles effectively and efficiently, minimize the risk of 
