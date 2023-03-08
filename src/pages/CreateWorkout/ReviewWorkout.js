@@ -34,9 +34,9 @@ function ReviewWorkout(props) {
     }
   }
 
-  async function handleClickNext() {
+  function handleClickNext() {
     props.onClickingFormNavigation("name")
-    await props.setWorkout(workout);
+    props.setWorkout(workout);
   }
 
   return (
@@ -55,8 +55,16 @@ function ReviewWorkout(props) {
         (ADay.map(exercise => 
           <div key={exercise.id}>
           <h4>{exercise.name}</h4>
-          <img src={exercise.image[0]} alt="exercise in motion 1" />
-          <img src={exercise.image[1]} alt="exercise in motion 2" />
+          <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
+        <img
+          src={exercise.image[1]}
+          alt="exercise in motion 2"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
         </div>)) : (<p>Loading...</p>)
       }
       {BDay ? <h4>B Day</h4> : null}
@@ -64,8 +72,16 @@ function ReviewWorkout(props) {
         BDay ? (BDay.map(exercise =>
           <div key={exercise.id}>
             <h4>{exercise.name}</h4>
-            <img src={exercise.image[0]} alt="exercise in motion 1" />
-            <img src={exercise.image[1]} alt="exercise in motion 2" />
+            <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
+        <img
+          src={exercise.image[1]}
+          alt="exercise in motion 2"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
           </div>)) : null
       }
       {CDay ? <h4>C Day</h4> : null}
@@ -73,8 +89,16 @@ function ReviewWorkout(props) {
         CDay ? (CDay.map(exercise =>
           <div key={exercise.id}>
             <h4>{exercise.name}</h4>
-            <img src={exercise.image[0]} alt="exercise in motion 1" />
-            <img src={exercise.image[1]} alt="exercise in motion 2" />
+            <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
+        <img
+          src={exercise.image[1]}
+          alt="exercise in motion 2"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
           </div>)) : null
       }
       {DDay ? <h4>D Day</h4> : null}
@@ -82,8 +106,16 @@ function ReviewWorkout(props) {
         DDay ? (DDay.map(exercise =>
           <div key={exercise.id}>
             <h4>{exercise.name}</h4>
-            <img src={exercise.image[0]} alt="exercise in motion 1" />
-            <img src={exercise.image[1]} alt="exercise in motion 2" />
+            <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
+        <img
+          src={exercise.image[1]}
+          alt="exercise in motion 2"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
           </div>)) : null
       }
       {EDay ? <h4>E Day</h4> : null}
@@ -91,8 +123,16 @@ function ReviewWorkout(props) {
         EDay ? (EDay.map(exercise =>
           <div key={exercise.id}>
             <h4>{exercise.name}</h4>
-            <img src={exercise.image[0]} alt="exercise in motion 1" />
-            <img src={exercise.image[1]} alt="exercise in motion 2" />
+            <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
+        <img
+          src={exercise.image[1]}
+          alt="exercise in motion 2"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+        />
           </div>)) : null
       }
       {/* <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>

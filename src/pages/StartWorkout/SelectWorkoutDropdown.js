@@ -4,23 +4,20 @@
 import React from "react";
 import WorkoutForm from "./WorkoutForm";
 
-function SelectWorkoutDropdown() {
+function SelectWorkoutDropdown(props) {
+  const { workouts } = props; 
 
   return (
     <React.Fragment>
-      <div>
+      <form onSubmit={props.onClickingSubmit}>
         <select id="select-workout">
-            <option value="Gettin Stable">
-              Gettin Stable
-            </option>
-            <option>
-              Hilton Hotel Gym
-            </option>
-            <option>
-              Hypertrophy
-            </option>
+          {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}
+          {workouts && workouts.map((workout) => (
+            <option key={workout.id} value={workout.id}>{workout.name}</option>
+          ))}
         </select>
-      </div>
+        <button type="submit">Select</button>
+      </form>
 
       <div>
         <select id="select-day">
