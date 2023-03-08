@@ -14,7 +14,7 @@ function ReviewWorkout(props) {
           <img src={exercise.image[0]} alt="exercise in motion 1" />
           <img src={exercise.image[1]} alt="exercise in motion 2" />
         </div>
-      ))
+        ))
       ) : (
         <p>Loading...</p>
       )

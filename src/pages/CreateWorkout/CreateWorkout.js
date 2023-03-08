@@ -28,7 +28,7 @@ function CreateWorkout() {
 
   const handleSubmitAvailabilityForm = (event) => {
     event.preventDefault();
-    setWorkout(prevState => ({ ...prevState, availability: { days: event.target.days.value, length: event.target.length.value } }));
+    setWorkout(prevState => ({ ...prevState, availability: { days: event.target.days.value, consecutive: event.target.consecutive.checked } }));
   }
   
   const handleSubmitNameForm = (event) => {
