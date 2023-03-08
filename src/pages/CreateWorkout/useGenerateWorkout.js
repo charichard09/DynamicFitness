@@ -31,7 +31,6 @@ function useGenerateWorkout(workout) {
     </React.Fragment>
   )
 
-
   // useEffect(() => {
   //   setGeneratedWorkout(prev => ({ ...prev, test: "test" }));
   // }
