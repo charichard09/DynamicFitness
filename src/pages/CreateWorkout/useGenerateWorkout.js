@@ -9,7 +9,6 @@ function useGenerateWorkout(workout) {
   const firestore = useFirestore();
   const exerciseCollection = collection(firestore, "exercises");
   const exerciseQuery = query(exerciseCollection, where("difficulty", "==", workout.fitnessLevel), where("equipmentNeeded", "array-contains-any", workout.equipment));
-
   const { status, data } = useFirestoreCollectionData(exerciseQuery, { idField: "id" });
 
   // 1 core, 1 shoulder, 2 back, 1 chest, 2 leg
@@ -17,14 +16,17 @@ function useGenerateWorkout(workout) {
     let workoutArray = [];
     
     // set each exercise to x sets and y reps based on goals
-    if (workout.goals === "stability") {
-      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 15 }));
-    } else if (workout.goals === "muscular-development") {
-      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 10 }));
-    } else if (workout.goals === "maximal-strength") {
-      data.map(exercise => workoutArray.push({ ...exercise, sets: 5, reps: 4 }));
-    } else if (workout.goals === "power") {
-      data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 9 }));
+    // if (data) will make sure none of this block of code will run until data is loaded
+    if (data) {
+      if (workout.goals === "stability") {
+        data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 15 }));
+      } else if (workout.goals === "muscular-development") {
+        data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 10 }));
+      } else if (workout.goals === "maximal-strength") {
+        data.map(exercise => workoutArray.push({ ...exercise, sets: 5, reps: 4 }));
+      } else if (workout.goals === "power") {
+        data.map(exercise => workoutArray.push({ ...exercise, sets: 3, reps: 9 }));
+      }
     }
 
     console.log(workoutArray);
