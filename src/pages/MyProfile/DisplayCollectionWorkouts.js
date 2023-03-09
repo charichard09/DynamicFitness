@@ -18,11 +18,12 @@ function DisplayCollectionWorkouts() {
   const userCreatedWorkoutsQuery = query(userCreatedWorkoutsCollection, where('userId', '==', auth.currentUser.uid));
 
   const { data } = useFirestoreCollectionData(userCreatedWorkoutsQuery, { idField: 'id' });
-
+  
   async function handleDeleteWorkout(id) {
     // delete workout from db
     await deleteDoc(doc(db, "userCreatedWorkouts", id));
   }
+
 
   return(
     <React.Fragment>
