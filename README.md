@@ -13,7 +13,9 @@
 * <a href="#Research-and-Planning-Log">Research and Planning Log</a>
 * <a href="#License">License</a>
 
-## Description
+## Description and Link
+
+[Dynamic Fitness Webpage](https://dynamic-fitness-131c4.web.app)
 
 _Dynamic Fitness is a workout creation and tracking application aimed at letting the user create a tailored workout through a series of individual questions. These factors include: level of fitness, goal, availability, and equipment. A workout will be curated based off of these and factors where a user can then navigate to the Start a Workout page to pull up any created workouts and begin tracking that days workout. Once a user is finished, they can select the Finish Workout button which will log their workout. All workouts and workout logs can be seen on the My Profile page._
 
@@ -42,7 +44,7 @@ _Dynamic Fitness is a workout creation and tracking application aimed at letting
 
 ## Known Bugs
 
-* _None_
+* _ReactRouter routes don't redirect if page is refreshed, possible rewrite with firestore fix needed_
 
 ## Research and Planning Log
 #### Friday, February 17, 2023
