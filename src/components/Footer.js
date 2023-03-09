@@ -1,7 +1,8 @@
+/* eslint-disable react/jsx-no-target-blank */
 function Footer() {
 
   return(
-    <div className="text-xs font-bold bg-black justify-between flex items-center h-50 bottom-0 left-0 right-0 p-5" style={{ color: "white" }}>
+    <div className="text-xs font-bold bg-black justify-between flex items-center h-50 bottom-0 left-0 right-0 p-5 text-white">
       <div>
         <p className="text-base underline">Contact Richard Cha</p>
         <p>
