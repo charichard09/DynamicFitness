@@ -27,16 +27,17 @@ function MyProfile() {
   return (
     <React.Fragment>
       <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
-        <div>         
-          <span><img src={thorImage} alt="thor" className="rounded-full h-60 p-5"></img> {auth.currentUser.email}</span>
-          {status === "success" ? <UpdatePersonalGoalForm doUpdatePersonalGoal={handleUpdatePersonalGoal} personalGoal={data.personalGoal}/> : <p>loading...</p>}
+        <div className="items-center flex">         
+          <img style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex"}} src={thorImage} alt="thor" className="rounded-full h-60 p-5"></img>
+          <div className="justify-center">{status === "success" ? <UpdatePersonalGoalForm doUpdatePersonalGoal={handleUpdatePersonalGoal} personalGoal={data.personalGoal}/> : <p>loading...</p>}</div>
         </div>
+        <div className="pl-14 pb-5">{auth.currentUser.email}</div>
 
-        <div>
+        <div className="pl-5"> 
           <DisplayCollectionWorkouts />
         </div>
 
-        <div>
+        <div className="pl-5 pt-5">
           <DisplayWorkoutLogs />
         </div>
       </div>

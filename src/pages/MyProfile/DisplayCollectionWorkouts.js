@@ -28,16 +28,16 @@ function DisplayCollectionWorkouts() {
   return(
     <React.Fragment>
       <h4>Collection of Workouts:</h4>
-      <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-5 m-5 flex-col h-auto">
         {data ? data.map(workout => (
-          <div key={workout.id}>
+          <div className="py-2" key={workout.id}>
             <h4>
               {workout.name}
             </h4>
             <p>goals: {workout.goals}</p>
-            <button onClick={() => {setClickEdit(!clickEdit)}}>Edit</button>
-            <button onClick={() => {handleDeleteWorkout(workout.id)}}>Delete</button>
-            <button onClick={() => {setClickDetails(!clickDetails)}}>click here for more details</button>
+            <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-2 mt-2 mb-1 ml-1 rounded" onClick={() => {setClickEdit(!clickEdit)}}>Edit</button>
+            <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-2 mt-2 mb-1 ml-1 rounded" onClick={() => {handleDeleteWorkout(workout.id)}}>Delete</button>
+            <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-2 mt-2 mb-1 ml-1 rounded" onClick={() => {setClickDetails(!clickDetails)}}>click here for more details</button>
             {clickDetails ? <p>get workout where this id === workout.id in db</p> : null}
           </div>
         )) : null}

@@ -19,9 +19,9 @@ function DisplayWorkoutLogs() {
   return(
     <React.Fragment>
       <h4>Workout Logs:</h4>
-      <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto">
         {workoutLogsData ? workoutLogsData.map(workoutLog => (
-          <div key={workoutLog.id}>
+          <div className="py-2" key={workoutLog.id}>
             <p>
               {new Date(workoutLog.date.seconds * 1000).toLocaleDateString()}
             </p>
@@ -31,7 +31,7 @@ function DisplayWorkoutLogs() {
             <p>
               Split Day: {workoutLog.split}
             </p>
-            <button onClick={() => {setClickDetails(!clickDetails)}}>click here for details</button>
+            <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-14 rounded" onClick={() => {setClickDetails(!clickDetails)}}>click here for details</button>
             {clickDetails ? <p>get previous workout where this id === previousWorkout.id in db</p> : null}
           </div>
         )) : null }
