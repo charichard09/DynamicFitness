@@ -5,33 +5,39 @@ function NameForm(props) {
     <React.Fragment>
       <h3 className="pl-2">Give your workout a name!</h3>
 
-      <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto" >
         <form onSubmit={props.onSubmitNameForm}>
           <label htmlFor="name">Congratulations! You’re almost done! Now to just give your new workout a name then select create a workout!</label>
           <br />
-          <input type="text" id="name"></input>
+          <input className="border-2 border-neutral-900" type="text" id="name"></input>
           <br />
-          <button type="submit">Create Workout</button>
+          <button className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" type="submit">Create Workout</button>
         </form>
-        <button type="button" onClick={() => props.onClickingFormNavigation("reviewWorkout")}>Back</button>
+        <button type="button" className="bg-slate-500 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" onClick={() => props.onClickingFormNavigation("reviewWorkout")}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left inline-flex mr-2 pb-0.5" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          Back
+        </button>
       </div>
-        <p>A few reminders and considerations before you begin your new journey!</p>
-        <ul>
-          Progressive overload is a principle of exercise training that involves gradually increasing the demands placed on the body during exercise over 
-          time. The basic idea is that as the body adapts to a particular workload, you need to increase the workload to continue making progress.
-            <li>
-              Methods of Progression for Endurance/Stability: Master basic movement patterns, Progress exercises proprioceptively 
-              (add controlled yet unstable modalities), increase complexity, decrease rest, increase reps or sets, increase weight
-            </li>
-            <li>
-              Methods of Progression for Muscular Development: Increase weight, increase reps, increase sets, decrease rest, increase complexity
-            </li>
-            <li>
-              Methods of Progression for Maximal Strength: Increase weight, increase sets
-            </li>
-            <li>
-              Methods of Progression for Power: Increase weight, increase speed/tempo, increase sets
-            </li>
+
+      <p>A few reminders and considerations before you begin your new journey!</p>
+      <ul>
+        Progressive overload is a principle of exercise training that involves gradually increasing the demands placed on the body during exercise over 
+        time. The basic idea is that as the body adapts to a particular workload, you need to increase the workload to continue making progress.
+          <li>
+            Methods of Progression for Endurance/Stability: Master basic movement patterns, Progress exercises proprioceptively 
+            (add controlled yet unstable modalities), increase complexity, decrease rest, increase reps or sets, increase weight
+          </li>
+          <li>
+            Methods of Progression for Muscular Development: Increase weight, increase reps, increase sets, decrease rest, increase complexity
+          </li>
+          <li>
+            Methods of Progression for Maximal Strength: Increase weight, increase sets
+          </li>
+          <li>
+            Methods of Progression for Power: Increase weight, increase speed/tempo, increase sets
+          </li>
         </ul>
 
         <ul>

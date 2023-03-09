@@ -18,7 +18,7 @@ function FitnessLevelForm(props) {
     <React.Fragment>
       <h3><span className="pl-2">What is your fitness level?</span></h3>
 
-      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto">
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto" >
         <form onSubmit={handleSubmit} >
           <input type="radio" id="beginner" name="fitnessLevel" value={1} checked={fitnessLevel === 1} onChange={handleFitnessLevelChange} />
           <label htmlFor="beginner">Beginner</label>
