@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Stopwatch from "./Stopwatch";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase";
@@ -100,7 +99,6 @@ function WorkoutForm(props) {
         </div>
       )) : null}
       <button type="button" onClick={addWorkoutToWorkoutLogs}>Finish Workout</button>
-      <Stopwatch />
     </React.Fragment>
   );
 }

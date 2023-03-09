@@ -47,7 +47,7 @@ function Header() {
 
   return(
     <React.Fragment>
-      <div style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex", "backgroundColor": "black" }}>
+      <div className="" style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex", "backgroundColor": "black" }}>
         <h1 style={{ "alignSelf": "flex-star", color: "white" }}>{name}</h1>
 
         <div style={{ "marginLeft": "auto", display: "flex", "justifyContent": "space-between", alignItems: "center", height: "100px" }}>
