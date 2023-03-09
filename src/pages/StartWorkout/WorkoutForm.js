@@ -6,17 +6,15 @@ import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 
 function WorkoutForm(props) {
-  // const [clickDetails, setClickDetails] = useState(false);
   const [workoutTracker, setWorkoutTracker] = useState({});
   const { splitOfWorkout, workout, nameOfWorkout } = props;
   const navigate = useNavigate();
 
   const workoutArray = workout.split[splitOfWorkout];
-  
-  // const handleClickDetails = (e) => {
-  //   e.preventDefault();
-  //   setClickDetails(!clickDetails);
-  // }
+
+  if (workoutArray) {
+  console.log("workoutArray: ", workoutArray.instruction);
+  }
 
   const handleSavingWorkout = (e) => {
     e.preventDefault();
@@ -90,35 +88,18 @@ function WorkoutForm(props) {
             })}
             <button type="submit" >Track</button>
           </form>
+          <p>Instructions:</p>
+          <ul>
+            {exercise.instruction.map(e => {
+              return <li key={e}>{e}</li>
+            })}
+          </ul>
           <p>description: {exercise.description}</p>
           <p>equipment needed: {exercise.equipmentNeeded.map(e => e + " ")}</p>
-          <p>alternatives: {exercise.alternatives.map(e => e + " ")}</p>
+          <p>alternatives: {exercise.alternatives.map(e => e + ", ")}</p>
         </div>
       )) : null}
       <button type="button" onClick={addWorkoutToWorkoutLogs}>Finish Workout</button>
-
-          {/* <br/>
-          <button onClick={handleClickDetails}>Description/Instructions</button>
-          {clickDetails ? 
-          <div>
-            <p>
-              Description: Description: Cable flies are a strength training exercise that primarily target the muscles of the chest,
-              specifically the pectoralis major.
-            </p>
-            <p>
-              Instructions:
-              1. Stand in the center of the cable machine and grasp the handles or D-handles, one in each hand.
-              2. Step forward with one foot to create a stable stance, and bend your elbows slightly.
-              3. Keeping your back straight and your core engaged, bring your hands together in front of your chest.
-              4. Make sure your arms are parallel to the floor at the end of the movement.
-              5. Pause for a moment, then slowly release the handles back to the starting position, keeping your arms slightly bent throughout the movement.
-              6. Repeat for the desired number of repetitions.
-            </p>
-            <p>
-              Tips: 
-              Substitute Cable Machines for Resistance Bands
-            </p>
-          </div> : null} */}
       <Stopwatch />
     </React.Fragment>
   );

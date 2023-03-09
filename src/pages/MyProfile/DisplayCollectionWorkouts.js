@@ -29,7 +29,7 @@ function DisplayCollectionWorkouts() {
     <React.Fragment>
       <h4>Collection of Workouts:</h4>
       <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
-        {data.map(workout => (
+        {data ? data.map(workout => (
           <div key={workout.id}>
             <h4>
               {workout.name}
@@ -40,7 +40,7 @@ function DisplayCollectionWorkouts() {
             <button onClick={() => {setClickDetails(!clickDetails)}}>click here for more details</button>
             {clickDetails ? <p>get workout where this id === workout.id in db</p> : null}
           </div>
-        ))}
+        )) : null}
       </div>
     
     </React.Fragment>
