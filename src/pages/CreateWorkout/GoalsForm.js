@@ -50,7 +50,7 @@ function GoalsForm(props) {
           </div>
       </div>
       
-      <div>
+      <div className="mx-12 my-8">
         <ul>
           What is Stability/Muscular Endurance? 
           <ul>
@@ -62,6 +62,8 @@ function GoalsForm(props) {
             </li>
           </ul>
         </ul>
+
+        <br />
         <ul>
           What are goals that align with Stability/Muscular Endurance? 
           <ol>
@@ -100,6 +102,7 @@ function GoalsForm(props) {
           </ol>
         </ul>
 
+        <br />
         <ul>
           What is Muscular Development? 
           <ul>
@@ -108,6 +111,8 @@ function GoalsForm(props) {
             </li>
           </ul>
         </ul>
+
+        <br />
         <ul>
           What are goals that align with Muscular Development? 
           <ol>
@@ -131,6 +136,7 @@ function GoalsForm(props) {
           </ol>
         </ul>
 
+        <br />
         <ul>
           What is Maximal Strength? 
           <ul>
@@ -139,6 +145,8 @@ function GoalsForm(props) {
             </li>
           </ul>
         </ul>
+
+        <br />
         <ul>
           What are goals that align with Maximal Strength? 
           <ol>
@@ -149,6 +157,7 @@ function GoalsForm(props) {
           </ol>
         </ul>
 
+        <br />
         <ul>
           What is Power? 
           <ul>
@@ -159,6 +168,8 @@ function GoalsForm(props) {
             </li>
           </ul>
         </ul>
+
+        <br />
         <ul>
           What are goals that align with Power? 
           <ol>
@@ -182,7 +193,7 @@ function GoalsForm(props) {
         </ul>
       </div>
 
-      <div>
+      <div className="mx-12 my-8">
         <p>Goal alignments are inspired by the National Academy of Sports Medicine’s Optimum Performance Training (OPT) model.</p>
         <ul>
           <li>
@@ -195,7 +206,7 @@ function GoalsForm(props) {
             flexible and adaptable, allowing fitness professionals to customize exercise programs to meet the unique needs and goals of their clients.
           </li>
         </ul>
-        <img src={`${imageOPTModel}`} alt="OPT Model" style={{ width: "50vh" }} />
+        <img className="my-8" src={`${imageOPTModel}`} alt="OPT Model" style={{ width: "50vh" }} />
       </div>
     </React.Fragment>
   );

@@ -41,7 +41,7 @@ function FitnessLevelForm(props) {
           </div>
         </div>
         
-        <div>
+        <div className="mx-12">
           <ul>
             <li>
               Beginner: Someone who is new to exercise or has not exercised regularly in a while. At this level, it is important to start
@@ -60,7 +60,8 @@ function FitnessLevelForm(props) {
           </ul>
           <p>Tip: If you are uncertain, you can use the Rockport Walk Test to assess your current fitness level</p>
         </div>
-        <div>
+
+        <div className="mx-12 my-8">
           <p>The Rockport Walk Test is a simple moderate-level exercise test used to estimate cardiorespiratory fitness. Here are the step-by-step instructions:</p>
           <ol>
             <li>Before beginning the test, make sure you are properly attired with comfortable clothing and shoes suitable for walking. You should
@@ -82,7 +83,7 @@ function FitnessLevelForm(props) {
             <li>Your estimated VO2max is a measure of your cardiorespiratory fitness. Compare it to the norms for your age and gender to assess
               your level of fitness.</li>
           </ol>
-          <img src={`${imageRockportWalkTestChart}`} alt="Rockport Walk Test Chart" style={{ width: "50vh" }} />
+          <img className="my-8" src={`${imageRockportWalkTestChart}`} alt="Rockport Walk Test Chart" style={{ width: "50vh" }} />
         </div>
       </div>
     </React.Fragment>

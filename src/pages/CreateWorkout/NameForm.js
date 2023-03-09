@@ -23,43 +23,51 @@ function NameForm(props) {
         </div>
       </div>
 
-      <p>A few reminders and considerations before you begin your new journey!</p>
-      <ul>
-        Progressive overload is a principle of exercise training that involves gradually increasing the demands placed on the body during exercise over 
-        time. The basic idea is that as the body adapts to a particular workload, you need to increase the workload to continue making progress.
-          <li>
-            Methods of Progression for Endurance/Stability: Master basic movement patterns, Progress exercises proprioceptively 
-            (add controlled yet unstable modalities), increase complexity, decrease rest, increase reps or sets, increase weight
-          </li>
-          <li>
-            Methods of Progression for Muscular Development: Increase weight, increase reps, increase sets, decrease rest, increase complexity
-          </li>
-          <li>
-            Methods of Progression for Maximal Strength: Increase weight, increase sets
-          </li>
-          <li>
-            Methods of Progression for Power: Increase weight, increase speed/tempo, increase sets
-          </li>
-        </ul>
-
+      <div className="mx-12 my-8">
+        <p>A few reminders and considerations before you begin your new journey!</p>
         <ul>
-            Warm-Ups: A warmup is done prior to a workout session and is used to help prepare the body and mind for physical activity. A warmup is not 
+          Progressive overload is a principle of exercise training that involves gradually increasing the demands placed on the body during exercise over
+          time. The basic idea is that as the body adapts to a particular workload, you need to increase the workload to continue making progress.
+            <li>
+              Methods of Progression for Endurance/Stability: Master basic movement patterns, Progress exercises proprioceptively
+              (add controlled yet unstable modalities), increase complexity, decrease rest, increase reps or sets, increase weight
+            </li>
+            <li>
+              Methods of Progression for Muscular Development: Increase weight, increase reps, increase sets, decrease rest, increase complexity
+            </li>
+            <li>
+              Methods of Progression for Maximal Strength: Increase weight, increase sets
+            </li>
+            <li>
+              Methods of Progression for Power: Increase weight, increase speed/tempo, increase sets
+            </li>
+          </ul>
+      </div>
+
+      <div className="mx-12 my-8">
+        <ul>
+            Warm-Ups: A warmup is done prior to a workout session and is used to help prepare the body and mind for physical activity. A warmup is not
             included in your workout but it is recommended to spend 5-10 minutes doing some light cardio and dynamic stretching before your workout.
         </ul>
+      </div>
 
+      <div className="mx-12 my-8">
         <ul>
-          Proper form is essential for any exercise or physical activity, whether you are lifting weights, performing bodyweight exercises, or 
-          engaging in cardio workouts. Proper form ensures that you engage the intended muscles effectively and efficiently, minimize the risk of 
+          Proper form is essential for any exercise or physical activity, whether you are lifting weights, performing bodyweight exercises, or
+          engaging in cardio workouts. Proper form ensures that you engage the intended muscles effectively and efficiently, minimize the risk of
           injury, and maximize the benefits of the exercise.
         </ul>
-
+      </div>
+      
+      <div className="mx-12 my-8">
         <ul>
-          Bracing or activating your core muscles is an essential technique for performing heavy lifts safely and effectively. 
+          Bracing or activating your core muscles is an essential technique for performing heavy lifts safely and effectively.
           By bracing your core, you'll create a stable base of support for your spine, which will help prevent injury and allow you to lift heavier weights with greater control and efficiency.
             <li>
               Tighten your abdominal muscles as if you were about to take a punch to the stomach. This will engage your transverse abdominis muscle, which is the deepest layer of abdominal muscle.
             </li>
         </ul>
+      </div>
     </React.Fragment>
   );
 }

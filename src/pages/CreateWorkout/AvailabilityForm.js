@@ -46,12 +46,15 @@ function AvailabilityForm(props) {
             </button>
           </div>
         </div>
-        <p>Unsure? Here are some recommendations based on training status:</p>
-        <ul>
-          <li>Beginner: 2-3 sessions per week</li>
-          <li>Intermediate: 3-4 sessions per week</li>
-          <li>Advanced: 4-6 sessions per week</li>
-        </ul>
+
+        <div className="mx-12 my-8">
+          <p>Unsure? Here are some recommendations based on training status:</p>
+          <ul>
+            <li>Beginner: 2-3 sessions per week</li>
+            <li>Intermediate: 3-4 sessions per week</li>
+            <li>Advanced: 4-6 sessions per week</li>
+          </ul>
+        </div>
       </div>
     </React.Fragment>
   );
