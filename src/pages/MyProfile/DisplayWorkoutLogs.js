@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
-import { query, where } from 'firebase/firestore';
+import { orderBy, query, where } from 'firebase/firestore';
 import { collection } from 'firebase/firestore';
 import { auth } from '../../firebase';
 
@@ -11,7 +11,7 @@ function DisplayWorkoutLogs() {
   const firestore = useFirestore();
 
   const workoutLogs = collection(firestore, 'workoutLogs');
-  const workoutLogsQuery = query(workoutLogs, where('userId', '==', auth.currentUser.uid));
+  const workoutLogsQuery = query(workoutLogs, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'));
 
   const { data: workoutLogsData } = useFirestoreCollectionData(workoutLogsQuery, { idField: 'id' });
   console.log("workoutLogsData:", workoutLogsData);
@@ -19,7 +19,7 @@ function DisplayWorkoutLogs() {
   return(
     <React.Fragment>
       <h4>Workout Logs:</h4>
-      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto">
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-96 overflow-scroll">
         {workoutLogsData ? workoutLogsData.map(workoutLog => (
           <div className="py-2" key={workoutLog.id}>
             <p>

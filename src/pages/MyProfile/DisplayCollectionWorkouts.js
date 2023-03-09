@@ -28,7 +28,7 @@ function DisplayCollectionWorkouts() {
   return(
     <React.Fragment>
       <h4>Collection of Workouts:</h4>
-      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-5 m-5 flex-col h-auto">
+      <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-5 m-5 flex-col h-96 overflow-scroll">
         {data ? data.map(workout => (
           <div className="py-2" key={workout.id}>
             <h4>
