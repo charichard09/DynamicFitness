@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SelectWorkoutDropdown from './SelectWorkoutDropdown';
 import SelectSplitDropdown from './SelectSplitDropdown';
-import Stopwatch from './Stopwatch';
 import WorkoutForm from './WorkoutForm';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { query, where } from 'firebase/firestore';
