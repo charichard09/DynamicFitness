@@ -1,19 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Stopwatch from "./Stopwatch";
 
 function WorkoutForm(props) {
   const [clickDetails, setClickDetails] = useState(false);
+  const [workoutTracker, setWorkoutTracker] = useState({});
   const { splitOfWorkout, workout } = props;
 
-  console.log("splitOfWorkout: in WorkoutForm", splitOfWorkout, workout);
   const workoutArray = workout.split[splitOfWorkout];
-  console.log("workoutArray: in WorkoutForm", workoutArray);
   
   const handleClickDetails = (e) => {
     e.preventDefault();
     setClickDetails(!clickDetails);
   }
+
+  const handleSavingWorkout = (e) => {
+    e.preventDefault();
+    console.log("sets: ", e.target.sets.value)
+
+    let savedWorkout = {};
+    savedWorkout = { name: e.target.name.value, weight: e.target.weight.value };
+    savedWorkout.setsArray = Array.from(Array(parseInt(e.target.sets.value)), (set, index) => {
+      return {
+        set: index + 1,
+        reps: e.target[`set${index + 1}-reps`].value
+      }
+    })
+
+    setWorkoutTracker(prevState => ({ ...prevState, [e.target.name.value]: savedWorkout }));
+    console.log("savedWorkout: ", savedWorkout);
+  }
+
+  useEffect(() => {
+    console.log("workoutTracker: ", workoutTracker);
+  }, [workoutTracker])
 
   return (
     <React.Fragment>
@@ -32,7 +52,9 @@ function WorkoutForm(props) {
             style={{ width: "300px", height: "300px" }} // change 300px to desired size
           />
 
-          <form>
+          <form onSubmit={handleSavingWorkout}>
+            <input type="text" name="name" defaultValue={exercise.name} hidden={true}/>
+            <input type="text" name="sets" defaultValue={exercise.sets} hidden={true}/>
             <label>Weight </label>
             <br/>
             <input type="text" name="weight" />
@@ -49,10 +71,12 @@ function WorkoutForm(props) {
                 </React.Fragment>
               )
             })}
+            <button type="submit" >Track</button>
           </form>
 
         </div>
       )) : null}
+      <button type="button">Finish Workout</button>
 
       {/* example */}
       <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
@@ -116,7 +140,7 @@ function WorkoutForm(props) {
           </div> : null}
           
           <br />
-          <button type="submit">Finish Workout</button>
+          
         </form>
       </div>
 
