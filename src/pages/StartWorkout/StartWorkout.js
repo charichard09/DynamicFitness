@@ -23,11 +23,9 @@ function StartWorkout() {
   const { data } = useFirestoreCollectionData(userCreatedWorkoutsQuery, { idField: 'id' });
 
   useEffect(() => {
-    console.log("workout: ", workout);
     if (workout) {
       setAllSplitsOfWorkout(workout.split);
     }
-    console.log("allSplitsOfWorkout: ", allSplitsOfWorkout);
   }, [nameOfWorkout, workout, allSplitsOfWorkout]);
 
   // display dropdown with list of matching workouts.names
@@ -42,19 +40,16 @@ function StartWorkout() {
   function handleSelectingSplit (selectedSplit) {
     setSplitOfWorkout(selectedSplit);
     setShowWorkoutForm(true);
+    console.log("selectedSplitChosen is an array of all exercise objects for X Day:", splitOfWorkout);
   }
-
-  // after a user clicks 'select' on a split, next display that split's exercises with the ability to see, edit sets and reps and other details
-
-
 
   return (
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
       {/* {data ? data.map(workout => (<p key={workout.id}>{workout.split.ADay[0].name}</p>)) : null} */}
       <h3 style={{margin: 0}}>Select a workout:</h3>
-      <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout}/>
-      {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit}/> : null }
-      {showWorkoutForm ? <WorkoutForm /> : null}
+      <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
+      {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
+      {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} /> : null}
       {showWorkoutForm ? <Stopwatch /> : null}  
     </div>
   );

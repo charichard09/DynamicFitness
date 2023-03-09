@@ -2,8 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Stopwatch from "./Stopwatch";
 
-function WorkoutForm() {
+function WorkoutForm(props) {
   const [clickDetails, setClickDetails] = useState(false);
+  const { splitOfWorkout, workout } = props;
+
+  console.log("splitOfWorkout: in WorkoutForm", splitOfWorkout, workout);
+  const workoutArray = workout.split[splitOfWorkout];
+  console.log("workoutArray: in WorkoutForm", workoutArray);
   
   const handleClickDetails = (e) => {
     e.preventDefault();
@@ -12,8 +17,44 @@ function WorkoutForm() {
 
   return (
     <React.Fragment>
-      
-      <h4>"[x] Day"</h4>
+      {workoutArray ? workoutArray.map((exercise) => (
+        <div key={exercise.id} style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
+          <h4>{exercise.name}</h4>
+
+          <img
+          src={exercise.image[0]}
+          alt="exercise in motion 1"
+          style={{ width: "300px", height: "300px" }} // change 300px to desired size
+          />
+          <img
+            src={exercise.image[1]}
+            alt="exercise in motion 2"
+            style={{ width: "300px", height: "300px" }} // change 300px to desired size
+          />
+
+          <form>
+            <label>Weight </label>
+            <br/>
+            <input type="text" name="weight" />
+            <br/>
+            {/* Array.from will create an array of elements based on the arg 1 number of sets for the exercise, and arg2 map function to return components each time */}
+            {Array.from(Array(exercise.sets), (set, index) => {
+              return (
+                <React.Fragment key={index}>
+                  <label>Set {index + 1}:</label>
+                  <br />
+                  <label>Reps: </label>
+                  <input type="text" name={`set${index + 1}-reps`} placeholder={exercise.reps} />
+                  <br />
+                </React.Fragment>
+              )
+            })}
+          </form>
+
+        </div>
+      )) : null}
+
+      {/* example */}
       <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
         <h4>Cable Flies</h4>
         <form>

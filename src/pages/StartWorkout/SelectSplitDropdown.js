@@ -15,7 +15,7 @@ function SelectSplitDropdown(props) {
           <option key={1}>Available Splits</option>
           {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}
           {splits && Object.entries(splits).map(([key, value]) => (
-            <option key={key.id} value={value}>{key}</option>
+            <option key={key.id} value={key}>{key}</option>
           ))}
         </select>
       </form>
