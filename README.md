@@ -2,7 +2,7 @@
 
 #### By _**Richard Cha**_
 
-#### _This static web application will allow users to track inventory for a fitness shop_
+#### _Dynamic Fitness is a workout creation and tracking application aimed at letting the user create a tailored workout through a series of individual questions._
 
 ### <u>Table of Contents</u>
 * <a href="#Description">Description</a>
@@ -15,7 +15,7 @@
 
 ## Description
 
-_Rich Fitness Inventory Tracker is a web application that allows users to track inventory for a fitness shop by allowing users to Create, Read, Update, and Delete (CRUD) fitness equipment. Users can also mark any individual equipment as sold by click on that equipment from the list and clicking the "Mark as Sold" button. This will dynamically update the quantity amount._
+_Dynamic Fitness is a workout creation and tracking application aimed at letting the user create a tailored workout through a series of individual questions. These factors include: level of fitness, goal, availability, and equipment. A workout will be curated based off of these and factors where a user can then navigate to the Start a Workout page to pull up any created workouts and begin tracking that days workout. Once a user is finished, they can select the Finish Workout button which will log their workout. All workouts and workout logs can be seen on the My Profile page._
 
 ## Technologies Used
 
@@ -23,12 +23,13 @@ _Rich Fitness Inventory Tracker is a web application that allows users to track 
 * _React_
 * _JSX_
 * _HTML_
-* _Pico.css_
+* _Tailwind_
 * _webpack_
 * _Node.js_
+* _Firebase/Firestore BaaS_
 
 ## Component Diagram
-![Component Diagram](./local-business-inventory-tracker.png)
+![Component Diagram](./src/assets/DynamicFitness.png)
 
 ## Setup/Installation Requirements
 
@@ -102,4 +103,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) _2-10-23_ _Richard Cha_
+Copyright (c) _3-09-23_ _Richard Cha_

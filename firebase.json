@@ -6,5 +6,17 @@
       "**/.*",
       "**/node_modules/**"
     ]
-  }
+  },
+  "rewrites": [ {
+  "source": "/public/**",
+  "destination": "public/index.html"
+  },
+  {
+    "source": "**",
+    "destination": "/index.html"
+  }, 
+  {
+    "source": "/my-profile/**",
+    "destination": "https://dynamic-fitness-131c4.web.app/my-profile"
+  }]
 }
