@@ -1,21 +1,26 @@
 import React from "react";
 
-function SelectWorkoutDropdown(props) {
-  const { splits } = props; 
+function SelectSplitDropdown(props) {
+  const { splits, onSelectingSplit } = props; 
+
+  function handleChange(event) {
+    const selectedSplit = event.target.value;
+    onSelectingSplit(selectedSplit);
+  }
 
   return (
     <React.Fragment>
-      <form onSubmit={props.onClickingSubmit}>
-        <select id="select-split">
+      <form>
+        <select id="select-split" name="selectSplit" onChange={handleChange}>
+          <option key={1}>Available Splits</option>
           {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}
-          {splits && splits.map((split) => (
-            <option key={split.id} value={split.id}>{split[0].name}</option>
+          {splits && Object.entries(splits).map(([key, value]) => (
+            <option key={key.id} value={value}>{key}</option>
           ))}
         </select>
-        <button type="submit">Select</button>
       </form>
     </React.Fragment>
   );
 }
 
-export default SelectWorkoutDropdown;
+export default SelectSplitDropdown;

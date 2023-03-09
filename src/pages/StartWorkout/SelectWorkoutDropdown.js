@@ -1,7 +1,7 @@
 import React from "react";
 
 function SelectWorkoutDropdown(props) {
-  const { workouts, onSelectingWorkout } = props; 
+  const { allWorkouts, onSelectingWorkout } = props; 
 
   function handleChange(event) {
     const selectedWorkout = event.target.value;
@@ -14,7 +14,7 @@ function SelectWorkoutDropdown(props) {
         <select id="select-workout" name="selectWorkout" onChange={handleChange}>
           <option>Available Workouts</option>
           {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}
-          {workouts && workouts.map((workout) => (
+          {allWorkouts && allWorkouts.map((workout) => (
             <option key={workout.id} value={workout.name}>{workout.name}</option>
           ))}
         </select>

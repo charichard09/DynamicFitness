@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SelectWorkoutDropdown from './SelectWorkoutDropdown';
 import { useFirestore, useFirestoreCollectionData } from 'reactfire';
 import { query, where } from 'firebase/firestore';
@@ -8,6 +8,9 @@ import SelectSplitDropdown from './SelectSplitDropdown';
 
 function StartWorkout() {
   const [nameOfWorkout, setNameOfWorkout] = useState(null);
+  const [splitOfWorkout, setSplitOfWorkout] = useState(null);
+  const [splitDropdownHidden, setSplitDropdownHidden] = useState(true);
+  const [workout, setWorkout] = useState(null);
 
   // get collection of workouts from db where [workoutdb].userId === auth.currentUser.uid
   const firestore = useFirestore();
@@ -22,19 +25,30 @@ function StartWorkout() {
   //   });
   // }
 
-  let splitOfWorkout = null;
+  useEffect(() => {
+    setSplitDropdownHidden(false);
+    console.log("workout: ", workout);
+    if (workout) {
+      setSplitOfWorkout(workout.split);
+    }
+    console.log("splitOfWorkout: ", splitOfWorkout);
+  }, [nameOfWorkout, workout, splitOfWorkout]);
 
   // display dropdown with list of matching workouts.names
   // after a user clicks 'select' on a workout.name, next display dropdown of that workout objects.split (A, B, C).
   function handleSelectingWorkout(selectedWorkout) {
-    console.log("splits:", selectedWorkout);
+    console.log("selected workout:", selectedWorkout);
+    console.log(data)
     setNameOfWorkout(selectedWorkout);
-    console.log("nameOfWorkout: ", nameOfWorkout)
+
+    // find matching name to workout object
+    setWorkout(data.find(workout => workout.name === selectedWorkout));
+    
   }
 
-  function handleClickingSubmitSplit (event) {
-    console.log("split:", event.target.value);
-    splitOfWorkout = event.target.value;
+  function handleSelectingSplit (selectedSplit) {
+    console.log("selected split:", selectedSplit);
+    setSplitOfWorkout(selectedSplit);
   }
 
   console.log("splitOfWorkout: ", splitOfWorkout);
@@ -47,8 +61,8 @@ function StartWorkout() {
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
       {/* {data ? data.map(workout => (<p key={workout.id}>{workout.split.ADay[0].name}</p>)) : null} */}
       <h3 style={{margin: 0}}>Select a workout:</h3>
-      <SelectWorkoutDropdown workouts={data} onSelectingWorkout={handleSelectingWorkout}/>
-      {/* <SelectSplitDropdown splits={nameOfWorkout} onClickingSubmit={handleClickingSubmitSplit}/> */}
+      <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout}/>
+      {splitOfWorkout ? <SelectSplitDropdown splits={splitOfWorkout} onSelectingSplit={handleSelectingSplit}/> : null }
     </div>
   );
 }
