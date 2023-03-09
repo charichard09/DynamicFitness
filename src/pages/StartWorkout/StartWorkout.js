@@ -50,7 +50,7 @@ function StartWorkout() {
       <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
       {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
       {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} nameOfWorkout={nameOfWorkout}  /> : null}
-      {/* {showWorkoutForm ? <Stopwatch /> : null}   */}
+      {showWorkoutForm ? <Stopwatch /> : null}  
     </div>
   );
 }
