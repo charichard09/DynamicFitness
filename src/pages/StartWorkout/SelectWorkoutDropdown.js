@@ -10,7 +10,7 @@ function SelectWorkoutDropdown(props) {
 
   return (
     <React.Fragment>
-      <form>
+      <form className="pl-2">
         <select id="select-workout" name="selectWorkout" onChange={handleChange}>
           <option>Available Workouts</option>
           {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}

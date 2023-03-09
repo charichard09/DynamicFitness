@@ -44,13 +44,11 @@ function StartWorkout() {
   }
 
   return (
-    <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
-      {/* {data ? data.map(workout => (<p key={workout.id}>{workout.split.ADay[0].name}</p>)) : null} */}
-      <h3 style={{margin: 0}}>Select a workout:</h3>
+    <div className="overflow-auto w-full h-screen flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
+      <h3 className="pl-2 text-2xl font-bold pt-2 mb-3" >Select a workout:</h3>
       <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
       {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
       {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} nameOfWorkout={nameOfWorkout}  /> : null}
-      {showWorkoutForm ? <Stopwatch /> : null}  
     </div>
   );
 }

@@ -42,9 +42,13 @@ function Stopwatch() {
 
   return (
     <div>
-      <div>{formatTime(elapsedTime)}</div>
-      <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" onClick={handleStartStop}>{isRunning ? 'Stop' : 'Start'}</button>
-      <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" onClick={handleReset}>Reset</button>
+      <div className="text-8xl justify-center flex">
+        {formatTime(elapsedTime)}
+      </div>
+      <div className="justify-center flex">
+        <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-1  rounded" onClick={handleStartStop}>{isRunning ? 'Stop' : 'Start'}</button>
+        <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-1  rounded" onClick={handleReset}>Reset</button>
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ function SelectSplitDropdown(props) {
 
   return (
     <React.Fragment>
-      <form>
+      <form className="pl-2 pt-1 mb-4">
         <select id="select-split" name="selectSplit" onChange={handleChange}>
           <option key={1}>Available Splits</option>
           {/* make sure workouts is not null, if not null map through workouts creating an option for each workout */}
