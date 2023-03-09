@@ -26,7 +26,7 @@ function MyProfile() {
 
   return (
     <React.Fragment>
-      <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
+      <div className="overflow-auto w-full h-full flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
         <div className="items-center flex">         
           <img style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex"}} src={thorImage} alt="thor" className="rounded-full h-60 p-5"></img>
           <div className="justify-center">{status === "success" ? <UpdatePersonalGoalForm doUpdatePersonalGoal={handleUpdatePersonalGoal} personalGoal={data.personalGoal}/> : <p>loading...</p>}</div>
