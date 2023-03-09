@@ -1,4 +1,4 @@
-# _Rich Fitness Inventory Tracker_
+# _Dynamic Fitness Workout Creator and Tracker_
 
 #### By _**Richard Cha**_
 
