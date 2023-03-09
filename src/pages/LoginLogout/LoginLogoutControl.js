@@ -85,7 +85,7 @@ function LoginLogoutControl() {
 
   return (
     <div style={{ backgroundColor: "RGB(255, 205, 41)", height: "100vh" }}>
-      <div style={{ height: "40vh", position: "relative" }}>
+      <div style={{ height: "50vh", position: "relative" }}>
         <div style={{ 
           backgroundImage: `url(${imageDumbbell})`, 
           backgroundRepeat: "no-repeat",
@@ -100,9 +100,11 @@ function LoginLogoutControl() {
         </div>
       </div> 
       
-      {display}
-      {displayCreateAccout ? <CreateAccount doSignUp={doSignUp} /> : <button type="button" onClick={() => setDisplayCreateAccount(!displayCreateAccout)} style={hideCreateAccount ? {display: "none"} : {display: ""} }>Create Account</button>}
-      {signUpSuccess !== true ? <p>{signUpSuccess}</p> : null}
+      <div className="flex-col flex justify-center items-center">
+        {display}
+        {displayCreateAccout ? <CreateAccount doSignUp={doSignUp} /> : <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" type="button" onClick={() => setDisplayCreateAccount(!displayCreateAccout)} style={hideCreateAccount ? {display: "none"} : {display: ""} }>Create Account</button>}
+        {signUpSuccess !== true ? <p>{signUpSuccess}</p> : null}
+      </div>
     </div>
   );
 }
