@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Stopwatch from "./Stopwatch";
+import { useNavigate } from "react-router-dom";
+import { addDoc, collection } from "firebase/firestore";
+import { db, auth } from "../../firebase";
 
 function WorkoutForm(props) {
-  const [clickDetails, setClickDetails] = useState(false);
+  // const [clickDetails, setClickDetails] = useState(false);
   const [workoutTracker, setWorkoutTracker] = useState({});
-  const { splitOfWorkout, workout } = props;
+  const { splitOfWorkout, workout, nameOfWorkout } = props;
+  const navigate = useNavigate();
 
   const workoutArray = workout.split[splitOfWorkout];
   
-  const handleClickDetails = (e) => {
-    e.preventDefault();
-    setClickDetails(!clickDetails);
-  }
+  // const handleClickDetails = (e) => {
+  //   e.preventDefault();
+  //   setClickDetails(!clickDetails);
+  // }
 
   const handleSavingWorkout = (e) => {
     e.preventDefault();
@@ -29,6 +33,19 @@ function WorkoutForm(props) {
 
     setWorkoutTracker(prevState => ({ ...prevState, [e.target.name.value]: savedWorkout }));
     console.log("savedWorkout: ", savedWorkout);
+  }
+
+  const addWorkoutToWorkoutLogs = async () => {
+    console.log("workoutTracker before adding to db: ", workoutTracker);
+    const currentDate = new Date();
+    await addDoc(collection(db, "workoutLogs"), {
+      ...workoutTracker,
+      userId: auth.currentUser.uid,
+      date: currentDate,
+      nameOfWorkout: nameOfWorkout,
+      split: splitOfWorkout
+    });
+    navigate('/my-profile');
   }
 
   useEffect(() => {
@@ -73,50 +90,14 @@ function WorkoutForm(props) {
             })}
             <button type="submit" >Track</button>
           </form>
-
+          <p>description: {exercise.description}</p>
+          <p>equipment needed: {exercise.equipmentNeeded.map(e => e + " ")}</p>
+          <p>alternatives: {exercise.alternatives.map(e => e + " ")}</p>
         </div>
       )) : null}
-      <button type="button">Finish Workout</button>
+      <button type="button" onClick={addWorkoutToWorkoutLogs}>Finish Workout</button>
 
-      {/* example */}
-      <div style={{backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em"}}>
-        <h4>Cable Flies</h4>
-        <form>
-          <label>Weight </label>
-          <br/>
-          <input type="text" name="weight" />
-          <br/>
-
-          <p>Set 1</p>
-          <label>Reps </label>
-          <br/>
-          <input type="text" name="reps-set1" />
-          <br />
-          <label>Rest </label>
-          <br/>
-          <input type="text" name="rest-set1" />
-
-          <br/>
-          <p>Set 2</p>
-          <label>Reps </label>
-          <br/>
-          <input type="text" name="reps-set2" />
-          <br />
-          <label>Rest </label>
-          <br/>
-          <input type="text" name="rest-set2" />
-
-          <br/>
-          <p>Set 3</p>
-          <label>Reps </label>
-          <br/>
-          <input type="text" name="reps-set3" />
-          <br />
-          <label>Rest </label>
-          <br/>
-          <input type="text" name="rest-set3" />
-
-          <br/>
+          {/* <br/>
           <button onClick={handleClickDetails}>Description/Instructions</button>
           {clickDetails ? 
           <div>
@@ -137,13 +118,7 @@ function WorkoutForm(props) {
               Tips: 
               Substitute Cable Machines for Resistance Bands
             </p>
-          </div> : null}
-          
-          <br />
-          
-        </form>
-      </div>
-
+          </div> : null} */}
       <Stopwatch />
     </React.Fragment>
   );

@@ -49,7 +49,7 @@ function StartWorkout() {
       <h3 style={{margin: 0}}>Select a workout:</h3>
       <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
       {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
-      {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} /> : null}
+      {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} nameOfWorkout={nameOfWorkout}  /> : null}
       {/* {showWorkoutForm ? <Stopwatch /> : null}   */}
     </div>
   );
