@@ -16,7 +16,7 @@ function FitnessLevelForm(props) {
 
   return (
     <React.Fragment>
-      <h3><span className="pl-2">What is your fitness level?</span></h3>
+      <h3><span className="pl-2 text-2xl font-bold">What is your fitness level?</span></h3>
 
       <div className="border-4 border-black bg-white pl-3 p-1 pb-2 mt-2 mb-10 m-5 flex-col h-auto" >
         <form onSubmit={handleSubmit} >
