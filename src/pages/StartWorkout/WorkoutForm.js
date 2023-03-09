@@ -96,7 +96,7 @@ function WorkoutForm(props) {
           </ul>
           <p>description: {exercise.description}</p>
           <p>equipment needed: {exercise.equipmentNeeded.map(e => e + " ")}</p>
-          <p>alternatives: {exercise.alternatives.map(e => e + ", ")}</p>
+          <p>alternatives: {exercise.alternatives ? exercise.alternatives.map(e => e + ", ") : null}</p>
         </div>
       )) : null}
       <button type="button" onClick={addWorkoutToWorkoutLogs}>Finish Workout</button>
