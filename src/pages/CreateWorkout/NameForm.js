@@ -3,7 +3,7 @@ import React from "react";
 function NameForm(props) {
   return (
     <React.Fragment>
-      <h3 style={{margin: 0}}>Give your workout a name!</h3>
+      <h3 className="pl-2">Give your workout a name!</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form onSubmit={props.onSubmitNameForm}>

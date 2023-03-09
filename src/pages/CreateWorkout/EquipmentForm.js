@@ -19,7 +19,7 @@ function EquipmentForm(props) {
 
   return (
     <React.Fragment>
-      <h3 style={{margin: 0}}>What equipment do you have access to?</h3>
+      <h3 className="pl-2">What equipment do you have access to?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form onSubmit={handleSubmit}>

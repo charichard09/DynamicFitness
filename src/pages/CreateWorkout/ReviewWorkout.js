@@ -40,12 +40,8 @@ function ReviewWorkout(props) {
   }
 
   return (
-    <React.Fragment>
-      {/* temp spot for buttons */}
-      <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
-      <button type="button" onClick={handleClickNext}>Next</button>
-      
-      <h3>Review your workout</h3>
+    <React.Fragment>     
+      <h3 className="pl-2">Review your workout</h3>
       <p>Here is a summary of a your recommended workout.</p>
 
       {/* code jsx display for all A, B, C days on here and how they will look when "starting" a workout */}
@@ -135,8 +131,8 @@ function ReviewWorkout(props) {
         />
           </div>)) : null
       }
-      {/* <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
-      <button type="button" onClick={handleClickNext}>Next</button> */}
+      <button type="button" onClick={() => props.onClickingFormNavigation("availability")}>Back</button>
+      <button type="button" onClick={handleClickNext}>Next</button>
     </React.Fragment>
   );
 }

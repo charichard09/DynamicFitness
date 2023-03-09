@@ -6,6 +6,7 @@ import { auth } from '../../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
+import thorImage from '../../assets/thor.jpg';
 
 function MyProfile() {
   const { status, data } = useFirestoreDocData(doc(useFirestore(), "users", auth.currentUser.uid))
@@ -27,7 +28,7 @@ function MyProfile() {
     <React.Fragment>
       <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
         <div>         
-          <span>[Img img] {auth.currentUser.email}</span>
+          <span><img src={thorImage} alt="thor" className="rounded-full h-60 p-5"></img> {auth.currentUser.email}</span>
           {status === "success" ? <UpdatePersonalGoalForm doUpdatePersonalGoal={handleUpdatePersonalGoal} personalGoal={data.personalGoal}/> : <p>loading...</p>}
         </div>
 

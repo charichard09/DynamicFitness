@@ -57,6 +57,7 @@ function CreateWorkout() {
     if (workout.hasOwnProperty('name')) {
       addWorkoutToFirestoreUserCreatedWorkouts(workout);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [workout]);
 
   let formToRender = null;

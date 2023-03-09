@@ -16,7 +16,7 @@ function GoalsForm(props) {
 
   return (
     <React.Fragment>
-      <h3 style={{margin: 0}}>What of these fitness goals do you align with the most?</h3>
+      <h3 className="pl-2">What of these fitness goals do you align with the most?</h3>
 
       <div style={{ backgroundColor: "white", marginLeft: "1em", marginRight: "1em", padding: ".5em" }}>
         <form onSubmit={handleSubmit}>
