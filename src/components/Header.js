@@ -47,8 +47,8 @@ function Header() {
 
   return(
     <React.Fragment>
-      <div className="" style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex", "backgroundColor": "black" }}>
-        <h1 style={{ "alignSelf": "flex-star", color: "white" }}>{name}</h1>
+      <div className="font-semibold" style={{ "paddingLeft": "1.5em", "paddingRight": "1.5em", display: "flex", "backgroundColor": "black" }}>
+        <h1 className="align-middle flex text-4xl" style={{ "alignSelf": "center", color: "white", "flex": "1" }}>{name}</h1>
 
         <div style={{ "marginLeft": "auto", display: "flex", "justifyContent": "space-between", alignItems: "center", height: "100px" }}>
           <NavLink to="/" style={({ isActive }) =>
