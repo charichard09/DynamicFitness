@@ -4,6 +4,9 @@ import imageRockportWalkTestChart from "../../assets/Rockport-Test.png";
 function FitnessLevelForm(props) {
   const [fitnessLevel, setFitnessLevel] = useState(() => 1);
   const [showNextButton, setShowNextButton] = useState(true);
+  const [showBeginnerInfo, setShowBeginnerInfo] = useState(true);
+  const [showIntermediateInfo, setShowIntermediateInfo] = useState(true);
+  const [showAdvancedInfo, setShowAdvancedInfo] = useState(true);
 
   const handleFitnessLevelChange = (event) => {
     setFitnessLevel(parseInt(event.target.value));
@@ -44,19 +47,31 @@ function FitnessLevelForm(props) {
         <div className="mx-12">
           <ul>
             <li>
-              Beginner: Someone who is new to exercise or has not exercised regularly in a while. At this level, it is important to start
-              slowly and focus on building a foundation of strength, flexibility, mobility, and cardiovascular fitness.
+              <button type="button" onClick={() => setShowBeginnerInfo(!showBeginnerInfo)} className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 rounded">Beginner</button> 
+              <br />
+              <p hidden={showBeginnerInfo}>
+                Someone who is new to exercise or has not exercised regularly in a while. At this level, it is important to start
+                slowly and focus on building a foundation of strength, flexibility, mobility, and cardiovascular fitness.
+              </p>
             </li>
             <li>
-              Intermediate: Someone who has been exercising regularly for a few months to a year and has developed some cardiovascular fitness,
-              strength, and endurance. At this level, a person should be able to perform a moderate-intensity workout for 30-60 minutes without
-              excessive fatigue.
+              <button type="button" onClick={() => setShowIntermediateInfo(!showIntermediateInfo)} className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 rounded">Intermediate</button> 
+              <br />
+              <p hidden={showIntermediateInfo}>
+                Someone who has been exercising regularly for a few months to a year and has developed some cardiovascular fitness,
+                strength, and endurance. At this level, a person should be able to perform a moderate-intensity workout for 30-60 minutes without
+                excessive fatigue.
+              </p>
             </li>
             <li>
-              Advanced: Someone who has been exercising regularly for over a year and has a high level of cardiovascular fitness, strength, and
-              endurance. At this level, a person should be able to perform high-intensity workouts for extended periods of time and may be able to
-              perform advanced exercises, such as plyometrics, Olympic lifting, or high-level gymnastics movements.
-            </li>
+              <button type="button" onClick={() => setShowAdvancedInfo(!showAdvancedInfo)} className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 rounded">Advanced</button> 
+              <br />
+              <p hidden={showAdvancedInfo}>
+                Someone who has been exercising regularly for over a year and has a high level of cardiovascular fitness, strength, and
+                endurance. At this level, a person should be able to perform high-intensity workouts for extended periods of time and may be able to
+                perform advanced exercises, such as plyometrics, Olympic lifting, or high-level gymnastics movements.
+              </p>
+              </li>
           </ul>
           <p>Tip: If you are uncertain, you can use the Rockport Walk Test to assess your current fitness level</p>
         </div>
