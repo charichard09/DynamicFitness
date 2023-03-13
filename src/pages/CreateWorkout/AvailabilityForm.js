@@ -13,8 +13,8 @@ function AvailabilityForm(props) {
             <br />
             <input className="border-2 border-neutral-900" type="number" name="days" max={7} min={1}></input>
             <p>
-              This will determine your split. We do away with days of the week and implement alphabetical sequences.By inputting 4 days,
-              you will have a 4 day split known as A, B, C, D day. This allows you to be flexible with your sessions so if you skip a day,
+              This will determine your split. We do away with days of the week and implement alphabetical sequences.By inputting 3 days,
+              you will have a 3 day split known as A, B, C day. This allows you to be flexible with your sessions so if you must skip a day,
               you always know if you did B day previously, then the next time you do C day.
             </p>
             {/* <label>What is the max length you prefer to exercise per day? (30min, 60min, 90min, 120min):</label>

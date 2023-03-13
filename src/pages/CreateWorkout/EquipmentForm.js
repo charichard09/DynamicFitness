@@ -32,15 +32,15 @@ function EquipmentForm(props) {
             <input type="checkbox" id="barbell" name="barbell" value="barbell" onChange={handleEquipmentChange} />
             <label htmlFor="barbell">Barbell</label>
             <br />
-            <input type="checkbox" id="kettlebells" name="kettlebells" value="kettlebells" onChange={handleEquipmentChange} />
+            {/* <input type="checkbox" id="kettlebells" name="kettlebells" value="kettlebells" onChange={handleEquipmentChange} />
             <label htmlFor="kettlebells">Kettlebells</label>
-            <br />
+            <br /> */}
             <input type="checkbox" id="pull-up-bar" name="pull-up-bar" value="pull up bar" onChange={handleEquipmentChange} />
             <label htmlFor="pull-up-bar">Pull Up Bar</label>
             <br />
-            <input type="checkbox" id="medicine-ball" name="medicine-ball" value="medicine ball" onChange={handleEquipmentChange} />
+            {/* <input type="checkbox" id="medicine-ball" name="medicine-ball" value="medicine ball" onChange={handleEquipmentChange} />
             <label htmlFor="medicine-ball">Medicine Ball</label>
-            <br />
+            <br /> */}
             <input type="checkbox" id="resistance-band" name="resistance-band" value="cable" onChange={handleEquipmentChange} />
             <label htmlFor="resistance-band">Resistance Band</label>
             <br />
@@ -73,6 +73,11 @@ function EquipmentForm(props) {
             </button>
           </div>
         </div>
+        
+        <p className="mx-12 my-8">
+          There are a myriad of exercise equipment and machines that I have chosen to leave out for now. You may find some of these as "alternatives" to exercises such as a 
+          stability balls that can add controlled instability to exercises or kettlebells for deadlifts. For now the equipment listed are the most common and most versatile.
+        </p>
       </div>
     </React.Fragment>
   );

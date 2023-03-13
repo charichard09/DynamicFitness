@@ -7,6 +7,7 @@ function FitnessLevelForm(props) {
   const [showBeginnerInfo, setShowBeginnerInfo] = useState(true);
   const [showIntermediateInfo, setShowIntermediateInfo] = useState(true);
   const [showAdvancedInfo, setShowAdvancedInfo] = useState(true);
+  const [showRockportInfo, setShowRockportInfo] = useState(true);
 
   const handleFitnessLevelChange = (event) => {
     setFitnessLevel(parseInt(event.target.value));
@@ -45,6 +46,7 @@ function FitnessLevelForm(props) {
         </div>
         
         <div className="mx-12">
+          <p>Click here to learn more about what it means for someone to be at each fitness level</p>
           <ul>
             <li>
               <button type="button" onClick={() => setShowBeginnerInfo(!showBeginnerInfo)} className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 rounded">Beginner</button> 
@@ -73,32 +75,36 @@ function FitnessLevelForm(props) {
               </p>
               </li>
           </ul>
-          <p>Tip: If you are uncertain, you can use the Rockport Walk Test to assess your current fitness level</p>
         </div>
 
         <div className="mx-12 my-8">
-          <p>The Rockport Walk Test is a simple moderate-level exercise test used to estimate cardiorespiratory fitness. Here are the step-by-step instructions:</p>
-          <ol>
-            <li>Before beginning the test, make sure you are properly attired with comfortable clothing and shoes suitable for walking. You should
-              also have a stopwatch or timer and a flat, measured walking course that is one mile long.</li>
-            <li>Before starting the test, take a resting heart rate and record it.</li>
-            <li>Begin walking the one-mile course at a pace that is brisk but sustainable for you. You should aim to complete the mile as quickly as
-              possible without running.</li>
-            <li>After finishing the walk, take your heart rate again immediately and record it.</li>
-            <li>
-              Using the time it took you to complete the mile and your heart rate before and after the test, calculate your estimated maximal oxygen
-              consumption (VO2max) using the following formula:
-              <ul>
-                <li>
-                  VO2max = 132.853 - (0.0769 x weight in pounds) - (0.3877 x age) + (6.315 x gender: 0 for females, 1 for males) - (3.2649 x time
-                  in minutes) - (0.1565 x heart rate)
-                </li>
-              </ul>
-            </li>
-            <li>Your estimated VO2max is a measure of your cardiorespiratory fitness. Compare it to the norms for your age and gender to assess
-              your level of fitness.</li>
-          </ol>
-          <img className="my-8" src={`${imageRockportWalkTestChart}`} alt="Rockport Walk Test Chart" style={{ width: "50vh" }} />
+          <p>If you are uncertain, click below to learn how to use the Rockport Walk Test as a general assessment for your current fitness level</p>
+          <button type="button" onClick={() => setShowRockportInfo(!showRockportInfo)} className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 rounded">The Rockport Walk Test</button> 
+          <br />
+          <div hidden={showRockportInfo}>
+            <p> The Rockport walk test is a simple moderate-level exercise test used to estimate cardiorespiratory fitness. Here are the step-by-step instructions:</p>
+            <ol>
+              <li>Before beginning the test, make sure you are properly attired with comfortable clothing and shoes suitable for walking. You should
+                also have a stopwatch or timer and a flat, measured walking course that is one mile long.</li>
+              <li>Before starting the test, take a resting heart rate and record it.</li>
+              <li>Begin walking the one-mile course at a pace that is brisk but sustainable for you. You should aim to complete the mile as quickly as
+                possible without running.</li>
+              <li>After finishing the walk, take your heart rate again immediately and record it.</li>
+              <li>
+                Using the time it took you to complete the mile and your heart rate before and after the test, calculate your estimated maximal oxygen
+                consumption (VO2max) using the following formula:
+                <ul>
+                  <li>
+                    VO2max = 132.853 - (0.0769 x weight in pounds) - (0.3877 x age) + (6.315 x gender: 0 for females, 1 for males) - (3.2649 x time
+                    in minutes) - (0.1565 x heart rate)
+                  </li>
+                </ul>
+              </li>
+              <li>Your estimated VO2max is a measure of your cardiorespiratory fitness. Compare it to the norms for your age and gender to assess
+                your level of fitness.</li>
+            </ol>
+            <img className="my-8" src={`${imageRockportWalkTestChart}`} alt="Rockport Walk Test Chart" style={{ width: "50vh" }} />
+          </div>
         </div>
       </div>
     </React.Fragment>
