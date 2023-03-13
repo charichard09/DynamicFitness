@@ -14,13 +14,20 @@ function useGenerateWorkout(workout) {
   useEffect(() => {
     // if (data) will make sure none of this block of code will run until data is loaded
     if (data) {
-      const workoutArray = generateWorkoutArrayWithGoals(data, workout.goals);
-      const dividedWorkoutArray = divideWorkoutArray(workoutArray, workout.availability);
 
-    // TODO: filter out exercises that are add more than 1 core, 1 shoulder, 2 back, 1 chest, or 2 leg
+      const workoutArray = generateWorkoutArrayWithGoals(data, workout.goals);
+      console.log("workoutArray:", workoutArray);
+
+      const filteredWorkoutArray = filterWorkoutArray(workoutArray, workout);
+      console.log("filteredWorkoutArray:", filteredWorkoutArray);
+
+      const dividedWorkoutArray = divideWorkoutArray(filteredWorkoutArray, workout.availability);
+      console.log("dividedWorkoutArray:", dividedWorkoutArray);
+
+
 
     setGeneratedWorkout(dividedWorkoutArray);
-  }
+    }
 
   }, [data, workout.goals, workout.availability]);
 
@@ -46,6 +53,31 @@ function useGenerateWorkout(workout) {
       }
     });
     return workoutArray;
+  }
+
+  // if "bench" or "rack" are not selected equipment, filter out any exercises that require them
+  // if (!workout.equipment.includes("bench") && !workout.equipment.includes("rack")) filter new array for exercises that don't require bench or rack
+  function filterWorkoutArray(workoutArray, workout) {
+    let filteredWorkoutArray = [];
+    
+    workoutArray.forEach(exercise => {
+      if (!workout.equipment.includes("bench") && exercise.equipmentNeeded.includes("bench")) {
+        filteredWorkoutArray = workoutArray.filter(exercise => !exercise.equipmentNeeded.includes("bench")
+        );
+      }
+      
+    });
+    
+    filteredWorkoutArray.forEach(exercise => {
+      if (!workout.equipment.includes("rack") && exercise.equipmentNeeded.includes("rack")) {
+        filteredWorkoutArray = filteredWorkoutArray.filter(exercise => !exercise.equipmentNeeded.includes("rack")
+        );
+      }
+    });
+    
+    // TODO: filter out exercises that are add more than 1 core, 1 shoulder, 2 back, 1 chest, or 2 leg
+    
+    return filteredWorkoutArray;
   }
 
   function divideWorkoutArray(workoutArray, availability) {
