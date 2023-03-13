@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 import Stopwatch from "./Stopwatch";
+import DetailsButton from "./DetailsButton";
 
 function WorkoutForm(props) {
   const [workoutTracker, setWorkoutTracker] = useState({});
@@ -89,25 +90,10 @@ function WorkoutForm(props) {
                 </React.Fragment>
               )
             })}
-            <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" >Track</button>
+            <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 ml-3 mb-3 rounded" >Track</button>
           </form>
 
-          <br />
-          <p>Instructions:</p>
-          <ol>
-            {exercise.instruction.map(e => {
-              return <li key={e}>{"- " + e}</li>
-            })}
-          </ol>
-
-          <br />
-          <p>description: {exercise.description}</p>
-
-          <br />
-          <p>equipment needed: {exercise.equipmentNeeded.map(e => e + " ")}</p>
-
-          <br />
-          <p>alternatives: {exercise.alternatives ? exercise.alternatives.map(e => e + ", ") : null}</p>
+          <DetailsButton exercise={exercise}/>
           <Stopwatch />
         </div>
       )) : null}
