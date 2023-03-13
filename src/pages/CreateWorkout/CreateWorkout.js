@@ -76,7 +76,7 @@ function CreateWorkout() {
   }
 
   return (
-    <div className="overflow-auto w-full h-full flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
+    <div className="overflow-auto w-full h-screen flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
       {formToRender}   
     </div>
   );
