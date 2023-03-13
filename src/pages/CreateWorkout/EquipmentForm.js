@@ -38,9 +38,9 @@ function EquipmentForm(props) {
             <input type="checkbox" id="pull-up-bar" name="pull-up-bar" value="pull up bar" onChange={handleEquipmentChange} />
             <label htmlFor="pull-up-bar">Pull Up Bar</label>
             <br />
-            {/* <input type="checkbox" id="medicine-ball" name="medicine-ball" value="medicine ball" onChange={handleEquipmentChange} />
+            <input type="checkbox" id="medicine-ball" name="medicine-ball" value="medicine ball" onChange={handleEquipmentChange} />
             <label htmlFor="medicine-ball">Medicine Ball</label>
-            <br /> */}
+            <br />
             <input type="checkbox" id="resistance-band" name="resistance-band" value="cable" onChange={handleEquipmentChange} />
             <label htmlFor="resistance-band">Resistance Band</label>
             <br />

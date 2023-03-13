@@ -31,7 +31,7 @@ function FitnessLevelForm(props) {
             <label htmlFor="intermediate">Intermediate</label>
             <br />
             <input type="radio" id="advanced" name="fitnessLevel" value={3} checked={fitnessLevel === 3} onChange={handleFitnessLevelChange} />
-            <label htmlFor="advanced">Advanced</label>
+            <label htmlFor="advanced">Advanced (*WIP*)</label>
             <br />
             <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" onClick={() => setShowNextButton(false)}>submit</button>
           </form>
