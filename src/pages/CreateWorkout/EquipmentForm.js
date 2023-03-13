@@ -35,7 +35,7 @@ function EquipmentForm(props) {
             {/* <input type="checkbox" id="kettlebells" name="kettlebells" value="kettlebells" onChange={handleEquipmentChange} />
             <label htmlFor="kettlebells">Kettlebells</label>
             <br /> */}
-            <input type="checkbox" id="pull-up-bar" name="pull-up-bar" value="pull up bar" onChange={handleEquipmentChange} />
+            <input type="checkbox" id="pull-up-bar" name="pull-up-bar" value="pull-up-bar" onChange={handleEquipmentChange} />
             <label htmlFor="pull-up-bar">Pull Up Bar</label>
             <br />
             <input type="checkbox" id="medicine-ball" name="medicine-ball" value="medicine ball" onChange={handleEquipmentChange} />
