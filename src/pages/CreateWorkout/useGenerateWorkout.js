@@ -45,7 +45,6 @@ function useGenerateWorkout(workout) {
         filteredWorkoutArray = workoutArray.filter(exercise => !exercise.equipmentNeeded.includes("bench")
         );
       }
-      
     });
     
     filteredWorkoutArray.forEach(exercise => {
@@ -133,7 +132,7 @@ function useGenerateWorkout(workout) {
     setGeneratedWorkout(dividedWorkoutArray);
     }
 
-  }, [data, workout.goals, workout.availability]);
+  }, [data, workout.goals, workout.availability, workout]);
   
   if (status === "success" && generatedWorkout.length > 0) {
     console.log("generatedWorkout at the end of useGeneratedWorkout:", generatedWorkout);
