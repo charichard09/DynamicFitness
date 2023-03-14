@@ -10,26 +10,6 @@ function useGenerateWorkout(workout) {
   const exerciseCollection = collection(firestore, "exercises");
   const exerciseQuery = query(exerciseCollection, where("difficulty", "==", workout.fitnessLevel), where("equipmentNeeded", "array-contains-any", workout.equipment));
   const { status, data } = useFirestoreCollectionData(exerciseQuery, { idField: "id" });
-  
-  useEffect(() => {
-    // if (data) will make sure none of this block of code will run until data is loaded
-    if (data) {
-
-      console.log("data:", data);
-
-      const workoutArray = generateWorkoutArrayWithGoals(data, workout.goals);
-      console.log("workoutArray:", workoutArray);
-
-      const filteredWorkoutArray = filterWorkoutArray(workoutArray, workout);
-      console.log("filteredWorkoutArray:", filteredWorkoutArray);
-
-      const dividedWorkoutArray = divideWorkoutArray(filteredWorkoutArray, workout.availability);
-      console.log("dividedWorkoutArray:", dividedWorkoutArray);
-
-    setGeneratedWorkout(dividedWorkoutArray);
-    }
-
-  }, [data, workout.goals, workout.availability]);
 
   // set each exercise to x sets and y reps based on goals
   function generateWorkoutArrayWithGoals(data, goals) {
@@ -133,8 +113,30 @@ function useGenerateWorkout(workout) {
 
     return dividedWorkoutArray;
   }
+
+
+  useEffect(() => {
+    // if (data) will make sure none of this block of code will run until data is loaded
+    if (data) {
+
+      console.log("data:", data);
+
+      const workoutArray = generateWorkoutArrayWithGoals(data, workout.goals);
+      console.log("workoutArray:", workoutArray);
+
+      const filteredWorkoutArray = filterWorkoutArray(workoutArray, workout);
+      console.log("filteredWorkoutArray:", filteredWorkoutArray);
+
+      const dividedWorkoutArray = divideWorkoutArray(filteredWorkoutArray, workout.availability);
+      console.log("dividedWorkoutArray:", dividedWorkoutArray);
+
+    setGeneratedWorkout(dividedWorkoutArray);
+    }
+
+  }, [data, workout.goals, workout.availability]);
   
-  if (status === "success") {
+  if (status === "success" && generatedWorkout.length > 0) {
+    console.log("generatedWorkout at the end of useGeneratedWorkout:", generatedWorkout);
     return generatedWorkout;
   }
 }

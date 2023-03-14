@@ -12,24 +12,25 @@ function ReviewWorkout(props) {
   let EDay = null;
 
   if (generatedWorkout) {
-    if (generatedWorkout.length === 2) {
+    if (generatedWorkout.length === 2 && Array.isArray(generatedWorkout[0])) {
       workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
-    } else if (generatedWorkout.length === 3) {
+    } else if (generatedWorkout.length === 3 && Array.isArray(generatedWorkout[0])) {
       workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
       CDay = generatedWorkout[2];
-    } else if (generatedWorkout.length === 5) {
+    } else if (generatedWorkout.length === 5 && Array.isArray(generatedWorkout[0])) {
       workout = { ...workout, split: { "ADay": generatedWorkout[0], "BDay": generatedWorkout[1], "CDay": generatedWorkout[2], "DDay": generatedWorkout[3], "EDay": generatedWorkout[4] }}
       ADay = generatedWorkout[0];
       BDay = generatedWorkout[1];
       CDay = generatedWorkout[2];
       DDay = generatedWorkout[3];
       EDay = generatedWorkout[4];
-    } else {
+    } else if (generatedWorkout.length >= 1) {
       workout = { ...workout, split: { "ADay": generatedWorkout }}
+      console.log("generatedWorkout 1", generatedWorkout);
       ADay = generatedWorkout;
     }
   }
