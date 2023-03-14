@@ -40,9 +40,14 @@ function Stopwatch() {
       .padStart(2, '0')}`;
   };
 
+  // <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+  //           <h4 className='text-2xl'>{exercise.name}</h4>
+            
+  //           <div className="flex flex-col sm:flex-row outline"></div>
+
   return (
     <div>
-      <div className="text-8xl justify-center flex">
+      <div className="text-6xl sm:text-8xl justify-center flex">
         {formatTime(elapsedTime)}
       </div>
       <div className="justify-center flex">

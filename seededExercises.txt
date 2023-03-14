@@ -6,19 +6,23 @@ Core
 
 2
 - pull-over crunch
+- lumberjacks
 
 3
--
+- medicine ball pullover crunch to throw
 
 
 Back
 
 1
 - plank
+- reverse fly
+- back extension
 
 2
 - single-arm row
-- reverse fly
+- pull-up
+- deadlift
 
 3
 -
@@ -28,30 +32,45 @@ Chest
 
 1
 - cable chest fly
-- 
+- pushup
 
 2
 - bench press
--
+- incline bench press
+- 
 
 3
--
+- medicine ball chest pass
 
 
 Lower Body
 
 1
-- 
+- bodyweight squats
+- step-ups
 
 2
 - barbell squat
--
+- lunge
+
+3
+- box jump
+- 
+
+
+Shoulders
+
+1
+- seated overhead press
+
+2
+- shoulder press
 
 3
 -
 
 
-Shoulders
+accessory
 
 1
 - 
@@ -60,4 +79,4 @@ Shoulders
 - 
 
 3
--
+- 

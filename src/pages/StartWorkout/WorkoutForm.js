@@ -51,13 +51,19 @@ function WorkoutForm(props) {
     console.log("workoutTracker: ", workoutTracker);
   }, [workoutTracker])
 
+
+  // <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+  // <h4 className='text-2xl'>{exercise.name}</h4>
+            
+  // <div className="flex flex-col sm:flex-row outline">
+
   return (
     <React.Fragment>
       {workoutArray ? workoutArray.map((exercise) => (
         <div key={exercise.id} className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" >
-          <h4>{exercise.name}</h4>
+          <h4 className="text-2x1">{exercise.name}</h4>
 
-          <div className="flex flex-row">
+          <div className="flex flex-col sm:flex-row">
             <img
             src={exercise.image[0]}
             alt="exercise in motion 1"

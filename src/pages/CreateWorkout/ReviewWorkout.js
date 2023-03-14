@@ -42,29 +42,34 @@ function ReviewWorkout(props) {
 
   return (
     <React.Fragment>     
-      <div >
+      <div className="sm:grid-cols-1 grid-cols-2">
         <h3 className="pl-2 text-2xl font-bold">Review your workout</h3>
         {ADay ? <h4 className="m-3">A Day</h4> : null}
-        {
+        { 
           ADay ?
           (ADay.map(exercise =>
-          <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" key={exercise.id}>
-            <h4>{exercise.name}</h4>
-            <div className="flex flex-row">
+          <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+            <h4 className='text-2xl'>{exercise.name}</h4>
+            
+            <div className="flex flex-col sm:flex-row">
               <img
               src={exercise.image[0]}
               alt="exercise in motion 1"
-              style={{ width: "300px", height: "300px" }} // change 300px to desired size
+              style={{ width: "325px", height: "325px" }} // change 325px to desired size
+              className="shrink object-cover"
               />
               <img
               src={exercise.image[1]}
               alt="exercise in motion 2"
-              className="ml-3"
-              style={{ width: "300px", height: "300px" }} // change 300px to desired size
+              className="ml-3 shrink"
+              style={{ width: "325px", height: "325px" }} // change 300px to desired size
               />
-              <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
-              <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
-            </div>
+              </div>
+
+              <div>
+                <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
+                <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
+              </div>
           </div>)) : (<p>Loading...</p>)
         }
         {BDay ? <h4 className="m-3" >B Day</h4> : null}

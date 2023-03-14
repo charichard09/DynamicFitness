@@ -69,7 +69,16 @@ function useGenerateWorkout(workout) {
 
     if ((parseInt(availability.days) <= 3 && !availability.consecutive) || availability.days === "1") {
         // code full body workout 
+      // workoutArray.forEach(exercise => {
+      //   if (exercise.primaryMuscleGroup !== "biceps" || exercise.primaryMuscleGroup !== "triceps" || exercise.primaryMuscleGroup !== "glutes" || exercise.primaryMuscleGroup !== "calves") {
+      //     ADay.push(exercise);
+      //   }
+      // });
+      
+      // dividedWorkoutArray = [[...ADay]];
+      
       dividedWorkoutArray = workoutArray;
+
     } else if ((parseInt(availability.days) % 2 === 0) || availability.days === "7") {
       // code 2 day split, upper body/shoulders, lower body/core/back
       workoutArray.forEach(exercise => {
@@ -117,9 +126,6 @@ function useGenerateWorkout(workout) {
   useEffect(() => {
     // if (data) will make sure none of this block of code will run until data is loaded
     if (data) {
-
-      console.log("data:", data);
-
       const workoutArray = generateWorkoutArrayWithGoals(data, workout.goals);
       console.log("workoutArray:", workoutArray);
 
@@ -129,13 +135,13 @@ function useGenerateWorkout(workout) {
       const dividedWorkoutArray = divideWorkoutArray(filteredWorkoutArray, workout.availability);
       console.log("dividedWorkoutArray:", dividedWorkoutArray);
 
-    setGeneratedWorkout(dividedWorkoutArray);
+      setGeneratedWorkout(dividedWorkoutArray);
     }
-
   }, [data, workout.goals, workout.availability, workout]);
   
   if (status === "success" && generatedWorkout.length > 0) {
     console.log("generatedWorkout at the end of useGeneratedWorkout:", generatedWorkout);
+
     return generatedWorkout;
   }
 }
