@@ -74,9 +74,9 @@ function useGenerateWorkout(workout) {
     } else if ((parseInt(availability.days) % 2 === 0) || availability.days === "7") {
       // code 2 day split, upper body/shoulders, lower body/core/back
       workoutArray.forEach(exercise => {
-        if (exercise.primaryMuscleGroup === "back" || exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "lower body") {
+        if (exercise.primaryMuscleGroup === "back" || exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "lower body" || exercise.primaryMuscleGroup === "triceps") {
           ADay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "chest") {
+        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "biceps" || exercise.primaryMuscleGroup === "glutes") {
           BDay.push(exercise);
         }
       });
@@ -84,11 +84,11 @@ function useGenerateWorkout(workout) {
     } else if (parseInt(availability.days) % 3 === 0) {
       // code 3 day split, upper body/shoulders, lower body, core/back
       workoutArray.forEach(exercise => {
-        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "shoulders") {
+        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "biceps") {
           ADay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "back") {
+        } else if (exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "back" || exercise.primaryMuscleGroup === "triceps") {
           BDay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "lower body") {
+        } else if (exercise.primaryMuscleGroup === "lower body" || exercise.primaryMuscleGroup === "glutes" || exercise.primaryMuscleGroup === "calves") {
           CDay.push(exercise);
         }
       });
@@ -96,15 +96,15 @@ function useGenerateWorkout(workout) {
     } else if (availability.days === "5") {
       // code 5 day split, chest, shoulders, lower body, core, back
       workoutArray.forEach(exercise => {
-        if (exercise.primaryMuscleGroup === "chest") {
+        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "biceps") {
           ADay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "shoulders") {
+        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "triceps") {
           BDay.push(exercise);
         } else if (exercise.primaryMuscleGroup === "lower body") {
           CDay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "core") {
+        } else if (exercise.primaryMuscleGroup === "core" || exercise.primaryMuscleGroup === "glutes") {
           DDay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "back") {
+        } else if (exercise.primaryMuscleGroup === "back" || exercise.primaryMuscleGroup === "calves") {
           EDay.push(exercise);
         }
       });
