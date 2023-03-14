@@ -32,9 +32,6 @@ function EquipmentForm(props) {
             <input type="checkbox" id="barbell" name="barbell" value="barbell" onChange={handleEquipmentChange} />
             <label htmlFor="barbell">Barbell</label>
             <br />
-            {/* <input type="checkbox" id="kettlebells" name="kettlebells" value="kettlebells" onChange={handleEquipmentChange} />
-            <label htmlFor="kettlebells">Kettlebells</label>
-            <br /> */}
             <input type="checkbox" id="pull-up-bar" name="pull-up-bar" value="pull-up-bar" onChange={handleEquipmentChange} />
             <label htmlFor="pull-up-bar">Pull Up Bar</label>
             <br />
@@ -52,6 +49,9 @@ function EquipmentForm(props) {
             <br />
             <input type="checkbox" id="rack" name="rack" value="rack" onChange={handleEquipmentChange} />
             <label htmlFor="rack">Barbell Rack or Powercage</label>
+            <br />
+            <input type="checkbox" id="kettlebells" name="kettlebells" value="kettlebells" onChange={handleEquipmentChange} />
+            <label htmlFor="kettlebells">Kettlebells</label>
             <br />
             {/* <input type="checkbox" id="other" name="other" value="other" onChange={handleEquipmentChange} />
             <label htmlFor="other">Other</label>
