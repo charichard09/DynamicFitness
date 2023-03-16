@@ -31,7 +31,9 @@ _Dynamic Fitness is a workout creation and tracking application aimed at letting
 * _Firebase/Firestore BaaS_
 
 ## Component Diagram
-![Component Diagram](./src/assets/DynamicFitness.png)
+![Mock and Component Diagram1](./src/assets/profile-startWorkout-figma.png)
+![Mock and Component Diagram2](./src/assets/login-createWorkout-figma.png)
+
 
 ## Setup/Installation Requirements
 
