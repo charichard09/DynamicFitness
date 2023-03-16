@@ -46,24 +46,23 @@ function ReviewWorkout(props) {
         <h3 className="pl-2 text-2xl font-bold">Review your workout</h3>
         {ADay ? <h4 className="m-3">A Day</h4> : null}
         { 
-          ADay ?
-          (ADay.map(exercise =>
-          <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
-            <h4 className='text-2xl'>{exercise.name}</h4>
-            
-            <div className="flex flex-col sm:flex-row">
-              <img
-              src={exercise.image[0]}
-              alt="exercise in motion 1"
-              style={{ width: "325px", height: "325px" }} // change 325px to desired size
-              className="shrink object-cover"
-              />
-              <img
-              src={exercise.image[1]}
-              alt="exercise in motion 2"
-              className="ml-3 shrink"
-              style={{ width: "325px", height: "325px" }} // change 300px to desired size
-              />
+          ADay ? (ADay.map(exercise =>
+            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+              <h4 className='text-2xl'>{exercise.name}</h4>
+              
+              <div className="flex flex-col sm:flex-row">
+                <img
+                src={exercise.image[0]}
+                alt="exercise in motion 1"
+                style={{ width: "325px", height: "325px" }} // change 325px to desired size
+                className="ml-3 shrink"
+                />
+                <img
+                src={exercise.image[1]}
+                alt="exercise in motion 2"
+                className="ml-3 shrink"
+                style={{ width: "325px", height: "325px" }} // change 300px to desired size
+                />
               </div>
 
               <div>
@@ -75,91 +74,112 @@ function ReviewWorkout(props) {
         {BDay ? <h4 className="m-3" >B Day</h4> : null}
         {
           BDay ? (BDay.map(exercise =>
-            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" key={exercise.id}>
-              <h4>{exercise.name}</h4>
-              <div className="flex flex-row">
+            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+              <h4 className='text-2xl'>{exercise.name}</h4>
+              
+              <div className="flex flex-col sm:flex-row">
                 <img
-                  src={exercise.image[0]}
-                  alt="exercise in motion 1"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[0]}
+                alt="exercise in motion 1"
+                style={{ width: "325px", height: "325px" }} // change 325px to desired size
+                className="ml-3 shrink"
                 />
                 <img
-                  src={exercise.image[1]}
-                  alt="exercise in motion 2"
-                  className="ml-3"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[1]}
+                alt="exercise in motion 2"
+                className="ml-3 shrink"
+                style={{ width: "325px", height: "325px" }} // change 300px to desired size
                 />
+              </div>
+
+              <div>
                 <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
                 <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
               </div>
-            </div>)) : null
+          </div>)) : null
         }
         {CDay ? <h4 className="m-3" >C Day</h4> : null}
         {
           CDay ? (CDay.map(exercise =>
-            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" key={exercise.id}>
-              <h4>{exercise.name}</h4>
-              <div className="flex flex-row">
+            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+              <h4 className='text-2xl'>{exercise.name}</h4>
+              
+              <div className="flex flex-col sm:flex-row">
                 <img
-                  src={exercise.image[0]}
-                  alt="exercise in motion 1"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[0]}
+                alt="exercise in motion 1"
+                style={{ width: "325px", height: "325px" }} // change 325px to desired size
+                className="ml-3 shrink"
                 />
                 <img
-                  src={exercise.image[1]}
-                  alt="exercise in motion 2"
-                  className="ml-3"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[1]}
+                alt="exercise in motion 2"
+                className="ml-3 shrink"
+                style={{ width: "325px", height: "325px" }} // change 300px to desired size
                 />
+              </div>
+
+              <div>
                 <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
                 <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
               </div>
-            </div>)) : null
+          </div>)) : null
         }
         {DDay ? <h4 className="m-3" >D Day</h4> : null}
         {
           DDay ? (DDay.map(exercise =>
-            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" key={exercise.id}>
-              <h4>{exercise.name}</h4>
-              <div className="flex flex-row">
+            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+              <h4 className='text-2xl'>{exercise.name}</h4>
+              
+              <div className="flex flex-col sm:flex-row">
                 <img
-                  src={exercise.image[0]}
-                  alt="exercise in motion 1"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[0]}
+                alt="exercise in motion 1"
+                style={{ width: "325px", height: "325px" }} // change 325px to desired size
+                className="ml-3 shrink"
                 />
                 <img
-                  src={exercise.image[1]}
-                  alt="exercise in motion 2"
-                  className="ml-3"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[1]}
+                alt="exercise in motion 2"
+                className="ml-3 shrink"
+                style={{ width: "325px", height: "325px" }} // change 300px to desired size
                 />
+              </div>
+
+              <div>
                 <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
                 <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
               </div>
-            </div>)) : null
+          </div>)) : null
         }
         {EDay ? <h4 className="m-3" >E Day</h4> : null}
         {
           EDay ? (EDay.map(exercise =>
-            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" key={exercise.id}>
-              <h4>{exercise.name}</h4>
-              <div className="flex flex-row">
+            <div className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 grid-cols-2 flex-col h-auto" key={exercise.id}>
+              <h4 className='text-2xl'>{exercise.name}</h4>
+              
+              <div className="flex flex-col sm:flex-row">
                 <img
-                  src={exercise.image[0]}
-                  alt="exercise in motion 1"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[0]}
+                alt="exercise in motion 1"
+                style={{ width: "325px", height: "325px" }} // change 325px to desired size
+                className="ml-3 shrink"
                 />
                 <img
-                  src={exercise.image[1]}
-                  alt="exercise in motion 2"
-                  className="ml-3"
-                  style={{ width: "300px", height: "300px" }} // change 300px to desired size
+                src={exercise.image[1]}
+                alt="exercise in motion 2"
+                className="ml-3 shrink"
+                style={{ width: "325px", height: "325px" }} // change 300px to desired size
                 />
+              </div>
+
+              <div>
                 <p className="pl-4">Sets per workout: {exercise ? exercise.sets : null}</p>
                 <p className="pl-4">Reps per workout: {exercise ? exercise.reps : null}</p>
               </div>
-            </div>)) : null
+          </div>)) : null
         }
+
         <div className="flex justify-between">
           <button type="button" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-6 rounded" onClick={() => props.onClickingFormNavigation("availability")}>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left inline-flex mr-2 pb-0.5" viewBox="0 0 16 16">
