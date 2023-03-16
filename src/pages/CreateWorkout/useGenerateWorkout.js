@@ -68,17 +68,13 @@ function useGenerateWorkout(workout) {
     let EDay = [];
 
     if ((parseInt(availability.days) <= 3 && !availability.consecutive) || availability.days === "1") {
-        // code full body workout 
-      // workoutArray.forEach(exercise => {
-      //   if (exercise.primaryMuscleGroup !== "biceps" || exercise.primaryMuscleGroup !== "triceps" || exercise.primaryMuscleGroup !== "glutes" || exercise.primaryMuscleGroup !== "calves") {
-      //     ADay.push(exercise);
-      //   }
-      // });
-      
-      // dividedWorkoutArray = [[...ADay]];
-      
-      dividedWorkoutArray = workoutArray;
-
+        dividedWorkoutArray = workoutArray.filter(exercise => {
+          if (exercise.primaryMuscleGroup === "biceps" || exercise.primaryMuscleGroup === "triceps" || exercise.primaryMuscleGroup === "glutes" || exercise.primaryMuscleGroup === "calves") {
+            return null;
+          } else {
+            return exercise;
+          }
+        });
     } else if ((parseInt(availability.days) % 2 === 0) || availability.days === "7") {
       // code 2 day split, upper body/shoulders, lower body/core/back
       workoutArray.forEach(exercise => {
