@@ -101,6 +101,7 @@ function LoginLogoutControl() {
       </div> 
       
       <div className="flex-col flex justify-center items-center">
+        <p>thor@thor is a test account for your convenience to explore the app</p>
         {display}
         {displayCreateAccout ? <CreateAccount doSignUp={doSignUp} /> : <button className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mt-4 mb-1 ml-3 rounded" type="button" onClick={() => setDisplayCreateAccount(!displayCreateAccout)} style={hideCreateAccount ? {display: "none"} : {display: ""} }>Create Account</button>}
         {signUpSuccess !== true ? <p>{signUpSuccess}</p> : null}
