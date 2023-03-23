@@ -51,8 +51,6 @@ function WorkoutForm(props) {
     console.log("workoutTracker: ", workoutTracker);
   }, [workoutTracker])
 
-  console.log("workoutArray: ", workoutArray);
-
   return (
     <React.Fragment>
       {workoutArray ? workoutArray.map((exercise) => (
