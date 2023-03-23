@@ -17,16 +17,16 @@ function useGenerateWorkout(workout) {
     data.forEach(exercise => {
       switch (goals) {
         case "stability":
-          workoutArray.push({ ...exercise, sets: 3, reps: 15 });
+          workoutArray.push({ ...exercise, sets: 3, reps: "15-20" });
           break;
         case "muscular-development":
-          workoutArray.push({ ...exercise, sets: 3, reps: 10 });
+          workoutArray.push({ ...exercise, sets: 3, reps: "8-12" });
           break;
         case "maximal-strength":
-          workoutArray.push({ ...exercise, sets: 5, reps: 4 });
+          workoutArray.push({ ...exercise, sets: 5, reps: "3-5" });
           break;
         case "power":
-          workoutArray.push({ ...exercise, sets: 3, reps: 9 });
+          workoutArray.push({ ...exercise, sets: 3, reps: "1-5" });
           break;
         default:
           break;

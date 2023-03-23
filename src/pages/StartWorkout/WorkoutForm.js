@@ -51,6 +51,8 @@ function WorkoutForm(props) {
     console.log("workoutTracker: ", workoutTracker);
   }, [workoutTracker])
 
+  console.log("workoutArray: ", workoutArray);
+
   return (
     <React.Fragment>
       {workoutArray ? workoutArray.map((exercise) => (
@@ -77,7 +79,7 @@ function WorkoutForm(props) {
             <input type="text" name="sets" defaultValue={exercise.sets} hidden={true}/>
             <label>Weight </label>
             <br/>
-            <input className="border-2 border-neutral-900" type="text" name="weight" />
+            <input className="border-2 border-neutral-900" type="text" name="weight" placeholder="test" />
             <br/>
             {/* Array.from will create an array of elements based on the arg 1 number of sets for the exercise, and arg2 map function to return components each time */}
             {Array.from(Array(exercise.sets), (set, index) => {

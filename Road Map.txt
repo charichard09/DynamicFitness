@@ -1,0 +1,43 @@
+// Start Workout
+- display previous weight
+
+- Should display the Last Split: worked out for the user to know 
+- display rep ranges for each exercise as placeholders i.e. 8-12
+- trigger conditional if a user clicks finish workout and any exercise has a majority of sets above or below the rep range
+    prompt if the user would like to "add more [weight]" or "add less [weight]" on next workout of this split
+
+
+// Update workout functionality
+- remove an exercise from a workout
+- update everything from adding or removing sets, rep amounts
+- be able to add an exericse to a workout from db
+
+
+// filter out similar primaryMuscleGroup exercises
+	// randomize filteredWorkoutArray 
+	
+- proposal: change all exercises to more specific muscle groups,
+	then create a primaryMuscleGroupAdded that will get push the muscle group just added
+	check if any subsequent muscle groups exis in ...Added array, if yes, skip, if no, add to 
+	filteredWorkoutArray
+
+
+// Display previous workout session
+- add details for previous workout sessions
+
+
+// CSS/UI
+- Implement hamburger menu on mobile
+
+
+// Allow users to write and see previous notes for each exercise
+
+
+// Add email function that Alex used
+
+
+// Bugs that need fixing
+- page refresh error (React Router and Firebase Hosting interaction)
+- selecting a workout to start then reselecing default "Available Workouts" crashes app
+
+// Look at Capstone stretch goals for more
