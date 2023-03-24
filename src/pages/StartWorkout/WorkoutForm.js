@@ -8,14 +8,17 @@ import DetailsButton from "./DetailsButton";
 
 function WorkoutForm(props) {
   const [workoutTracker, setWorkoutTracker] = useState({});
-  const { splitOfWorkout, workout, nameOfWorkout } = props;
+  const { splitOfWorkout, workout, nameOfWorkout, workoutLogsData } = props;
   const navigate = useNavigate();
 
   const workoutArray = workout.split[splitOfWorkout];
 
-  if (workoutArray) {
-  console.log("workoutArray: ", workoutArray.instruction);
-  }
+  console.log("workoutLogsData: ", workoutLogsData);
+  const previousWorkout = workoutLogsData.find(workoutLog => workoutLog.nameOfWorkout === nameOfWorkout && workoutLog.split === splitOfWorkout);
+  console.log("previousWorkout: ", previousWorkout);
+  // const getPreviousWorkout = (workoutLogs) => {
+  //   return workoutLogs.find(workoutLog => workoutLog.nameOfWorkout === nameOfWorkout && workoutLog.split === splitOfWorkout);
+  // }
 
   const handleSavingWorkout = (e) => {
     e.preventDefault();
@@ -47,12 +50,16 @@ function WorkoutForm(props) {
     navigate('/my-profile');
   }
 
+  // let previousWorkout = {};
   useEffect(() => {
     console.log("workoutTracker: ", workoutTracker);
+    // previousWorkout = getPreviousWorkout(workoutLogsData);
+    // console.log("previousWorkout: ", previousWorkout);
   }, [workoutTracker])
 
   return (
     <React.Fragment>
+      {previousWorkout ? <p>previous workout info: {previousWorkout.nameOfWorkout}</p> : null}
       {workoutArray ? workoutArray.map((exercise) => (
         <div key={exercise.id} className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" >
           <h4 className="text-2x1">{exercise.name}</h4>

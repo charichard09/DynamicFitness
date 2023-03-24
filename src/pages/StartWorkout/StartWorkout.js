@@ -53,7 +53,8 @@ function StartWorkout() {
 
   return (
     <div className="overflow-auto w-full h-screen flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
-      <h3 className="pl-2 text-2xl font-bold pt-2 mb-3" >Select a workout:</h3>
+      <h3 className="pl-2 text-2xl font-bold pt-2">Select a workout:</h3>
+      {workoutLogsData.length > 0 ? <p className="pl-2 text-2xl pt-2 mb-4">your last workout was {workoutLogsData[0].nameOfWorkout} split {workoutLogsData[0].split}</p> : null}
       <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
       {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
       {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} nameOfWorkout={nameOfWorkout}  workoutLogsData={workoutLogsData} /> : null}
