@@ -28,8 +28,6 @@ function StartWorkout() {
   // destructure data from useFirestoreCollectionData and assign to variable workoutLogsData
   const { data: workoutLogsData } = useFirestoreCollectionData(workoutLogsQuery, { idField: 'id' });
 
-  console.log("workoutLogsData: ", workoutLogsData);
-
   useEffect(() => {
     if (workout) {
       setAllSplitsOfWorkout(workout.split);
