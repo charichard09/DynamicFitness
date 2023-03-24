@@ -10,15 +10,8 @@ function WorkoutForm(props) {
   const [workoutTracker, setWorkoutTracker] = useState({});
   const { splitOfWorkout, workout, nameOfWorkout, workoutLogsData } = props;
   const navigate = useNavigate();
-
   const workoutArray = workout.split[splitOfWorkout];
-
-  console.log("workoutLogsData: ", workoutLogsData);
   const previousWorkout = workoutLogsData.find(workoutLog => workoutLog.nameOfWorkout === nameOfWorkout && workoutLog.split === splitOfWorkout);
-  console.log("previousWorkout: ", previousWorkout);
-  // const getPreviousWorkout = (workoutLogs) => {
-  //   return workoutLogs.find(workoutLog => workoutLog.nameOfWorkout === nameOfWorkout && workoutLog.split === splitOfWorkout);
-  // }
 
   const handleSavingWorkout = (e) => {
     e.preventDefault();
@@ -50,16 +43,20 @@ function WorkoutForm(props) {
     navigate('/my-profile');
   }
 
-  // let previousWorkout = {};
+  const getPreviousWorkoutWeight = (exerciseName) => {
+    if (!previousWorkout) {
+      return null
+    } else {
+      return previousWorkout[exerciseName].weight;
+    }
+  }
+
   useEffect(() => {
     console.log("workoutTracker: ", workoutTracker);
-    // previousWorkout = getPreviousWorkout(workoutLogsData);
-    // console.log("previousWorkout: ", previousWorkout);
   }, [workoutTracker])
 
   return (
     <React.Fragment>
-      {previousWorkout ? <p>previous workout info: {previousWorkout.nameOfWorkout}</p> : null}
       {workoutArray ? workoutArray.map((exercise) => (
         <div key={exercise.id} className="m-3 border-4 border-black bg-white pl-3 p-1 pb-4 mt-2 mb-10 flex-col h-auto" >
           <h4 className="text-2x1">{exercise.name}</h4>
@@ -84,7 +81,7 @@ function WorkoutForm(props) {
             <input type="text" name="sets" defaultValue={exercise.sets} hidden={true}/>
             <label>Weight </label>
             <br/>
-            <input className="border-2 border-neutral-900" type="text" name="weight" placeholder="test" />
+            <input className="border-2 border-neutral-900" type="text" name="weight" placeholder={getPreviousWorkoutWeight(exercise.name)} />
             <br/>
             {/* Array.from will create an array of elements based on the arg 1 number of sets for the exercise, and arg2 map function to return components each time */}
             {Array.from(Array(exercise.sets), (set, index) => {

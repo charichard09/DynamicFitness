@@ -40,4 +40,9 @@
 - page refresh error (React Router and Firebase Hosting interaction)
 - selecting a workout to start then reselecing default "Available Workouts" crashes app
 
+
+// Error handling
+- don't allow users to enter no value, or default to 0 for weight or reps if left empty
+
+
 // Look at Capstone stretch goals for more
