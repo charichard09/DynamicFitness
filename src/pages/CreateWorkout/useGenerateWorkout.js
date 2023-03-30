@@ -100,9 +100,9 @@ function useGenerateWorkout(workout) {
     } else if (availability.days === "5") {
       // code 5 day split, chest, shoulders, lower body, core, back
       workoutArray.forEach(exercise => {
-        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "biceps") {
+        if (exercise.primaryMuscleGroup === "chest" || exercise.primaryMuscleGroup === "triceps") {
           ADay.push(exercise);
-        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "triceps") {
+        } else if (exercise.primaryMuscleGroup === "shoulders" || exercise.primaryMuscleGroup === "biceps") {
           BDay.push(exercise);
         } else if (exercise.primaryMuscleGroup === "lower body") {
           CDay.push(exercise);
