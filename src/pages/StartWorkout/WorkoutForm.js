@@ -46,8 +46,10 @@ function WorkoutForm(props) {
   const getPreviousWorkoutWeight = (exerciseName) => {
     if (!previousWorkout) {
       return null
-    } else {
+    } else if (previousWorkout.hasOwnProperty(exerciseName)) {
       return previousWorkout[exerciseName].weight;
+    } else {
+      return null;
     }
   }
 
