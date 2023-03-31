@@ -10,6 +10,7 @@ import Footer from './Footer';
 import { getFirestore } from 'firebase/firestore';
 import { useFirebaseApp, FirestoreProvider, AuthProvider } from 'reactfire';
 import { auth } from '../firebase';
+import '@ionic/react/css/core.css'
 
 function App() {
   const firestoreInstance = getFirestore(useFirebaseApp());
