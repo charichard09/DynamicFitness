@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Dynamic Fitness</string>
+    <string name="title_activity_main">Dynamic Fitness</string>
+    <string name="package_name">com.dynamicfitness.app</string>
+    <string name="custom_url_scheme">com.dynamicfitness.app</string>
+</resources>
