@@ -40,7 +40,8 @@ In 4 day(s), all client requests to your Firestore database will be denied. Befo
 
 
 // Bugs that need fixing
-- page refresh error (React Router and Firebase Hosting interaction)
+- page refresh error (new hypohesis: refresh doesnt load fast enough to store necessary data to load page thus generaing error. quick load pages such
+as login and createWorkout work with refresh) (old hypothesis: React Router and Firebase Hosting interaction)
 - selecting a workout to start then reselecing default "Available Workouts" crashes app
 
 
