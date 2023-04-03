@@ -11,6 +11,7 @@ In 4 day(s), all client requests to your Firestore database will be denied. Befo
 
 
 // Update workout functionality
+- idea: refactor ReviewWorkout to UpdateWorkout that is used during creation of workout for review, and for updating on MyProfile
 - remove an exercise from a workout
 - update everything from adding or removing sets, rep amounts
 - be able to add an exericse to a workout from db
