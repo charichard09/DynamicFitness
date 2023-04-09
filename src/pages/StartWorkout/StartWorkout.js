@@ -16,6 +16,7 @@ function StartWorkout() {
   const [workout, setWorkout] = useState(null);
   const [splitOfWorkout, setSplitOfWorkout] = useState(null);
   const [showWorkoutForm, setShowWorkoutForm] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // get collection of workouts from db where [workoutdb].userId === auth.currentUser.uid
   const firestore = useFirestore();
@@ -27,6 +28,12 @@ function StartWorkout() {
   const workoutLogsQuery = query(workoutLogsCollection, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'));
   // destructure data from useFirestoreCollectionData and assign to variable workoutLogsData
   const { data: workoutLogsData } = useFirestoreCollectionData(workoutLogsQuery, { idField: 'id' });
+
+  useEffect(() => {
+    if (workoutLogsData?.length > 0) {
+      setLoading(true);
+    }
+  }, [workoutLogsData]);
 
   useEffect(() => {
     if (workout) {
@@ -52,7 +59,7 @@ function StartWorkout() {
   return (
     <div className="overflow-auto w-full h-screen flex-auto" style={{ "backgroundColor": "RGB(255, 205, 41)"}}>
       <h3 className="pl-2 text-2xl font-bold pt-2">Select a workout:</h3>
-      {workoutLogsData.length > 0 ? <p className="pl-2 text-2xl pt-2 mb-4">your last workout was {workoutLogsData[0].nameOfWorkout} split {workoutLogsData[0].split}</p> : null}
+      {loading ? <p className="pl-2 text-2xl pt-2 mb-4">your last workout was {workoutLogsData[0].nameOfWorkout} split {workoutLogsData[0].split}</p> : <p>Loading...</p>}
       <SelectWorkoutDropdown allWorkouts={data} onSelectingWorkout={handleSelectingWorkout} />
       {nameOfWorkout ? <SelectSplitDropdown splits={allSplitsOfWorkout} onSelectingSplit={handleSelectingSplit} /> : null }
       {showWorkoutForm ? <WorkoutForm splitOfWorkout={splitOfWorkout} workout={workout} nameOfWorkout={nameOfWorkout}  workoutLogsData={workoutLogsData} /> : null}
