@@ -51,15 +51,16 @@ function Header() {
         <h1 className="align-middle flex text-4xl" style={{ "alignSelf": "center", color: "white", "flex": "1" }}>{name}</h1>
 
         <div style={{ "marginLeft": "auto", display: "flex", "justifyContent": "space-between", alignItems: "center", height: "100px" }}>
-          <NavLink to="/" style={({ isActive }) =>
+          {/* <NavLink to="/" style={({ isActive }) =>
             isActive ? {textDecoration: "underline", "paddingRight": "1em", color: "white"} : { textDecoration: "none", "paddingRight": "1em", "paddingLeft": "40ef", color: "white" } }
             onClick={() => handleNameChange("Dynamic Fitness")}>
             Home
-          </NavLink>
+          </NavLink> */}
 
           {displayConditional}
           
-          <NavLink to="/login-logout" style={({ isActive }) =>
+          {/* change to="/login-logout" after finishing Home page */}
+          <NavLink to="/" style={({ isActive }) =>
           isActive ? {textDecoration: "underline", "paddingLeft": ".2em", color: "white"} : { textDecoration: "none", "paddingLeft": ".2em", color: "white" } } 
           onClick={() => handleNameChange("Login/Logout")}>
             Login/Logout

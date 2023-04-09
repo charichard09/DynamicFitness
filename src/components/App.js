@@ -21,11 +21,12 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/my-profile" element={<MyProfile />} />
             <Route path="/create-workout" element={<CreateWorkout />} />
             <Route path="/start-workout" element={<StartWorkout />} />
-            <Route path="/login-logout" element={<LoginLogoutControl />} />
+            {/* change path="login-logout" after finishing Home Page */}
+            <Route path="/" element={<LoginLogoutControl />} />
           </Routes>
           <Footer />
         </BrowserRouter>
