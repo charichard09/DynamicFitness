@@ -18,6 +18,8 @@
 [Dynamic Fitness Webpage](https://dynamic-fitness-131c4.web.app)
 
 _Dynamic Fitness is a workout creation and tracking application aimed at letting the user create a tailored workout through a series of individual questions. These factors include: level of fitness, goal, availability, and equipment. A workout will be curated based off of these and factors where a user can then navigate to the Start a Workout page to pull up any created workouts and begin tracking that days workout. Once a user is finished, they can select the Finish Workout button which will log their workout. All workouts and workout logs can be seen on the My Profile page._
+![Create Workout](./src/assets/Dynamic_Fitness_Create_Workout.png)
+![Start Workout](./src/assets/Dynamic_Fitness_Start_Workout.png)
 
 ## Technologies Used
 
