@@ -10,7 +10,8 @@ import Footer from './Footer';
 import { getFirestore } from 'firebase/firestore';
 import { useFirebaseApp, FirestoreProvider, AuthProvider } from 'reactfire';
 import { auth } from '../firebase';
-import '@ionic/react/css/core.css'
+import '@ionic/react/css/core.css';
+import Calories from '../pages/Calories/Calories';
 
 function App() {
   const firestoreInstance = getFirestore(useFirebaseApp());
@@ -27,6 +28,7 @@ function App() {
             <Route path="/start-workout" element={<StartWorkout />} />
             {/* change path="login-logout" after finishing Home Page */}
             <Route path="/" element={<LoginLogoutControl />} />
+            <Route path="/calories" element={<Calories />} />
           </Routes>
           <Footer />
         </BrowserRouter>

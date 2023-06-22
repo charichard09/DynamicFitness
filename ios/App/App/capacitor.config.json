@@ -1,0 +1,6 @@
+{
+	"appId": "com.dynamicfitness.app",
+	"appName": "Dynamic Fitness",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
