@@ -11,7 +11,7 @@ import { getFirestore } from 'firebase/firestore';
 import { useFirebaseApp, FirestoreProvider, AuthProvider } from 'reactfire';
 import { auth } from '../firebase';
 import '@ionic/react/css/core.css';
-import Calories from '../pages/Calories/Calories';
+import Calories from '../pages/Calories/Calories.js';
 
 function App() {
   const firestoreInstance = getFirestore(useFirebaseApp());
