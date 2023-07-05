@@ -7,6 +7,7 @@ import { doc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { useFirestoreDocData, useFirestore } from 'reactfire';
 import thorImage from '../../assets/thor.jpg';
+import DisplayCalories from './DisplayCalories';
 
 function MyProfile() {
   const { status, data } = useFirestoreDocData(doc(useFirestore(), "users", auth.currentUser.uid))
@@ -33,12 +34,16 @@ function MyProfile() {
         </div>
         <div className="pl-14 pb-5">{auth.currentUser.email}</div>
 
-        <div className="pl-5"> 
-          <DisplayCollectionWorkouts />
+        <div className="pl-5">
+          <DisplayCalories />
         </div>
 
         <div className="pl-5 pt-5">
           <DisplayWorkoutLogs />
+        </div>
+
+        <div className="pl-5 pt-5"> 
+          <DisplayCollectionWorkouts />
         </div>
       </div>
     </React.Fragment>

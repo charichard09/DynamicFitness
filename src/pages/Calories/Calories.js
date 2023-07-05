@@ -17,12 +17,12 @@ export default function Calories() {
 
   function handleTrack(e) {
     e.preventDefault();
-    console.log("Submitted", e.target.food.value, e.target.calories.value, e.target.date.value, e);
-    setCalories(prevState => [...prevState, { food: e.target.food.value, calories: e.target.calories.value, date: e.target.date.value }]);
+    console.log("Submitted", e.target.food.value, e.target.calories.value, e);
+    setCalories(prevState => [...prevState, { food: e.target.food.value, calories: e.target.calories.value }]);
     setDailyCalories(prevState => ({
       ...prevState, 
       "totalCalories" : prevState.totalCalories + parseInt(e.target.calories.value),
-      "date": e.target.date.value,
+      // "date": e.target.date.value,
       "entries": [...prevState.entries, 
         ...[{
         "food": e.target.food.value,
@@ -34,10 +34,12 @@ export default function Calories() {
 
   async function handleSubmitDay() {
     // setDailyCalories, add user id, send to db, reroute? 
+    const currentDate = new Date();
     console.log("dailyCalories before adding to db: ", dailyCalories);
     await addDoc(collection(db, "calories"), {
       ...dailyCalories,
       userId: auth.currentUser.uid,
+      date: currentDate,
     });
     navigate('/my-profile');
   }
@@ -54,8 +56,8 @@ export default function Calories() {
         <br />
         <input type="number" id="calories" defaultValue={0} />
         <br />
-        <input hidden type="text" id="date" defaultValue={`${day}, ${date.getMonth()}, ${date.getFullYear()}`} />
-        <br />
+        {/* <input hidden type="text" id="date" defaultValue={`${day}, ${date.getMonth()}, ${date.getFullYear()}`} />
+        <br /> */}
         <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mr-3 mt-4 mb-1 ml-3 rounded">Track</button>
       </form>
       
