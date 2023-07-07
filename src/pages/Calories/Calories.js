@@ -1,10 +1,14 @@
+// TODO:
 // Add Delete and Update functionality to entries after they are entered
 // Have app persist? (store data in local storage)
+// if someone does not submit on Sunday, then the previous week's data will be lost. possible fix is check previous weeks Date.toLocaleString end against current dates previous sunday Date.toLocaleString
 
 import React, { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { useFirestore, useFirestoreCollectionData } from "reactfire";
+import { query, where, orderBy, limit } from "firebase/firestore";
 
 export default function Calories() {
   const [calories, setCalories] = useState([]);
@@ -15,6 +19,11 @@ export default function Calories() {
   const day = days[date.getDay() - 1];
   const navigate = useNavigate();
 
+  const firestore = useFirestore();
+  const caloriesCollection = collection(firestore, 'calories');
+  const caloriesQuery = query(caloriesCollection, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'), limit(7));
+  const { data: caloriesData } = useFirestoreCollectionData(caloriesQuery, { idField: 'id' });
+
   function handleTrack(e) {
     e.preventDefault();
     console.log("Submitted", e.target.food.value, e.target.calories.value, e);
@@ -22,7 +31,6 @@ export default function Calories() {
     setDailyCalories(prevState => ({
       ...prevState, 
       "totalCalories" : prevState.totalCalories + parseInt(e.target.calories.value),
-      // "date": e.target.date.value,
       "entries": [...prevState.entries, 
         ...[{
         "food": e.target.food.value,
@@ -33,7 +41,6 @@ export default function Calories() {
   }
 
   async function handleSubmitDay() {
-    // setDailyCalories, add user id, send to db, reroute? 
     const currentDate = new Date();
     console.log("dailyCalories before adding to db: ", dailyCalories);
     await addDoc(collection(db, "calories"), {
@@ -41,12 +48,33 @@ export default function Calories() {
       userId: auth.currentUser.uid,
       date: currentDate,
     });
+
+    let totalCalories = 0;
+    // if it is Sunday, calculate total calories for the week when submitting 
+    // comment it to test logic: if (true) {
+    if (currentDate.getDay() === 0) {
+      console.log("caloriesData: ", caloriesData);
+      for (let i = 0; i < 6; i++) {
+        if (new Date(caloriesData[i].date.seconds * 1000).getDay() !== 0) {
+          totalCalories += caloriesData[i].totalCalories;
+        } else {
+          totalCalories = totalCalories + 2500;
+        }
+      }
+      let newDate = new Date(currentDate.getTime());
+      await addDoc(collection(db, "weeklyCalories"), {
+        "totalCalories": totalCalories,
+        "userId": auth.currentUser.uid,
+        "endWeek": currentDate,
+        "startWeek": new Date(newDate.setDate(newDate.getDate() - 6)),
+      });
+    }
     navigate('/my-profile');
   }
 
   return (
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
-      <h3 style={{margin: 0}}>Tracking Calories For {`${day}, ${months[date.getMonth()]} ${date.getFullYear()}`}</h3>
+      <h3 style={{margin: 0}}>Tracking Calories For {`${day}, ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</h3>
       <form onSubmit={(e) => {handleTrack(e)}}>
         <label htmlFor="food">Food:</label>
         <br />
