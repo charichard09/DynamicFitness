@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { collection, query, where, orderBy, limit } from "firebase/firestore";
 import { auth } from "../../firebase";

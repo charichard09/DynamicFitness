@@ -50,17 +50,23 @@ export default function Calories() {
     });
 
     let totalCalories = 0;
+    let caloriesChecked = new Set();
     // if it is Sunday, calculate total calories for the week when submitting 
-    // comment it to test logic: if (true) {
+    // comment it to test logic:
+    // if (true) {
     if (currentDate.getDay() === 0) {
       console.log("caloriesData: ", caloriesData);
       for (let i = 0; i < 6; i++) {
-        if (new Date(caloriesData[i].date.seconds * 1000).getDay() !== 0) {
+        let day = new Date(caloriesData[i].date.seconds * 1000).getDay();
+        if (!caloriesChecked.has(day) && day !== 0) {
           totalCalories += caloriesData[i].totalCalories;
         } else {
-          totalCalories = totalCalories + 2500;
+          totalCalories = totalCalories + 2500 * (6 - i + 1);
+          break;
         }
+        caloriesChecked.add(day);
       }
+      totalCalories += dailyCalories.totalCalories;
       let newDate = new Date(currentDate.getTime());
       await addDoc(collection(db, "weeklyCalories"), {
         "totalCalories": totalCalories,
