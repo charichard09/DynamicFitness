@@ -41,8 +41,8 @@ export default function DisplayCalories() {
         <p>Sunday: {weeklyCalories[6]}</p>
         <br />
         <p>
-          Total Calories Previous Week of { weeklyCaloriesData ? new Date(weeklyCaloriesData[0].startWeek.seconds * 1000).toLocaleDateString() : "N/A" } - { weeklyCaloriesData ? new Date(weeklyCaloriesData[0].endWeek.seconds * 1000).toLocaleDateString() : "N/A"}:</p>
-        <p>{weeklyCaloriesData ? weeklyCaloriesData[0].totalCalories : "N/A"}/{weeklyCalorieGoal}</p>
+          Total Calories Previous Week of { weeklyCaloriesData?.length > 0 ? new Date(weeklyCaloriesData[0].startWeek.seconds * 1000).toLocaleDateString() : "N/A" } - { weeklyCaloriesData?.length > 0 ? new Date(weeklyCaloriesData[0].endWeek.seconds * 1000).toLocaleDateString() : "N/A"}:</p>
+        <p>{weeklyCaloriesData?.length > 0 ? weeklyCaloriesData[0].totalCalories : "N/A"}/{weeklyCalorieGoal}</p>
       </div>
     </React.Fragment>
   );
