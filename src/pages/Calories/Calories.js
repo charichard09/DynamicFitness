@@ -14,15 +14,28 @@ export default function Calories() {
   const [calories, setCalories] = useState([]);
   const [dailyCalories, setDailyCalories] = useState({"totalCalories": 0, "date": "n/a", "entries": []});
   let date = new Date();
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const day = days[date.getDay() - 1];
+  // const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  // const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  // const day = days[date.getDay() - 1];
   const navigate = useNavigate();
 
   const firestore = useFirestore();
   const caloriesCollection = collection(firestore, 'calories');
   const caloriesQuery = query(caloriesCollection, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'), limit(7));
   const { data: caloriesData } = useFirestoreCollectionData(caloriesQuery, { idField: 'id' });
+
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+  const yyyy = date.getFullYear();
+  const formattedDate = yyyy + '-' + mm + '-' + dd;
+
+  // Create state variable for the date input's value
+  const [submitDate, setSubmitDate] = useState(formattedDate);
+
+  // Handle changes to the date input's value
+  const handleChangeDate = event => {
+    setSubmitDate(event.target.value);
+  };
 
   function handleTrack(e) {
     e.preventDefault();
@@ -41,7 +54,13 @@ export default function Calories() {
   }
 
   async function handleSubmitDay() {
-    const currentDate = new Date();
+    const currentDate = new Date(...submitDate.split("-").map((item, index) => {
+        if (index === 1) {
+          return item - 1;
+        }
+        return item;
+      })
+    );
     console.log("dailyCalories before adding to db: ", dailyCalories);
     await addDoc(collection(db, "calories"), {
       ...dailyCalories,
@@ -80,7 +99,11 @@ export default function Calories() {
 
   return (
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
-      <h3 style={{margin: 0}}>Tracking Calories For {`${day}, ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</h3>
+      {/* <h3 style={{margin: 0}}>Tracking Calories For {`${day}, ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</h3> */}
+      <label htmlFor="date">Date:</label>
+      <br />
+      <input type="date" id="date" defaultValue={submitDate} placeholder={submitDate} onChange={handleChangeDate} />
+      <br />
       <form onSubmit={(e) => {handleTrack(e)}}>
         <label htmlFor="food">Food:</label>
         <br />
