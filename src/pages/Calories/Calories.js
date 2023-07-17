@@ -4,25 +4,19 @@
 // if someone does not submit on Sunday, then the previous week's data will be lost. possible fix is check previous weeks Date.toLocaleString end against current dates previous sunday Date.toLocaleString
 
 import React, { useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { db, auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
-import { useFirestore, useFirestoreCollectionData } from "reactfire";
+import { useFirestore } from "reactfire";
 import { query, where, orderBy, limit } from "firebase/firestore";
 
 export default function Calories() {
   const [calories, setCalories] = useState([]);
   const [dailyCalories, setDailyCalories] = useState({"totalCalories": 0, "date": "n/a", "entries": []});
   let date = new Date();
-  // const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-  // const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  // const day = days[date.getDay() - 1];
   const navigate = useNavigate();
 
   const firestore = useFirestore();
-  const caloriesCollection = collection(firestore, 'calories');
-  const caloriesQuery = query(caloriesCollection, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'), limit(7));
-  const { data: caloriesData } = useFirestoreCollectionData(caloriesQuery, { idField: 'id' });
 
   const dd = String(date.getDate()).padStart(2, '0');
   const mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -68,6 +62,13 @@ export default function Calories() {
       date: currentDate,
     });
 
+    const caloriesCollection = collection(firestore, 'calories');
+    const caloriesQuery = query(caloriesCollection, where('userId', '==', auth.currentUser.uid), orderBy('date', 'desc'), limit(7));
+    const querySnapshot = await getDocs(caloriesQuery);
+
+    // Transform the data into an array of documents
+    const caloriesData = querySnapshot.docs.map(doc => doc.data());
+
     let totalCalories = 0;
     let caloriesChecked = new Set();
     // if it is Sunday, calculate total calories for the week when submitting 
@@ -75,17 +76,20 @@ export default function Calories() {
     // if (true) {
     if (currentDate.getDay() === 0) {
       console.log("caloriesData: ", caloriesData);
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i < 7; i++) {
         let day = new Date(caloriesData[i].date.seconds * 1000).getDay();
         if (!caloriesChecked.has(day) && day !== 0) {
+          console.log("totalCalories", totalCalories);
           totalCalories += caloriesData[i].totalCalories;
         } else {
-          totalCalories = totalCalories + 2500 * (6 - i + 1);
+          totalCalories = totalCalories + 2500 * (6 - i);
+          console.log("totalCalories", totalCalories);
           break;
         }
         caloriesChecked.add(day);
       }
       totalCalories += dailyCalories.totalCalories;
+      console.log("totalCalories before adding to db", totalCalories);
       let newDate = new Date(currentDate.getTime());
       await addDoc(collection(db, "weeklyCalories"), {
         "totalCalories": totalCalories,
@@ -99,7 +103,6 @@ export default function Calories() {
 
   return (
     <div style={{ "backgroundColor": "RGB(255, 205, 41)", "height": "100vh" }}>
-      {/* <h3 style={{margin: 0}}>Tracking Calories For {`${day}, ${months[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</h3> */}
       <div className="pl-5 py-3"> 
         <label htmlFor="date">Date:</label>
         <br />
@@ -114,8 +117,6 @@ export default function Calories() {
           <br />
           <input type="number" id="calories" defaultValue={0} />
           <br />
-          {/* <input hidden type="text" id="date" defaultValue={`${day}, ${date.getMonth()}, ${date.getFullYear()}`} />
-          <br /> */}
           <button type="submit" className="bg-slate-900 hover:bg-slate-700 text-white font-bold py-1 px-4 mr-3 mt-4 mb-1 ml-3 rounded">Track</button>
         </form>
       </div>
